@@ -236,5 +236,26 @@ namespace Ecoview_Normal
         {
             Close();
         }
+
+        private void comboBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;           
+ 
+
+            if ((e.KeyChar >= 58 || e.KeyChar <= 47) && number != 8) //цифры, клавиша BackSpace и запятая а ASCII
+            {
+                e.Handled = true;
+                MessageBox.Show("В данное поле можно вводить цифры!");
+            }
+        }
+
+        private void comboBox1_Leave(object sender, EventArgs e)
+        {
+           
+            if (Convert.ToInt32(comboBox1.Text) > 20)
+            {
+                comboBox1.Text = Convert.ToString(20);
+            }
+        }
     }
 }

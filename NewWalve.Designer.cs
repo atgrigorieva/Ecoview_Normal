@@ -97,6 +97,8 @@
             this.Controls.Add(this.Walve);
             this.Controls.Add(this.label2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "NewWalve";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Длина волны";

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Ecoview_Normal
 {
@@ -40,14 +41,35 @@ namespace Ecoview_Normal
         public string[][,] countScan;
         public int countscan = 0;
         public string typeIzmer;
-
+        public int index;
         public OpenFileDialog openFileDialog1;
         public string filepath;
         public CreateDimension(Ecoview parent)
         {
             this._Analis = parent;
+            Description = _Analis.Description;
+            DateTime = _Analis.DateTime;
+            Ispolnitel = _Analis.Ispolnitel;
+            direction = _Analis.direction;
+            code = _Analis.code;
+            k0 = _Analis.k0; k1 = _Analis.k1; k2 = _Analis.k2;
+            USE_KO = _Analis.USE_KO;
+            Zavisimoct = _Analis.Zavisimoct;
+            aproksim = _Analis.aproksim;
+            CountSeriya = _Analis.CountSeriya;
+            CountInSeriya = _Analis.CountInSeriya;
+            SposobZadan = _Analis.SposobZadan;
+            edconctr = _Analis.edconctr;
+            if (_Analis.ComPort == true)
+            {
+                GWString = _Analis.GWNew.Text;
+            }
+            else
+            {
+                GWString = _Analis.wavelength1;
+            }
 
-      
+
                 switch (_Analis.selet_rezim)
                 {
                     case 1:
@@ -69,26 +91,27 @@ namespace Ecoview_Normal
                         if (_Analis.tabControl2.SelectedIndex == 0)
                         {
                         
-                            if (_Analis.ComPodkl == true)
-                            {
+                           /// if (_Analis.ComPodkl == true)
+                            //{
                                 _Analis.textBoxCO = textBoxCO;
                                 NewGraduirovka newgrad = new NewGraduirovka(this, _Analis.versionPribor);
                                 newgrad.ShowDialog();
-                            // FotometrScan();
-                               
+                        // FotometrScan();
 
-                            }
-                            else
-                            {
-                                MessageBox.Show("Для проведения сканирования необхдимо подключиться к прибору!");
-                            }
-                        }
-                        else
+
+                        /*  }
+                          else
+                          {
+                              MessageBox.Show("Для проведения сканирования необхдимо подключиться к прибору!");
+                          }*/
+                    }
+                    else
                         {
                             k0 = Convert.ToDouble(_Analis.AgroText0.Text);
                             k1 = Convert.ToDouble(_Analis.AgroText1.Text);
                             k2 = Convert.ToDouble(_Analis.AgroText2.Text);
                             NewIzmerenie newIzmer = new NewIzmerenie(this, _Analis.versionPribor, _Analis.selet_rezim);
+                            newIzmer.ShowDialog();
                             if (_Analis.ComPodkl == true)
                             {
                             // FotometrScan();
@@ -185,38 +208,59 @@ namespace Ecoview_Normal
         public void GradTable()
         {
             _Analis.NoCoIzmer = NoCoIzmer;
-            _Analis.Podskazka.Text = "Измерьте 0 Asb/100%T";
-            _Analis.label25.Visible = false;
-            _Analis.label26.Visible = false;
-            _Analis.label59.Visible = true;
-            _Analis.GWNew.Text = GWString;
+            if (_Analis.ComPort == true && _Analis.SposobZadan != "Ввод коэффициентов")
+            {
+                _Analis.Podskazka.Text = "Измерьте 0 Asb/100%T";
+                _Analis.label25.Visible = false;
+                _Analis.label26.Visible = false;
+                _Analis.label59.Visible = true;
+            }
+            if (_Analis.ComPort != false)
+            {
+                _Analis.GWNew.Text = string.Format("{0:0.0}", GWString);
+                SW();
+                SAGE sage = new SAGE(ref _Analis.countSA, ref _Analis.GE5_1_0, ref _Analis.versionPribor, ref _Analis.newPort);
+            }
 
+            _Analis.textBox10.Text = string.Format("{0:0.0}", GWString);
             _Analis.DateTime = DateTime;
+            _Analis.dateTimePicker1.Text = DateTime;
             _Analis.Ispolnitel = Ispolnitel;
             _Analis.Description = Description;
+            _Analis.textBox1.Text = Description;
             _Analis.direction = direction;
             _Analis.code = code;
             _Analis.BottomLine = BottomLine;
             _Analis.TopLine = TopLine;
             _Analis.ND = ND;
-
+            _Analis.Veshestvo1 = Veshestvo1;
             _Analis.Days = Days;
+            _Analis.numericUpDown1.Text = Convert.ToString(Days);
             _Analis.CountSeriya = CountSeriya;
             _Analis.CountInSeriya = CountInSeriya;
             _Analis.edconctr = edconctr;
+            _Analis.WidthCuvette = WidthCuvette;
+            _Analis.textBox2.Text = WidthCuvette;
+            _Analis.textBox3.Text = errorMethod;
+            _Analis.textBox11.Text = Veshestvo1;
+            _Analis.wavelength1 = GWString;
 
             _Analis.aproksim = aproksim;
 
             _Analis.SposobZadan = SposobZadan;
+            _Analis.Zavisimoct = Zavisimoct;
 
             _Analis.USE_KO = USE_KO;
-
+            
             WLREMOVE1();
             WLREMOVESTR1();
-
+            _Analis.button10.Enabled = true;
             switch (_Analis.SposobZadan)
             {
                 case "Ввод коэффициентов":
+                    _Analis.k0 = k0;
+                    _Analis.k1 = k1;
+                    _Analis.k2 = k2;
                     _Analis.AgroText0.Text = string.Format("{0:0.0000}", k0);
                     _Analis.AgroText1.Text = string.Format("{0:0.0000}", k1);
                     _Analis.AgroText2.Text = string.Format("{0:0.0000}", k2);
@@ -271,13 +315,16 @@ namespace Ecoview_Normal
                             }
                         }
                     }
+                    functionA();
                     break;
                 default:
                     _Analis.NoCaIzm = Convert.ToInt32(CountSeriya);
                     _Analis.NoCaSer = Convert.ToInt32(CountInSeriya);
+
                     WLADD1();
                     WLADDSTR1();
                     break;
+                
             }
 
             
@@ -408,10 +455,21 @@ namespace Ecoview_Normal
         }
         public void Table2Create()
         {
-            _Analis.Podskazka.Text = "Измерьте 0 Asb/100%T";
+            if (_Analis.ComPort == true)
+            {
+                _Analis.Podskazka.Text = "Измерьте 0 Asb/100%T";
+                _Analis.label59.Visible = true;
+                _Analis.label24.Visible = false;
+                _Analis.button12.Enabled = true;
+            }
+            else
+            {
+                _Analis.Podskazka.Text = "Подключите прибор!";
+                _Analis.label24.Visible = true;
+            }
             _Analis.label25.Visible = false;
             _Analis.label26.Visible = false;
-            _Analis.label59.Visible = true;
+            
             _Analis.NoCaIzm1 = Convert.ToInt32(NoCaIzm1);
             _Analis.NoCaSer1 = Convert.ToInt32(NoCaSer1);
             _Analis.textBox8.Text = Description;
@@ -422,6 +480,12 @@ namespace Ecoview_Normal
             _Analis.параметрыToolStripMenuItem.Enabled = true;
             _Analis.button10.Enabled = true;
             _Analis.button11.Enabled = true;
+            _Analis.textBox12.Text = _Analis.Veshestvo1;
+            _Analis.textBox9.Text = _Analis.wavelength1;        
+
+           
+            _Analis.Opt_dlin_cuvet.SelectedIndex = index;
+
             if (_Analis.ComPodkl == true)
             {
                 _Analis.IzmerCreate1 = true;
@@ -441,11 +505,205 @@ namespace Ecoview_Normal
             }
            // _Analis.Podskazka.Text = "Измеряйте или введите значения!";
             _Analis.label27.Visible = false;
-            _Analis.label24.Visible = false;
+            
             _Analis.label25.Visible = false;
             _Analis.label26.Visible = false;
-           // _Analis.label28.Visible = true;
-           // _Analis.label33.Visible = true;
+
+
+            _Analis.новыйToolStripMenuItem.Enabled = false;
+            _Analis.сохранитьToolStripMenuItem.Enabled = false;
+            _Analis.эксопртВPDFToolStripMenuItem.Enabled = false;
+            _Analis.экспортToolStripMenuItem.Enabled = false;
+            _Analis.печатьToolStripMenuItem1.Enabled = false;
+            _Analis.параметрыToolStripMenuItem.Enabled = true;
+            _Analis.измеритьToolStripMenuItem.Enabled = false;
+            _Analis.калибровкаToolStripMenuItem.Enabled = true;
+            //   _Analis.справкаToolStripMenuItem.Visible = false;
+            _Analis.button1.Enabled = false;
+            _Analis.button3.Enabled = false;
+            _Analis.button7.Enabled = false;
+            _Analis.button8.Enabled = false;
+            _Analis.button9.Enabled = false;
+            _Analis.button10.Enabled = true;
+      //      _Analis.button12.Enabled = false;
+            _Analis.button14.Enabled = false;
+            _Analis.button11.Enabled = false;
+
+           
+
+            // _Analis.label28.Visible = true;
+            // _Analis.label33.Visible = true;
+            WLREMOVE2();
+            WLREMOVESTR2();
+            WLADD2();
+            WLADDSTR2();
+            if (_Analis.tabControl2.SelectedTab == _Analis.tabPage4 && _Analis.Table2.Rows.Count > 0 && _Analis.ComPort == true)
+            {
+                _Analis.button14.Enabled = true;
+            }
+        }
+        public void WLREMOVE2()
+        {
+            while (true)
+            {
+                int i = _Analis.Table2.Columns.Count - 1;//С какого столбца начать
+                if (_Analis.Table2.Columns[i].Name == "Obrazec")
+                    break;
+                _Analis.Table2.Columns.RemoveAt(i);
+            }
+
+        }
+
+        public void WLADD2()
+        {
+            if (_Analis.NoCaIzm1 >= 2)
+            {
+                for (int i = 1; i <= _Analis.NoCaIzm1; i++)
+                {
+
+                    DataGridViewTextBoxColumn firstColumn2 =
+                    new DataGridViewTextBoxColumn();
+                    firstColumn2.HeaderText = "A; Сер." + i;
+                    firstColumn2.Name = "A;Ser" + i;
+                    firstColumn2.ValueType = Type.GetType("System.Double");
+                    _Analis.Table2.Columns.Add(firstColumn2);
+                    DataGridViewTextBoxColumn firstColumn3 =
+                    new DataGridViewTextBoxColumn();
+                    firstColumn3.HeaderText = "C, " + edconctr + "; Сер." + i;
+                    firstColumn3.Name = "C,edconctr;Ser." + i;
+                    firstColumn3.ValueType = Type.GetType("System.Double");
+                    _Analis.Table2.Columns.Add(firstColumn3);
+                    // Table2.Rows[Table2.CurrentCell.RowIndex].Cells["A; Сер" + i].KeyPress += new System.Windows.Forms.KeyPressEventHandler(txt_KeyPress);
+                    firstColumn3.ReadOnly = true;
+                    firstColumn3.Width = 50;
+                    firstColumn2.Width = 50;
+                }
+            }
+            else
+            {
+
+                DataGridViewTextBoxColumn firstColumn2_1 =
+                        new DataGridViewTextBoxColumn();
+                firstColumn2_1.HeaderText = "A; Сер." + 1;
+                firstColumn2_1.Name = "A;Ser" + 1;
+                firstColumn2_1.ValueType = Type.GetType("System.Double");
+                _Analis.Table2.Columns.Add(firstColumn2_1);
+                DataGridViewTextBoxColumn firstColumn3_1 =
+                new DataGridViewTextBoxColumn();
+                firstColumn3_1.HeaderText = "C, " + edconctr + "; Сер." + 1;
+                firstColumn3_1.Name = "C,edconctr;Ser." + 1;
+                firstColumn3_1.ValueType = Type.GetType("System.Double");
+                _Analis.Table2.Columns.Add(firstColumn3_1);
+                firstColumn3_1.ReadOnly = true;
+                firstColumn3_1.Width = 50;
+                firstColumn2_1.Width = 50;
+            }
+            if (_Analis.selet_rezim == 2)
+            {
+                DataGridViewTextBoxColumn firstColumn4 =
+                new DataGridViewTextBoxColumn();
+                firstColumn4.HeaderText = "Cср, " + edconctr;
+                firstColumn4.Name = "Ccr";
+                firstColumn4.ValueType = Type.GetType("System.Double");
+                _Analis.Table2.Columns.Add(firstColumn4);
+                firstColumn4.ReadOnly = true;
+                DataGridViewTextBoxColumn firstColumn5 =
+                new DataGridViewTextBoxColumn();
+                firstColumn5.HeaderText = "d, %";
+                firstColumn5.Name = "d%";
+                firstColumn5.ValueType = Type.GetType("System.Double");
+                firstColumn5.ReadOnly = true;
+                _Analis.Table2.Columns.Add(firstColumn5);
+                firstColumn4.Width = 100;
+                firstColumn5.Width = 50;
+            }
+
+
+        }
+        public void WLADDSTR2()
+        {
+            _Analis.count = 0;
+            if (USE_KO == false)
+            {
+                if (_Analis.NoCaSer1 > 1)
+                {
+                    for (int i = 1; i <= _Analis.NoCaSer1; i++)
+                    {
+                        _Analis.Table2.Rows.Add(i);
+                        _Analis.Table2.Rows[_Analis.count].Cells["Column1"].Value = _Analis.count + 1;
+                        _Analis.count++;
+                    }
+                }
+                else
+                {
+                    _Analis.Table2.Rows.Add(1);
+                    _Analis.Table2.Rows[_Analis.count].Cells["Column1"].Value = _Analis.count + 1;
+                    _Analis.count++;
+                    _Analis.Table2.Rows.Add(1);
+                }
+                for (int i = 0; i < _Analis.Table2.RowCount - 1; i++)
+                {
+
+                    if (_Analis.Table2.Rows[i].Cells["Column1"].Value == null)
+                    {
+                        _Analis.Table2.Rows.RemoveAt(i);
+                        i--;
+                    }
+                }
+            }
+            else
+            {
+
+                if (_Analis.NoCaSer1 > 1)
+                {
+                    _Analis.Table2.Rows.Add(0, "Контрольный", string.Format("{0:0.0000}", 0));
+                    _Analis.Table2.Rows[_Analis.count].Cells["Column1"].Value = _Analis.count;
+                    _Analis.count++;
+                    for (int i = 1; i <= _Analis.NoCaSer1; i++)
+                    {
+                        _Analis.Table2.Rows.Add(i);
+                        _Analis.Table2.Rows[_Analis.count].Cells["Column1"].Value = _Analis.count;
+                        _Analis.count++;
+                    }
+                }
+                else
+                {
+                    _Analis.Table2.Rows.Add(0, "Контрольный", string.Format("{0:0.0000}", 0));
+                    _Analis.Table2.Rows[_Analis.count].Cells["Column1"].Value = _Analis.count;
+                    _Analis.count++;
+                    _Analis.Table2.Rows.Add(1, "");
+                    _Analis.Table2.Rows[_Analis.count].Cells["Column1"].Value = _Analis.count;
+                    _Analis.Table2.Rows.Add(1);
+                }
+                for (int i = 0; i < _Analis.Table2.RowCount - 1; i++)
+                {
+
+                    if (_Analis.Table2.Rows[i].Cells["Column1"].Value == null)
+                    {
+                        _Analis.Table2.Rows.RemoveAt(i);
+                        i--;
+                    }
+                }
+            }
+            //Table2.Rows.Add();
+            _Analis.Table2.CurrentCell = this._Analis.Table2[2, 0];
+            for (int i = 1; i <= _Analis.NoCaIzm1; i++)
+            {
+                _Analis.Table2.Rows[0].Cells["C,edconctr;Ser." + i].ReadOnly = true;
+                if (_Analis.selet_rezim == 2)
+                {
+                    _Analis.Table2.Rows[0].Cells["Ccr"].ReadOnly = true;
+                    _Analis.Table2.Rows[0].Cells["d%"].ReadOnly = true;
+                }
+            }
+            _Analis.Table2.Rows[_Analis.Table2.RowCount - 1].ReadOnly = true;
+            _Analis.button11.Enabled = true;
+
+        }
+
+        public void WLREMOVESTR2()
+        {
+            _Analis.Table2.Rows.Clear();
 
         }
         public void Datagriview5Create()
@@ -486,8 +744,9 @@ namespace Ecoview_Normal
             _Analis.massGE = new double[0];
             _Analis.dataGridView3.Rows.Clear();
             _Analis.dataGridView4.Rows.Clear();
-            ///alis.chart3.Series.Add("Series1");
-            _Analis.chart3.Series.Add("Series2");
+            _Analis.TableKinetica1.Rows.Clear();
+          //  _Analis.chart3.Series.Add("Series1");
+          //  _Analis.chart3.Series.Add("Series2");
             _Analis.chart3.Series[0].Points.Clear();
             _Analis.chart3.Series[1].Points.Clear();
             if (typeIzmer == "Abs")
@@ -573,6 +832,178 @@ namespace Ecoview_Normal
             _Analis.label26.Visible = false;
             _Analis.label59.Visible = true;
             
+        }
+        public void functionA()
+        {
+            _Analis.groupBox2.Enabled = false;
+            _Analis.groupBox5.Enabled = false;
+            _Analis.groupBox3.Enabled = false;
+            _Analis.RR.Text = "";
+            _Analis.SKO.Text = "";
+            _Analis.label21.Text = "";
+            _Analis.label22.Text = "";
+            // chart1.Series[0].Points.Clear();
+            //   chart1.Series[1].Points.Clear();
+            if (_Analis.Zavisimoct == "A(C)")
+            {
+                if (_Analis.aproksim == "Линейная через 0")
+                {
+
+                    _Analis.label14.Text = "A(C) = " + _Analis.k1.ToString("0.0000 ;- 0.0000 ") + "*C";
+                    double x2 = 0;
+                    for (double i = 0; i < 5; i = i + 0.5)
+                    {
+                        double y2 = i * _Analis.k1;
+                        _Analis.chart1.Series[1].Points.AddXY(i, y2);
+                        _Analis.chart1.Series[1].ChartType = SeriesChartType.Line;
+                        _Analis.chart1.ChartAreas[0].AxisX.Title = "Концетрация, " + _Analis.edconctr;
+                        _Analis.chart1.ChartAreas[0].AxisY.Title = "Оптическая плотность, А";
+                        _Analis.chart1.ChartAreas[0].AxisX.Minimum = 0;
+
+                        _Analis.chart1.ChartAreas[0].AxisY.Minimum = 0;
+                        x2 = i;
+                    }
+                    double xfin = x2 * 1.1;
+                    double yfin = xfin * _Analis.k1;
+                    _Analis.chart1.Series[1].Points.AddXY(xfin, yfin);
+                }
+                else
+                {
+                    if (_Analis.aproksim == "Линейная")
+                    {
+                        _Analis.label14.Text = "A(C) = " + _Analis.k0.ToString("0.0000 ;- 0.0000 ") + _Analis.k1.ToString("+ 0.0000 ;- 0.0000 ") + "*C ";
+                        double x2 = 0;
+                        for (double i = 0; i < 5; i = i + 0.5)
+                        {
+                            double y2 = i * _Analis.k1 + _Analis.k0;
+                            _Analis.chart1.Series[1].Points.AddXY(i, y2);
+                            _Analis.chart1.Series[1].ChartType = SeriesChartType.Line;
+                            _Analis.chart1.ChartAreas[0].AxisX.Title = "Концетрация, " + _Analis.edconctr;
+                            _Analis.chart1.ChartAreas[0].AxisY.Title = "Оптическая плотность, А";
+                            _Analis.chart1.ChartAreas[0].AxisX.Minimum = 0;
+
+                            _Analis.chart1.ChartAreas[0].AxisY.Minimum = 0;
+                            x2 = i;
+                        }
+                        double xfin = x2 * 1.1;
+                        double yfin = xfin * _Analis.k1 + _Analis.k0;
+                        _Analis.chart1.Series[1].Points.AddXY(xfin, yfin);
+                    }
+                    else
+                    {
+                        _Analis.label14.Text = "A(C) = " + _Analis.k0.ToString("0.0000 ;- 0.0000 ") + _Analis.k1.ToString("+ 0.0000 ;- 0.0000 ") + "*C " + _Analis.k2.ToString("+ 0.0000 ;- 0.0000 ") + "*C^2";
+                        double x2 = 0;
+                        for (double i = 0; i < 5; i = i + 0.5)
+                        {
+                            double y2 = i * _Analis.k1 + i * i * _Analis.k2 + _Analis.k0;
+                            _Analis.chart1.Series[1].Points.AddXY(i, y2);
+                            _Analis.chart1.Series[1].ChartType = SeriesChartType.Line;
+                            _Analis.chart1.ChartAreas[0].AxisX.Title = "Концетрация, " + _Analis.edconctr;
+                            _Analis.chart1.ChartAreas[0].AxisY.Title = "Оптическая плотность, А";
+                            _Analis.chart1.ChartAreas[0].AxisX.Minimum = 0;
+
+                            _Analis.chart1.ChartAreas[0].AxisY.Minimum = 0;
+                            x2 = i;
+                        }
+                        double xfin = x2 * 1.1;
+                        double yfin = xfin * _Analis.k1;
+                        _Analis.chart1.Series[1].Points.AddXY(xfin, yfin);
+                    }
+
+
+                }
+            }
+            else
+            {
+                if (_Analis.aproksim == "Линейная через 0")
+                {
+                    _Analis.label14.Text = "C(A) = " + _Analis.k1.ToString("0.0000 ;- 0.0000 ") + "*A";
+                    double x2 = 0;
+                    for (double i = 0; i < 5; i = i + 0.5)
+                    {
+                        double y2 = i * _Analis.k1;
+                        _Analis.chart1.Series[1].Points.AddXY(i, y2);
+                        _Analis.chart1.Series[1].ChartType = SeriesChartType.Line;
+                        _Analis.chart1.ChartAreas[0].AxisX.Title = "Оптическая плотность, А";
+                        _Analis.chart1.ChartAreas[0].AxisY.Title = "Концетрация, " + _Analis.edconctr;
+                        _Analis.chart1.ChartAreas[0].AxisX.Minimum = 0;
+
+                        _Analis.chart1.ChartAreas[0].AxisY.Minimum = 0;
+                        x2 = i;
+                    }
+                    double xfin = x2 * 1.1;
+                    double yfin = xfin * _Analis.k1;
+                    _Analis.chart1.Series[1].Points.AddXY(xfin, yfin);
+                }
+                else
+                {
+                    if (_Analis.aproksim == "Линейная")
+                    {
+                        _Analis.label14.Text = "C(A) = " + _Analis.k0.ToString("0.0000 ;- 0.0000 ") + _Analis.k1.ToString("+ 0.0000 ;- 0.0000 ") + "*A ";
+                        double x2 = 0;
+                        for (double i = 0; i < 5; i = i + 0.5)
+                        {
+                            double y2 = i * _Analis.k1 + _Analis.k0;
+                            _Analis.chart1.Series[1].Points.AddXY(i, y2);
+                            _Analis.chart1.Series[1].ChartType = SeriesChartType.Line;
+                            _Analis.chart1.ChartAreas[0].AxisX.Title = "Оптическая плотность, А";
+                            _Analis.chart1.ChartAreas[0].AxisY.Title = "Концетрация, " + _Analis.edconctr;
+                            _Analis.chart1.ChartAreas[0].AxisX.Minimum = 0;
+
+                            _Analis.chart1.ChartAreas[0].AxisY.Minimum = 0;
+                            x2 = i;
+                        }
+                        double xfin = x2 * 1.1;
+                        double yfin = xfin * _Analis.k1;
+                        _Analis.chart1.Series[1].Points.AddXY(xfin, yfin);
+                    }
+                    else
+                    {
+                        _Analis.label14.Text = "C(A) = " + _Analis.k0.ToString("0.0000 ;- 0.0000 ") + _Analis.k1.ToString("+ 0.0000 ;- 0.0000 ") + "*A " + _Analis.k2.ToString("+ 0.0000 ;- 0.0000 ") + "*A^2";
+                        double x2 = 0;
+                        for (double i = 0; i < 5; i = i + 0.5)
+                        {
+                            double y2 = i * _Analis.k1 + i * _Analis.k2 + _Analis.k0;
+                            _Analis.chart1.Series[1].Points.AddXY(i, y2);
+                            _Analis.chart1.Series[1].ChartType = SeriesChartType.Line;
+                            _Analis.chart1.ChartAreas[0].AxisX.Title = "Оптическая плотность, А";
+                            _Analis.chart1.ChartAreas[0].AxisY.Title = "Концетрация, " + _Analis.edconctr;
+                            _Analis.chart1.ChartAreas[0].AxisX.Minimum = 0;
+
+                            _Analis.chart1.ChartAreas[0].AxisY.Minimum = 0;
+                            x2 = i;
+                        }
+                        double xfin = x2 * 1.1;
+                        double yfin = xfin * _Analis.k1;
+                        _Analis.chart1.Series[1].Points.AddXY(xfin, yfin);
+                    }
+
+                }
+            }
+            _Analis.новыйToolStripMenuItem.Enabled = false;
+            _Analis.сохранитьToolStripMenuItem.Enabled = true;
+            _Analis.эксопртВPDFToolStripMenuItem.Enabled = false;
+            _Analis.экспортToolStripMenuItem.Enabled = false;
+            _Analis.печатьToolStripMenuItem1.Enabled = true;
+            _Analis.параметрыToolStripMenuItem.Enabled = true;
+            _Analis.измеритьToolStripMenuItem.Enabled = false;
+            _Analis.калибровкаToolStripMenuItem.Enabled = false;
+         //   _Analis.справкаToolStripMenuItem.Visible = false;
+            _Analis.button1.Enabled = false;
+            _Analis.button3.Enabled = true;
+            _Analis.button7.Enabled = true;
+            _Analis.button8.Enabled = false;
+            _Analis.button9.Enabled = false;
+            _Analis.button10.Enabled = true;
+            _Analis.button12.Enabled = false;
+            _Analis.button14.Enabled = false;
+            _Analis.button11.Enabled = false;
+
+            _Analis.label27.Visible = true;
+            _Analis.label59.Visible = false;
+            _Analis.label24.Visible = false;
+            _Analis.Podskazka.Text = "Сохраните градуировку";
+
         }
     }
 }

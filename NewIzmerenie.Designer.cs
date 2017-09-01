@@ -98,7 +98,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(600, 127);
+            this.label22.Location = new System.Drawing.Point(638, 127);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(78, 13);
             this.label22.TabIndex = 28;
@@ -107,7 +107,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(492, 78);
+            this.label23.Location = new System.Drawing.Point(530, 78);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(149, 13);
             this.label23.TabIndex = 27;
@@ -126,7 +126,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(492, 127);
+            this.label21.Location = new System.Drawing.Point(530, 127);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(78, 13);
             this.label21.TabIndex = 26;
@@ -141,6 +141,7 @@
             this.USE_KO.TabIndex = 27;
             this.USE_KO.Text = "Использовать контрольный опыт КО";
             this.USE_KO.UseVisualStyleBackColor = true;
+            this.USE_KO.Click += new System.EventHandler(this.USE_KO_Click);
             // 
             // textBox4
             // 
@@ -189,7 +190,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(492, 55);
+            this.label20.Location = new System.Drawing.Point(530, 55);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(149, 13);
             this.label20.TabIndex = 25;
@@ -498,6 +499,7 @@
             this.textBox3.Size = new System.Drawing.Size(124, 20);
             this.textBox3.TabIndex = 9;
             this.textBox3.Text = "1,0";
+            this.textBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
             // 
             // textBox2
             // 
@@ -506,6 +508,7 @@
             this.textBox2.Size = new System.Drawing.Size(124, 20);
             this.textBox2.TabIndex = 8;
             this.textBox2.Text = "1,0";
+            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
             // 
             // label15
             // 

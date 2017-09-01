@@ -80,8 +80,11 @@ namespace Ecoview_Normal
 
                 }
                 newPort = _Analis.newPort;
-                File.WriteAllText(@"openport.port", string.Empty);
-                File.AppendAllText(@"openport.port", _Analis.portsName, Encoding.UTF8);
+                string openport = "openport.port";
+                File.WriteAllText(openport, string.Empty);
+                File.AppendAllText(openport, _Analis.portsName, Encoding.UTF8);
+                string pathTemp = Path.GetTempPath();
+                EncriptorPribor encriptSerNomer = new EncriptorPribor(openport, pathTemp);
 
                 _Analis.newPort.Write("CO\r");
                 GWNew = _Analis.GWNew;
@@ -94,10 +97,17 @@ namespace Ecoview_Normal
                 newPort = _Analis.newPort;
                 _Analis.RDstring = RDstring;
                 _Analis.ComPodkl = true;
-                SAGE sage = new SAGE(ref _Analis.countSA, ref _Analis.GE5_1_0, ref versionPribor, ref newPort);
+
                 //sage.SAGE1(this);
-               
+                SAGE sage = new SAGE(ref _Analis.countSA, ref _Analis.GE5_1_0, ref versionPribor, ref newPort);
                 _Analis.versionPribor = versionPribor;
+                if (_Analis.textBox10.Text != "")
+                {
+                    SW();
+                    _Analis.GWNew.Text = _Analis.wavelength1;
+                    SAGE sage1 = new SAGE(ref _Analis.countSA, ref _Analis.GE5_1_0, ref versionPribor, ref newPort);
+                }
+                
                 _Analis.ComPort = true;
                 _Analis.подключитьToolStripMenuItem.Enabled = false;
                 _Analis.настройкаПортаToolStripMenuItem.Enabled = true;
@@ -142,6 +152,10 @@ namespace Ecoview_Normal
                         _Analis.Podskazka.Text = "Создайте или откройте Градуировку!";
                         _Analis.label25.Visible = true;
                         _Analis.label26.Visible = true;
+                        if(_Analis.tabControl2.SelectedTab == _Analis.tabPage4 && _Analis.Table2.Rows.Count > 0)
+                        {
+                            _Analis.button14.Enabled = true;
+                        }
                         break;
                     case 6:
                         _Analis.Podskazka.Text = "Создайте или откройте Градуировку!";
@@ -196,10 +210,86 @@ namespace Ecoview_Normal
                 _Analis.label24.Visible = false;
                 _Analis.label28.Visible = false;
                 _Analis.label33.Visible = false;
+
+
                 
             }
             
 
         }
+        public void SW()
+        {
+            LogoForm2 logoform = new LogoForm2();
+            WL_grad_Leave();
+            _Analis.wavelength1 = _Analis.textBox10.Text;
+            string SWText1 = _Analis.textBox10.Text;
+            double Walve_double = Convert.ToDouble(_Analis.textBox10.Text.Replace(".", ","));
+            _Analis.newPort.Write("SW " + Walve_double.ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")) + "\r");
+            string indata = _Analis.newPort.ReadExisting();
+
+            bool indata_bool = true;
+            while (indata_bool == true)
+            {
+                if (indata.Contains(">"))
+                {
+
+                    indata_bool = false;
+
+                }
+
+                else
+                {
+                    indata = _Analis.newPort.ReadExisting();
+                }
+            }
+
+
+            Application.OpenForms["LogoForm2"].Close();
+            // _Analis.GW();
+        }
+        private void WL_grad_Leave()
+        {
+          
+                if (_Analis.textBox10.Text != "")
+                {
+                    if (_Analis.versionPribor.Contains("V"))
+                    {
+                        if (Convert.ToDouble(_Analis.textBox10.Text.Replace(".", ",")) < 315)
+                        {
+                            _Analis.textBox10.Text = Convert.ToString(315);
+                        }
+                        if (Convert.ToDouble(_Analis.textBox10.Text.Replace(".", ",")) > 1050)
+                        {
+                            _Analis.textBox10.Text = Convert.ToString(1050);
+                        }
+                    }
+                    else
+                    {
+                        if (_Analis.versionPribor.Contains("U") && _Analis.versionPribor.Contains("2"))
+                        {
+                            if (Convert.ToDouble(_Analis.textBox10.Text.Replace(".", ",")) < 190)
+                            {
+                                _Analis.textBox10.Text = Convert.ToString(190);
+                            }
+                            if (Convert.ToDouble(_Analis.textBox10.Text.Replace(".", ",")) > 1050)
+                            {
+                                _Analis.textBox10.Text = Convert.ToString(1050);
+                            }
+                        }
+                        else
+                        {
+                            if (Convert.ToDouble(_Analis.textBox10.Text.Replace(".", ",")) < 200)
+                            {
+                                _Analis.textBox10.Text = Convert.ToString(200);
+                            }
+                            if (Convert.ToDouble(_Analis.textBox10.Text.Replace(".", ",")) > 1050)
+                            {
+                                _Analis.textBox10.Text = Convert.ToString(1050);
+                            }
+                        }
+                    }
+                }
+            }
+        
     }
 }

@@ -72,6 +72,8 @@
             this.Controls.Add(this.connection);
             this.Controls.Add(this.selectPort);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "SettingPort";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Выбор порта";

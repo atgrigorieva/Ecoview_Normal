@@ -100,7 +100,7 @@ namespace Ecoview_Normal
                         break;
 
                 }
-                _Analis.button3.Enabled = true;
+              //  _Analis.button3.Enabled = true;
                 _Analis.Podskazka.Text = "Можно сканировать";
                 _Analis.button1.Enabled = true;
             }

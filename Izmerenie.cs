@@ -25,8 +25,12 @@ namespace Ecoview_Normal
                             _Analis.label28.Visible = false;
 
                             _Analis.label59.Visible = false;
+                            _Analis.button7.Enabled = true;
                             _Analis.Podskazka.Text = "Сохраните измерение";
                             _Analis.button1.Enabled = true;
+
+                            _Analis.label25.Visible = false;
+                            _Analis.label26.Visible = false;
                         }
                         else
                         {
@@ -44,11 +48,7 @@ namespace Ecoview_Normal
                                 }
                                 _Analis.Graduirovka();
 
-                                _Analis.label59.Visible = false;
-                                _Analis.label27.Visible = true;
-                                _Analis.label28.Visible = false;
-                                _Analis.Podskazka.Text = "Сохраните измерение";
-                                _Analis.button1.Enabled = true;
+
                             }
                             else
                             {
@@ -57,22 +57,29 @@ namespace Ecoview_Normal
                         }
                         else
                         {
-                            /*if (Table2.RowCount > 1)
+                            if (_Analis.Table2.RowCount > 1)
                             {
-                                if (textBox10.Text != GWNew.Text)
+                                if (_Analis.textBox10.Text != _Analis.GWNew.Text)
                                 {
                                     MessageBox.Show("Длина волны градуировки отличается от длины волны, установленной на приборе!\rИзмените настройки градуировки!");
                                 }
-                                Izmerenie(sender, e);
-                                label27.Visible = true;
-                                label28.Visible = false;
-                                Podskazka.Text = "Сохраните измерение";
-                                button1.Enabled = true;
+                                _Analis.Izmerenie();
+                                _Analis.label27.Visible = true;
+                                _Analis.label28.Visible = false;
+                                _Analis.label26.Visible = false;
+                                _Analis.label25.Visible = false;
+                                _Analis.button7.Enabled = true;
+                                _Analis.button9.Enabled = true;
+                                _Analis.button8.Enabled = true;
+                                _Analis.Podskazka.Text = "Сохраните измерение";
+                                _Analis.button1.Enabled = true;
+                                _Analis.button3.Enabled = true;
+                                _Analis.label59.Visible = false;
                             }
                             else
                             {
                                 MessageBox.Show("Создайте измерение");
-                            }*/
+                            }
                         }
                         break;
                     case 3:

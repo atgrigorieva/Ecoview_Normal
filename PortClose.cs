@@ -70,6 +70,7 @@ namespace Ecoview_Normal
                     _Analis.label25.Visible = false;
                     _Analis.label26.Visible = false;
                     _Analis.label59.Visible = false;
+                    _Analis.Podskazka.Text = "Подключите прибор!";
                 }
             }
             catch

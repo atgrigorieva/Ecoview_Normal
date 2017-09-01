@@ -107,6 +107,7 @@
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "Квадратичная";
             this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
             // 
             // Ispolnitel
             // 
@@ -169,6 +170,7 @@
             this.WL_grad.Name = "WL_grad";
             this.WL_grad.Size = new System.Drawing.Size(202, 20);
             this.WL_grad.TabIndex = 70;
+            this.WL_grad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.WL_grad_KeyPress);
             this.WL_grad.Leave += new System.EventHandler(this.WL_grad_Leave);
             // 
             // groupBox4
@@ -336,6 +338,7 @@
             this.k2Text.Name = "k2Text";
             this.k2Text.Size = new System.Drawing.Size(151, 20);
             this.k2Text.TabIndex = 27;
+            this.k2Text.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.k2Text_KeyPress);
             // 
             // k1Text
             // 
@@ -344,6 +347,7 @@
             this.k1Text.Name = "k1Text";
             this.k1Text.Size = new System.Drawing.Size(151, 20);
             this.k1Text.TabIndex = 26;
+            this.k1Text.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.k1Text_KeyPress);
             // 
             // k0Text
             // 
@@ -352,6 +356,7 @@
             this.k0Text.Name = "k0Text";
             this.k0Text.Size = new System.Drawing.Size(151, 20);
             this.k0Text.TabIndex = 25;
+            this.k0Text.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.k0Text_KeyPress);
             // 
             // label11
             // 
@@ -389,6 +394,7 @@
             this.radioButton7.TabIndex = 24;
             this.radioButton7.Text = "Ввод известных значений";
             this.radioButton7.UseVisualStyleBackColor = true;
+            this.radioButton7.CheckedChanged += new System.EventHandler(this.radioButton7_CheckedChanged);
             // 
             // label8
             // 
@@ -419,6 +425,7 @@
             this.radioButton6.TabStop = true;
             this.radioButton6.Text = "По стандартным образцам";
             this.radioButton6.UseVisualStyleBackColor = true;
+            this.radioButton6.CheckedChanged += new System.EventHandler(this.radioButton6_CheckedChanged);
             // 
             // groupBox1
             // 
@@ -473,6 +480,7 @@
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Линейная";
             this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // USE_KO
             // 
@@ -541,6 +549,7 @@
             this.Up.Size = new System.Drawing.Size(203, 20);
             this.Up.TabIndex = 10;
             this.Up.Text = "0,00";
+            this.Up.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Up_KeyPress);
             // 
             // Down
             // 
@@ -550,6 +559,7 @@
             this.Down.Size = new System.Drawing.Size(202, 20);
             this.Down.TabIndex = 9;
             this.Down.Text = "0,00";
+            this.Down.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Down_KeyPress);
             // 
             // groupBox3
             // 
@@ -574,6 +584,7 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Линейная через 0";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // Veshestvo
             // 
@@ -600,6 +611,7 @@
             this.textBox4.Size = new System.Drawing.Size(100, 20);
             this.textBox4.TabIndex = 79;
             this.textBox4.Text = "0,00";
+            this.textBox4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox4_KeyPress);
             // 
             // label19
             // 

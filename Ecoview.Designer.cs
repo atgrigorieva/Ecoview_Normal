@@ -29,19 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea13 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend13 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series17 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea14 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend14 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series18 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea15 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend15 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series19 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea16 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend16 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series20 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea73 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series127 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series128 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea74 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series129 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series130 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea75 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series131 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series132 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea76 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend19 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series133 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ecoview));
             this.Walve = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.T = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -153,9 +152,6 @@
             this.label61 = new System.Windows.Forms.Label();
             this.label60 = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
-            this.ScanTablePrint = new System.Drawing.Printing.PrintDocument();
-            this.KinTablePrint = new System.Drawing.Printing.PrintDocument();
-            this.MultiTablePrint = new System.Drawing.Printing.PrintDocument();
             this.VersionProgramm = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
@@ -236,42 +232,8 @@
             this.label49 = new System.Windows.Forms.Label();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.темновойТокToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.настройкаПортаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.приборToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.подключитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.информацияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.калибровкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.измеритьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.калибровкаДляОдноволновогоАнализаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.графикРезультатаОдноволновогоИзмеренияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.волновойАнализToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.анализToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.параметрыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.новыйToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.экспортToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.эксопртВPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.печатьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.справкаToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.dataSet1 = new System.Data.DataSet();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.label33 = new System.Windows.Forms.Label();
-            this.IzmerenieFRprintPreviewTable1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.IzmerenieFRprintTable1 = new System.Drawing.Printing.PrintDocument();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.printTable1 = new System.Drawing.Printing.PrintDocument();
-            this.printDialog2 = new System.Windows.Forms.PrintDialog();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.printPreviewTable1 = new System.Windows.Forms.PrintPreviewDialog();
             this.label28 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
@@ -286,14 +248,52 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.GEText = new System.Windows.Forms.TextBox();
-            this.printPreviewTable2 = new System.Windows.Forms.PrintPreviewDialog();
             this.GWNew = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.printTable2 = new System.Drawing.Printing.PrintDocument();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.новыйToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.экспортToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.эксопртВPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.печатьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.анализToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.параметрыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.волновойАнализToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.графикРезультатаОдноволновогоИзмеренияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.приборToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.подключитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.настройкаПортаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.информацияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.калибровкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.темновойТокToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.измеритьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.калибровкаДляОдноволновогоАнализаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.справкаToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.printPreviewTable1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.KinTablePrint = new System.Drawing.Printing.PrintDocument();
+            this.printTable1 = new System.Drawing.Printing.PrintDocument();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.MultiTablePrint = new System.Drawing.Printing.PrintDocument();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.dataSet1 = new System.Data.DataSet();
+            this.ScanTablePrint = new System.Drawing.Printing.PrintDocument();
+            this.printTable2 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewTable2 = new System.Windows.Forms.PrintPreviewDialog();
+            this.IzmerenieFRprintPreviewTable1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.printDialog2 = new System.Windows.Forms.PrintDialog();
+            this.IzmerenieFRprintTable1 = new System.Drawing.Printing.PrintDocument();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Table2)).BeginInit();
             this.tabPage3.SuspendLayout();
@@ -332,9 +332,9 @@
             this.groupBox12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.tabPage9.SuspendLayout();
+            this.Podskazki.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
-            this.Podskazki.SuspendLayout();
             this.SuspendLayout();
             // 
             // Walve
@@ -504,6 +504,7 @@
             this.Table2.RowHeadersVisible = false;
             this.Table2.Size = new System.Drawing.Size(952, 501);
             this.Table2.TabIndex = 23;
+            this.Table2.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Table2_CellDoubleClick);
             // 
             // Column1
             // 
@@ -583,6 +584,7 @@
             this.Add_Table2.Size = new System.Drawing.Size(29, 27);
             this.Add_Table2.TabIndex = 64;
             this.Add_Table2.UseVisualStyleBackColor = false;
+            this.Add_Table2.Click += new System.EventHandler(this.Add_Table2_Click);
             // 
             // Remove_Table2
             // 
@@ -592,6 +594,7 @@
             this.Remove_Table2.Size = new System.Drawing.Size(29, 27);
             this.Remove_Table2.TabIndex = 62;
             this.Remove_Table2.UseVisualStyleBackColor = true;
+            this.Remove_Table2.Click += new System.EventHandler(this.Remove_Table2_Click);
             // 
             // ABS
             // 
@@ -634,30 +637,37 @@
             // 
             // chart1
             // 
-            chartArea13.AxisX2.IsInterlaced = true;
-            chartArea13.AxisX2.IsMarksNextToAxis = false;
-            chartArea13.AxisX2.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            chartArea13.AxisY2.IsInterlaced = true;
-            chartArea13.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea13);
-            legend13.BorderColor = System.Drawing.Color.White;
-            legend13.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            legend13.Enabled = false;
-            legend13.Name = "Legend1";
-            this.chart1.Legends.Add(legend13);
-            this.chart1.Location = new System.Drawing.Point(9, 72);
+            chartArea73.AxisX.MajorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea73.AxisX.MinorGrid.Enabled = true;
+            chartArea73.AxisX.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea73.AxisX.MinorTickMark.Enabled = true;
+            chartArea73.AxisX.MinorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea73.AxisX.Title = "Оптическая плотность, А";
+            chartArea73.AxisX2.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea73.AxisX2.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea73.AxisX2.MajorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea73.AxisX2.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea73.AxisX2.MinorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea73.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea73.AxisY.Title = "Концетрация";
+            chartArea73.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea73);
+            this.chart1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.chart1.Location = new System.Drawing.Point(6, 73);
             this.chart1.Name = "chart1";
-            series16.ChartArea = "ChartArea1";
-            series16.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series16.Legend = "Legend1";
-            series16.Name = "Series1";
-            series17.ChartArea = "ChartArea1";
-            series17.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series17.Legend = "Legend1";
-            series17.Name = "Series2";
-            this.chart1.Series.Add(series16);
-            this.chart1.Series.Add(series17);
-            this.chart1.Size = new System.Drawing.Size(554, 321);
+            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            this.chart1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            series127.ChartArea = "ChartArea1";
+            series127.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series127.IsVisibleInLegend = false;
+            series127.Name = "Series1";
+            series128.ChartArea = "ChartArea1";
+            series128.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series128.IsVisibleInLegend = false;
+            series128.Name = "Series2";
+            this.chart1.Series.Add(series127);
+            this.chart1.Series.Add(series128);
+            this.chart1.Size = new System.Drawing.Size(566, 321);
             this.chart1.TabIndex = 36;
             this.chart1.Text = "chart1";
             // 
@@ -748,6 +758,8 @@
             this.Table1.Name = "Table1";
             this.Table1.Size = new System.Drawing.Size(947, 128);
             this.Table1.TabIndex = 20;
+            this.Table1.CancelRowEdit += new System.Windows.Forms.QuestionEventHandler(this.Table1_CancelRowEdit);
+            this.Table1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Table1_CellDoubleClick);
             // 
             // NoCo
             // 
@@ -863,6 +875,7 @@
             this.radioButton5.TabIndex = 18;
             this.radioButton5.Text = "C (A) - расчетное уравнение (прибор)";
             this.radioButton5.UseVisualStyleBackColor = true;
+            this.radioButton5.CheckedChanged += new System.EventHandler(this.radioButton5_CheckedChanged);
             // 
             // radioButton4
             // 
@@ -875,6 +888,7 @@
             this.radioButton4.TabStop = true;
             this.radioButton4.Text = "A (C) - градуировочное уравнение (стандарт)";
             this.radioButton4.UseVisualStyleBackColor = true;
+            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
             // 
             // groupBox1
             // 
@@ -966,6 +980,7 @@
             this.radioButton3.TabIndex = 2;
             this.radioButton3.Text = "Квадратичная";
             this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
             // 
             // radioButton2
             // 
@@ -976,6 +991,7 @@
             this.radioButton2.TabIndex = 1;
             this.radioButton2.Text = "Линейная";
             this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // radioButton1
             // 
@@ -988,6 +1004,7 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Линейная через 0";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // label6
             // 
@@ -1491,6 +1508,7 @@
             this.button3.Size = new System.Drawing.Size(42, 37);
             this.button3.TabIndex = 100;
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button14
             // 
@@ -1512,6 +1530,7 @@
             this.button10.Size = new System.Drawing.Size(40, 37);
             this.button10.TabIndex = 97;
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button9
             // 
@@ -1522,6 +1541,7 @@
             this.button9.Size = new System.Drawing.Size(40, 37);
             this.button9.TabIndex = 96;
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button8
             // 
@@ -1531,6 +1551,7 @@
             this.button8.Size = new System.Drawing.Size(37, 37);
             this.button8.TabIndex = 95;
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button7
             // 
@@ -1540,6 +1561,7 @@
             this.button7.Size = new System.Drawing.Size(39, 37);
             this.button7.TabIndex = 94;
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button6
             // 
@@ -1549,6 +1571,7 @@
             this.button6.Size = new System.Drawing.Size(38, 37);
             this.button6.TabIndex = 93;
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 
@@ -1602,6 +1625,7 @@
             this.tabControl2.SelectedIndex = 0;
             this.tabControl2.Size = new System.Drawing.Size(982, 584);
             this.tabControl2.TabIndex = 88;
+            this.tabControl2.SelectedIndexChanged += new System.EventHandler(this.tabControl2_SelectedIndexChanged);
             // 
             // tabPage5
             // 
@@ -1624,19 +1648,44 @@
             // 
             // chart3
             // 
-            chartArea14.Name = "ChartArea1";
-            this.chart3.ChartAreas.Add(chartArea14);
-            legend14.Name = "Legend1";
-            this.chart3.Legends.Add(legend14);
-            this.chart3.Location = new System.Drawing.Point(3, 3);
+            this.chart3.BackColor = System.Drawing.Color.Honeydew;
+            this.chart3.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.chart3.BorderlineColor = System.Drawing.Color.Black;
+            chartArea74.AxisX.MajorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea74.AxisX.MinorGrid.Enabled = true;
+            chartArea74.AxisX.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea74.AxisX.MinorTickMark.Enabled = true;
+            chartArea74.AxisX.MinorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea74.AxisX.Title = "Оптическая плотность, А";
+            chartArea74.AxisX2.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea74.AxisX2.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea74.AxisX2.MajorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea74.AxisX2.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea74.AxisX2.MinorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea74.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea74.AxisY.Title = "Концетрация";
+            chartArea74.BackColor = System.Drawing.Color.AliceBlue;
+            chartArea74.Name = "ChartArea1";
+            this.chart3.ChartAreas.Add(chartArea74);
+            this.chart3.Cursor = System.Windows.Forms.Cursors.Default;
+            this.chart3.Location = new System.Drawing.Point(6, 15);
             this.chart3.Name = "chart3";
-            series18.ChartArea = "ChartArea1";
-            series18.Legend = "Legend1";
-            series18.Name = "Series1";
-            this.chart3.Series.Add(series18);
-            this.chart3.Size = new System.Drawing.Size(695, 333);
+            this.chart3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire;
+            this.chart3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            series129.ChartArea = "ChartArea1";
+            series129.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series129.IsVisibleInLegend = false;
+            series129.Name = "Series1";
+            series130.ChartArea = "ChartArea1";
+            series130.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series130.IsVisibleInLegend = false;
+            series130.LabelForeColor = System.Drawing.Color.Maroon;
+            series130.Name = "Series2";
+            this.chart3.Series.Add(series129);
+            this.chart3.Series.Add(series130);
+            this.chart3.Size = new System.Drawing.Size(694, 321);
             this.chart3.TabIndex = 33;
-            this.chart3.Text = "chart2";
+            this.chart3.Text = "chart3";
             // 
             // tabPage6
             // 
@@ -1657,20 +1706,44 @@
             // 
             // ScanChart
             // 
-            chartArea15.Name = "ChartArea1";
-            this.ScanChart.ChartAreas.Add(chartArea15);
-            legend15.Enabled = false;
-            legend15.Name = "Legend1";
-            this.ScanChart.Legends.Add(legend15);
-            this.ScanChart.Location = new System.Drawing.Point(6, 3);
+            this.ScanChart.BackColor = System.Drawing.Color.Honeydew;
+            this.ScanChart.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.ScanChart.BorderlineColor = System.Drawing.Color.Black;
+            chartArea75.AxisX.MajorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea75.AxisX.MinorGrid.Enabled = true;
+            chartArea75.AxisX.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea75.AxisX.MinorTickMark.Enabled = true;
+            chartArea75.AxisX.MinorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea75.AxisX.Title = "Оптическая плотность, А";
+            chartArea75.AxisX2.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea75.AxisX2.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea75.AxisX2.MajorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea75.AxisX2.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea75.AxisX2.MinorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea75.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea75.AxisY.Title = "Концетрация";
+            chartArea75.BackColor = System.Drawing.Color.LightSteelBlue;
+            chartArea75.Name = "ChartArea1";
+            this.ScanChart.ChartAreas.Add(chartArea75);
+            this.ScanChart.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ScanChart.Location = new System.Drawing.Point(5, 13);
             this.ScanChart.Name = "ScanChart";
-            series19.ChartArea = "ChartArea1";
-            series19.Legend = "Legend1";
-            series19.Name = "Series1";
-            this.ScanChart.Series.Add(series19);
-            this.ScanChart.Size = new System.Drawing.Size(689, 333);
-            this.ScanChart.TabIndex = 34;
-            this.ScanChart.Text = "chart2";
+            this.ScanChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire;
+            this.ScanChart.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            series131.ChartArea = "ChartArea1";
+            series131.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series131.IsVisibleInLegend = false;
+            series131.Name = "Series1";
+            series132.ChartArea = "ChartArea1";
+            series132.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series132.IsVisibleInLegend = false;
+            series132.LabelForeColor = System.Drawing.Color.Maroon;
+            series132.Name = "Series2";
+            this.ScanChart.Series.Add(series131);
+            this.ScanChart.Series.Add(series132);
+            this.ScanChart.Size = new System.Drawing.Size(694, 321);
+            this.ScanChart.TabIndex = 23;
+            this.ScanChart.Text = "ScanChart";
             // 
             // label50
             // 
@@ -1845,17 +1918,17 @@
             // 
             // chart2
             // 
-            chartArea16.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea16);
-            legend16.Enabled = false;
-            legend16.Name = "Legend1";
-            this.chart2.Legends.Add(legend16);
+            chartArea76.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea76);
+            legend19.Enabled = false;
+            legend19.Name = "Legend1";
+            this.chart2.Legends.Add(legend19);
             this.chart2.Location = new System.Drawing.Point(10, 77);
             this.chart2.Name = "chart2";
-            series20.ChartArea = "ChartArea1";
-            series20.Legend = "Legend1";
-            series20.Name = "Series1";
-            this.chart2.Series.Add(series20);
+            series133.ChartArea = "ChartArea1";
+            series133.Legend = "Legend1";
+            series133.Name = "Series1";
+            this.chart2.Series.Add(series133);
             this.chart2.Size = new System.Drawing.Size(553, 300);
             this.chart2.TabIndex = 58;
             this.chart2.Text = "chart2";
@@ -2295,196 +2368,6 @@
             this.tabPage9.Text = "Работа в Excel";
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
-            // темновойТокToolStripMenuItem
-            // 
-            this.темновойТокToolStripMenuItem.Name = "темновойТокToolStripMenuItem";
-            this.темновойТокToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.темновойТокToolStripMenuItem.Text = "Темновой ток";
-            this.темновойТокToolStripMenuItem.Visible = false;
-            // 
-            // настройкаПортаToolStripMenuItem
-            // 
-            this.настройкаПортаToolStripMenuItem.Name = "настройкаПортаToolStripMenuItem";
-            this.настройкаПортаToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.настройкаПортаToolStripMenuItem.Text = "Настройка порта";
-            this.настройкаПортаToolStripMenuItem.Visible = false;
-            // 
-            // приборToolStripMenuItem
-            // 
-            this.приборToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.подключитьToolStripMenuItem,
-            this.настройкаПортаToolStripMenuItem,
-            this.информацияToolStripMenuItem,
-            this.калибровкаToolStripMenuItem,
-            this.темновойТокToolStripMenuItem,
-            this.измеритьToolStripMenuItem,
-            this.калибровкаДляОдноволновогоАнализаToolStripMenuItem});
-            this.приборToolStripMenuItem.Name = "приборToolStripMenuItem";
-            this.приборToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
-            this.приборToolStripMenuItem.Text = "Прибор";
-            // 
-            // подключитьToolStripMenuItem
-            // 
-            this.подключитьToolStripMenuItem.Name = "подключитьToolStripMenuItem";
-            this.подключитьToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.подключитьToolStripMenuItem.Text = "Подключить";
-            // 
-            // информацияToolStripMenuItem
-            // 
-            this.информацияToolStripMenuItem.Name = "информацияToolStripMenuItem";
-            this.информацияToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.информацияToolStripMenuItem.Text = "Информация";
-            this.информацияToolStripMenuItem.Visible = false;
-            // 
-            // калибровкаToolStripMenuItem
-            // 
-            this.калибровкаToolStripMenuItem.Name = "калибровкаToolStripMenuItem";
-            this.калибровкаToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.калибровкаToolStripMenuItem.Text = "Калибровка";
-            this.калибровкаToolStripMenuItem.Visible = false;
-            // 
-            // измеритьToolStripMenuItem
-            // 
-            this.измеритьToolStripMenuItem.Name = "измеритьToolStripMenuItem";
-            this.измеритьToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.измеритьToolStripMenuItem.Text = "Измерить";
-            // 
-            // калибровкаДляОдноволновогоАнализаToolStripMenuItem
-            // 
-            this.калибровкаДляОдноволновогоАнализаToolStripMenuItem.Name = "калибровкаДляОдноволновогоАнализаToolStripMenuItem";
-            this.калибровкаДляОдноволновогоАнализаToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.калибровкаДляОдноволновогоАнализаToolStripMenuItem.Text = "0A/100%T";
-            // 
-            // графикРезультатаОдноволновогоИзмеренияToolStripMenuItem
-            // 
-            this.графикРезультатаОдноволновогоИзмеренияToolStripMenuItem.Name = "графикРезультатаОдноволновогоИзмеренияToolStripMenuItem";
-            this.графикРезультатаОдноволновогоИзмеренияToolStripMenuItem.Size = new System.Drawing.Size(329, 22);
-            this.графикРезультатаОдноволновогоИзмеренияToolStripMenuItem.Text = "График результата одноволнового измерения";
-            // 
-            // волновойАнализToolStripMenuItem
-            // 
-            this.волновойАнализToolStripMenuItem.Name = "волновойАнализToolStripMenuItem";
-            this.волновойАнализToolStripMenuItem.Size = new System.Drawing.Size(329, 22);
-            this.волновойАнализToolStripMenuItem.Text = "Волновой анализ";
-            this.волновойАнализToolStripMenuItem.Visible = false;
-            // 
-            // анализToolStripMenuItem
-            // 
-            this.анализToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.параметрыToolStripMenuItem,
-            this.волновойАнализToolStripMenuItem,
-            this.графикРезультатаОдноволновогоИзмеренияToolStripMenuItem});
-            this.анализToolStripMenuItem.Name = "анализToolStripMenuItem";
-            this.анализToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
-            this.анализToolStripMenuItem.Text = "Анализ";
-            // 
-            // параметрыToolStripMenuItem
-            // 
-            this.параметрыToolStripMenuItem.Enabled = false;
-            this.параметрыToolStripMenuItem.Name = "параметрыToolStripMenuItem";
-            this.параметрыToolStripMenuItem.Size = new System.Drawing.Size(329, 22);
-            this.параметрыToolStripMenuItem.Text = "Параметры";
-            // 
-            // файлToolStripMenuItem
-            // 
-            this.файлToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.новыйToolStripMenuItem,
-            this.открытьToolStripMenuItem,
-            this.сохранитьToolStripMenuItem,
-            this.экспортToolStripMenuItem,
-            this.эксопртВPDFToolStripMenuItem,
-            this.выходToolStripMenuItem,
-            this.печатьToolStripMenuItem1});
-            this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
-            this.файлToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.файлToolStripMenuItem.Text = "Файл";
-            // 
-            // новыйToolStripMenuItem
-            // 
-            this.новыйToolStripMenuItem.Name = "новыйToolStripMenuItem";
-            this.новыйToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.новыйToolStripMenuItem.Text = "Новый";
-            // 
-            // открытьToolStripMenuItem
-            // 
-            this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
-            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.открытьToolStripMenuItem.Text = "Открыть";
-            // 
-            // сохранитьToolStripMenuItem
-            // 
-            this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
-            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.сохранитьToolStripMenuItem.Text = "Сохранить";
-            // 
-            // экспортToolStripMenuItem
-            // 
-            this.экспортToolStripMenuItem.Name = "экспортToolStripMenuItem";
-            this.экспортToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.экспортToolStripMenuItem.Text = "Экспорт в Excel";
-            // 
-            // эксопртВPDFToolStripMenuItem
-            // 
-            this.эксопртВPDFToolStripMenuItem.Name = "эксопртВPDFToolStripMenuItem";
-            this.эксопртВPDFToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.эксопртВPDFToolStripMenuItem.Text = "Эксопрт в PDF";
-            // 
-            // выходToolStripMenuItem
-            // 
-            this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.выходToolStripMenuItem.Text = "Выход";
-            // 
-            // печатьToolStripMenuItem1
-            // 
-            this.печатьToolStripMenuItem1.Name = "печатьToolStripMenuItem1";
-            this.печатьToolStripMenuItem1.Size = new System.Drawing.Size(157, 22);
-            this.печатьToolStripMenuItem1.Text = "Печать";
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.файлToolStripMenuItem,
-            this.анализToolStripMenuItem,
-            this.приборToolStripMenuItem,
-            this.справкаToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(-6, -1);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(243, 24);
-            this.menuStrip1.TabIndex = 79;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // справкаToolStripMenuItem
-            // 
-            this.справкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.справкаToolStripMenuItem1,
-            this.оПрограммеToolStripMenuItem});
-            this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
-            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.справкаToolStripMenuItem.Text = "Справка";
-            // 
-            // справкаToolStripMenuItem1
-            // 
-            this.справкаToolStripMenuItem1.Name = "справкаToolStripMenuItem1";
-            this.справкаToolStripMenuItem1.Size = new System.Drawing.Size(149, 22);
-            this.справкаToolStripMenuItem1.Text = "Справка";
-            this.справкаToolStripMenuItem1.Visible = false;
-            // 
-            // оПрограммеToolStripMenuItem
-            // 
-            this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
-            this.оПрограммеToolStripMenuItem.Text = "О программе";
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "NewDataSet";
-            // 
             // label33
             // 
             this.label33.AutoSize = true;
@@ -2496,36 +2379,6 @@
             this.label33.TabIndex = 109;
             this.label33.Text = "↑";
             this.label33.Visible = false;
-            // 
-            // IzmerenieFRprintPreviewTable1
-            // 
-            this.IzmerenieFRprintPreviewTable1.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.IzmerenieFRprintPreviewTable1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.IzmerenieFRprintPreviewTable1.ClientSize = new System.Drawing.Size(400, 300);
-            this.IzmerenieFRprintPreviewTable1.Enabled = true;
-            this.IzmerenieFRprintPreviewTable1.Icon = ((System.Drawing.Icon)(resources.GetObject("IzmerenieFRprintPreviewTable1.Icon")));
-            this.IzmerenieFRprintPreviewTable1.Name = "printPreviewDialog1";
-            this.IzmerenieFRprintPreviewTable1.Visible = false;
-            // 
-            // printDialog2
-            // 
-            this.printDialog2.UseEXDialog = true;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            // 
-            // printPreviewTable1
-            // 
-            this.printPreviewTable1.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewTable1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewTable1.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewTable1.Enabled = true;
-            this.printPreviewTable1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewTable1.Icon")));
-            this.printPreviewTable1.Name = "printPreviewDialog1";
-            this.printPreviewTable1.Visible = false;
             // 
             // label28
             // 
@@ -2683,16 +2536,6 @@
             this.GEText.TabIndex = 80;
             this.GEText.Visible = false;
             // 
-            // printPreviewTable2
-            // 
-            this.printPreviewTable2.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewTable2.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewTable2.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewTable2.Enabled = true;
-            this.printPreviewTable2.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewTable2.Icon")));
-            this.printPreviewTable2.Name = "printPreviewTable2";
-            this.printPreviewTable2.Visible = false;
-            // 
             // GWNew
             // 
             this.GWNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -2715,20 +2558,288 @@
             this.label9.TabIndex = 82;
             this.label9.Text = "Длина волны";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.файлToolStripMenuItem,
+            this.анализToolStripMenuItem,
+            this.приборToolStripMenuItem,
+            this.справкаToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(-6, 4);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(243, 24);
+            this.menuStrip1.TabIndex = 114;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // файлToolStripMenuItem
+            // 
+            this.файлToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.новыйToolStripMenuItem,
+            this.открытьToolStripMenuItem,
+            this.сохранитьToolStripMenuItem,
+            this.экспортToolStripMenuItem,
+            this.эксопртВPDFToolStripMenuItem,
+            this.выходToolStripMenuItem,
+            this.печатьToolStripMenuItem1});
+            this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
+            this.файлToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.файлToolStripMenuItem.Text = "Файл";
+            // 
+            // новыйToolStripMenuItem
+            // 
+            this.новыйToolStripMenuItem.Name = "новыйToolStripMenuItem";
+            this.новыйToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.новыйToolStripMenuItem.Text = "Новый";
+            this.новыйToolStripMenuItem.Click += new System.EventHandler(this.новыйToolStripMenuItem_Click);
+            // 
+            // открытьToolStripMenuItem
+            // 
+            this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
+            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.открытьToolStripMenuItem.Text = "Открыть";
+            this.открытьToolStripMenuItem.Click += new System.EventHandler(this.открытьToolStripMenuItem_Click);
+            // 
+            // сохранитьToolStripMenuItem
+            // 
+            this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.сохранитьToolStripMenuItem.Text = "Сохранить";
+            this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
+            // 
+            // экспортToolStripMenuItem
+            // 
+            this.экспортToolStripMenuItem.Name = "экспортToolStripMenuItem";
+            this.экспортToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.экспортToolStripMenuItem.Text = "Экспорт в Excel";
+            this.экспортToolStripMenuItem.Click += new System.EventHandler(this.экспортToolStripMenuItem_Click);
+            // 
+            // эксопртВPDFToolStripMenuItem
+            // 
+            this.эксопртВPDFToolStripMenuItem.Name = "эксопртВPDFToolStripMenuItem";
+            this.эксопртВPDFToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.эксопртВPDFToolStripMenuItem.Text = "Эксопрт в PDF";
+            this.эксопртВPDFToolStripMenuItem.Click += new System.EventHandler(this.эксопртВPDFToolStripMenuItem_Click);
+            // 
+            // выходToolStripMenuItem
+            // 
+            this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.выходToolStripMenuItem.Text = "Выход";
+            this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
+            // 
+            // печатьToolStripMenuItem1
+            // 
+            this.печатьToolStripMenuItem1.Name = "печатьToolStripMenuItem1";
+            this.печатьToolStripMenuItem1.Size = new System.Drawing.Size(157, 22);
+            this.печатьToolStripMenuItem1.Text = "Печать";
+            this.печатьToolStripMenuItem1.Click += new System.EventHandler(this.печатьToolStripMenuItem1_Click);
+            // 
+            // анализToolStripMenuItem
+            // 
+            this.анализToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.параметрыToolStripMenuItem,
+            this.волновойАнализToolStripMenuItem,
+            this.графикРезультатаОдноволновогоИзмеренияToolStripMenuItem});
+            this.анализToolStripMenuItem.Name = "анализToolStripMenuItem";
+            this.анализToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.анализToolStripMenuItem.Text = "Анализ";
+            // 
+            // параметрыToolStripMenuItem
+            // 
+            this.параметрыToolStripMenuItem.Enabled = false;
+            this.параметрыToolStripMenuItem.Name = "параметрыToolStripMenuItem";
+            this.параметрыToolStripMenuItem.Size = new System.Drawing.Size(329, 22);
+            this.параметрыToolStripMenuItem.Text = "Параметры";
+            // 
+            // волновойАнализToolStripMenuItem
+            // 
+            this.волновойАнализToolStripMenuItem.Name = "волновойАнализToolStripMenuItem";
+            this.волновойАнализToolStripMenuItem.Size = new System.Drawing.Size(329, 22);
+            this.волновойАнализToolStripMenuItem.Text = "Волновой анализ";
+            this.волновойАнализToolStripMenuItem.Visible = false;
+            // 
+            // графикРезультатаОдноволновогоИзмеренияToolStripMenuItem
+            // 
+            this.графикРезультатаОдноволновогоИзмеренияToolStripMenuItem.Name = "графикРезультатаОдноволновогоИзмеренияToolStripMenuItem";
+            this.графикРезультатаОдноволновогоИзмеренияToolStripMenuItem.Size = new System.Drawing.Size(329, 22);
+            this.графикРезультатаОдноволновогоИзмеренияToolStripMenuItem.Text = "График результата одноволнового измерения";
+            this.графикРезультатаОдноволновогоИзмеренияToolStripMenuItem.Visible = false;
+            // 
+            // приборToolStripMenuItem
+            // 
+            this.приборToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.подключитьToolStripMenuItem,
+            this.настройкаПортаToolStripMenuItem,
+            this.информацияToolStripMenuItem,
+            this.калибровкаToolStripMenuItem,
+            this.темновойТокToolStripMenuItem,
+            this.измеритьToolStripMenuItem,
+            this.калибровкаДляОдноволновогоАнализаToolStripMenuItem});
+            this.приборToolStripMenuItem.Name = "приборToolStripMenuItem";
+            this.приборToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.приборToolStripMenuItem.Text = "Прибор";
+            // 
+            // подключитьToolStripMenuItem
+            // 
+            this.подключитьToolStripMenuItem.Name = "подключитьToolStripMenuItem";
+            this.подключитьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.подключитьToolStripMenuItem.Text = "Подключить";
+            this.подключитьToolStripMenuItem.Click += new System.EventHandler(this.подключитьToolStripMenuItem_Click);
+            // 
+            // настройкаПортаToolStripMenuItem
+            // 
+            this.настройкаПортаToolStripMenuItem.Name = "настройкаПортаToolStripMenuItem";
+            this.настройкаПортаToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.настройкаПортаToolStripMenuItem.Text = "Длина Волны";
+            this.настройкаПортаToolStripMenuItem.Visible = false;
+            // 
+            // информацияToolStripMenuItem
+            // 
+            this.информацияToolStripMenuItem.Name = "информацияToolStripMenuItem";
+            this.информацияToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.информацияToolStripMenuItem.Text = "Информация";
+            this.информацияToolStripMenuItem.Visible = false;
+            // 
+            // калибровкаToolStripMenuItem
+            // 
+            this.калибровкаToolStripMenuItem.Name = "калибровкаToolStripMenuItem";
+            this.калибровкаToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.калибровкаToolStripMenuItem.Text = "Калибровка";
+            this.калибровкаToolStripMenuItem.Visible = false;
+            // 
+            // темновойТокToolStripMenuItem
+            // 
+            this.темновойТокToolStripMenuItem.Name = "темновойТокToolStripMenuItem";
+            this.темновойТокToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.темновойТокToolStripMenuItem.Text = "Темновой ток";
+            this.темновойТокToolStripMenuItem.Visible = false;
+            // 
+            // измеритьToolStripMenuItem
+            // 
+            this.измеритьToolStripMenuItem.Name = "измеритьToolStripMenuItem";
+            this.измеритьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.измеритьToolStripMenuItem.Text = "Измерить";
+            this.измеритьToolStripMenuItem.Click += new System.EventHandler(this.измеритьToolStripMenuItem_Click);
+            // 
+            // калибровкаДляОдноволновогоАнализаToolStripMenuItem
+            // 
+            this.калибровкаДляОдноволновогоАнализаToolStripMenuItem.Name = "калибровкаДляОдноволновогоАнализаToolStripMenuItem";
+            this.калибровкаДляОдноволновогоАнализаToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.калибровкаДляОдноволновогоАнализаToolStripMenuItem.Text = "0A/100%T";
+            this.калибровкаДляОдноволновогоАнализаToolStripMenuItem.Click += new System.EventHandler(this.калибровкаДляОдноволновогоАнализаToolStripMenuItem_Click);
+            // 
+            // справкаToolStripMenuItem
+            // 
+            this.справкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.справкаToolStripMenuItem1,
+            this.оПрограммеToolStripMenuItem});
+            this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
+            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.справкаToolStripMenuItem.Text = "Справка";
+            // 
+            // справкаToolStripMenuItem1
+            // 
+            this.справкаToolStripMenuItem1.Name = "справкаToolStripMenuItem1";
+            this.справкаToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.справкаToolStripMenuItem1.Text = "Справка";
+            this.справкаToolStripMenuItem1.Visible = false;
+            // 
+            // оПрограммеToolStripMenuItem
+            // 
+            this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.оПрограммеToolStripMenuItem.Text = "О программе";
+            // 
+            // printDialog1
+            // 
+            this.printDialog1.UseEXDialog = true;
+            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // printDialog1
+            // openFileDialog1
             // 
-            this.printDialog1.UseEXDialog = true;
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // printPreviewTable1
+            // 
+            this.printPreviewTable1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewTable1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewTable1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewTable1.Enabled = true;
+            this.printPreviewTable1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewTable1.Icon")));
+            this.printPreviewTable1.Name = "printPreviewDialog1";
+            this.printPreviewTable1.Visible = false;
+            // 
+            // KinTablePrint
+            // 
+            this.KinTablePrint.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.KinTablePrint_PrintPage);
+            // 
+            // printTable1
+            // 
+            this.printTable1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printTable1_PrintPage);
+            // 
+            // MultiTablePrint
+            // 
+            this.MultiTablePrint.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.MultiTablePrint_PrintPage);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "NewDataSet";
+            // 
+            // ScanTablePrint
+            // 
+            this.ScanTablePrint.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.ScanTablePrint_PrintPage);
+            // 
+            // printTable2
+            // 
+            this.printTable2.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printTable2_PrintPage);
+            // 
+            // printPreviewTable2
+            // 
+            this.printPreviewTable2.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewTable2.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewTable2.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewTable2.Enabled = true;
+            this.printPreviewTable2.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewTable2.Icon")));
+            this.printPreviewTable2.Name = "printPreviewTable2";
+            this.printPreviewTable2.Visible = false;
+            this.printPreviewTable2.Load += new System.EventHandler(this.printPreviewTable2_Load);
+            // 
+            // IzmerenieFRprintPreviewTable1
+            // 
+            this.IzmerenieFRprintPreviewTable1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.IzmerenieFRprintPreviewTable1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.IzmerenieFRprintPreviewTable1.ClientSize = new System.Drawing.Size(400, 300);
+            this.IzmerenieFRprintPreviewTable1.Enabled = true;
+            this.IzmerenieFRprintPreviewTable1.Icon = ((System.Drawing.Icon)(resources.GetObject("IzmerenieFRprintPreviewTable1.Icon")));
+            this.IzmerenieFRprintPreviewTable1.Name = "printPreviewDialog1";
+            this.IzmerenieFRprintPreviewTable1.Visible = false;
+            this.IzmerenieFRprintPreviewTable1.Load += new System.EventHandler(this.IzmerenieFRprintPreviewTable1_Load);
+            // 
+            // printDialog2
+            // 
+            this.printDialog2.UseEXDialog = true;
+            // 
+            // IzmerenieFRprintTable1
+            // 
+            this.IzmerenieFRprintTable1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.IzmerenieFRprintTable1_PrintPage);
             // 
             // Ecoview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1009, 691);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label59);
             this.Controls.Add(this.VersionProgramm);
@@ -2746,7 +2857,6 @@
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControl2);
-            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label33);
             this.Controls.Add(this.label28);
             this.Controls.Add(this.label27);
@@ -2767,6 +2877,7 @@
             this.Name = "Ecoview";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Ecoview_FormClosing);
             this.Load += new System.EventHandler(this.Ecoview_Load);
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
@@ -2822,11 +2933,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             this.tabPage9.ResumeLayout(false);
             this.tabPage9.PerformLayout();
+            this.Podskazki.ResumeLayout(false);
+            this.Podskazki.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
-            this.Podskazki.ResumeLayout(false);
-            this.Podskazki.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2874,7 +2985,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NoCo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Concetr;
         private System.Windows.Forms.DataGridViewTextBoxColumn Asred;
-        private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.GroupBox groupBox4;
         public System.Windows.Forms.Label label14;
         public System.Windows.Forms.GroupBox groupBox2;
@@ -2887,11 +2997,10 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.GroupBox groupBox3;
         public System.Windows.Forms.RadioButton radioButton3;
         public System.Windows.Forms.RadioButton radioButton2;
         public System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Label label6;
+        public System.Windows.Forms.Label label6;
         public System.Windows.Forms.NumericUpDown numericUpDown1;
         public System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label5;
@@ -2930,9 +3039,6 @@
         public System.Windows.Forms.Label label61;
         public System.Windows.Forms.Label label60;
         public System.Windows.Forms.Label label59;
-        private System.Drawing.Printing.PrintDocument ScanTablePrint;
-        private System.Drawing.Printing.PrintDocument KinTablePrint;
-        private System.Drawing.Printing.PrintDocument MultiTablePrint;
         private System.Windows.Forms.Button VersionProgramm;
         public System.Windows.Forms.Button button13;
         public System.Windows.Forms.Button button11;
@@ -2940,7 +3046,6 @@
         public System.Windows.Forms.Button button3;
         public System.Windows.Forms.Button button14;
         public System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button9;
         public System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         public System.Windows.Forms.TabControl tabControl2;
@@ -3006,35 +3111,8 @@
         private System.Windows.Forms.Label label49;
         public System.Windows.Forms.TabPage tabPage8;
         public System.Windows.Forms.TabPage tabPage9;
-        private System.Windows.Forms.ToolStripMenuItem приборToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem графикРезультатаОдноволновогоИзмеренияToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem волновойАнализToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem анализToolStripMenuItem;
-        public System.Windows.Forms.ToolStripMenuItem параметрыToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem новыйToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem экспортToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem эксопртВPDFToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem печатьToolStripMenuItem1;
-        private System.Windows.Forms.ColorDialog colorDialog1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
-        public System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Data.DataSet dataSet1;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         public System.Windows.Forms.Label label33;
-        private System.Windows.Forms.PrintPreviewDialog IzmerenieFRprintPreviewTable1;
-        private System.Drawing.Printing.PrintDocument IzmerenieFRprintTable1;
         public System.Windows.Forms.Timer timer2;
-        private System.Drawing.Printing.PrintDocument printTable1;
-        private System.Windows.Forms.PrintDialog printDialog2;
-        private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.PrintPreviewDialog printPreviewTable1;
         public System.Windows.Forms.Label label28;
         public System.Windows.Forms.Label label27;
         public System.Windows.Forms.Label label26;
@@ -3049,27 +3127,14 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox GEText;
-        private System.Windows.Forms.PrintPreviewDialog printPreviewTable2;
         public System.Windows.Forms.TextBox GWNew;
         private System.Windows.Forms.Label label9;
-        private System.Drawing.Printing.PrintDocument printTable2;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.PrintDialog printDialog1;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        public System.Windows.Forms.ToolStripMenuItem подключитьToolStripMenuItem;
         public System.Windows.Forms.Button button2;
-        public System.Windows.Forms.ToolStripMenuItem настройкаПортаToolStripMenuItem;
-        public System.Windows.Forms.ToolStripMenuItem информацияToolStripMenuItem;
-        public System.Windows.Forms.ToolStripMenuItem калибровкаToolStripMenuItem;
-        public System.Windows.Forms.ToolStripMenuItem темновойТокToolStripMenuItem;
-        public System.Windows.Forms.ToolStripMenuItem измеритьToolStripMenuItem;
-        public System.Windows.Forms.ToolStripMenuItem калибровкаДляОдноволновогоАнализаToolStripMenuItem;
         public System.Windows.Forms.Button button1;
         public System.Windows.Forms.Button button7;
         public System.Windows.Forms.Button button6;
         public System.Windows.Forms.Button button8;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
-        private System.Windows.Forms.DataVisualization.Charting.Chart ScanChart;
         public System.Windows.Forms.DataGridView IzmerenieFR_Table;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
@@ -3078,13 +3143,60 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        public System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        public System.Windows.Forms.DataVisualization.Charting.Chart chart3;
-        public System.Windows.Forms.Timer timer1;
         public System.Windows.Forms.Label label22;
         public System.Windows.Forms.Label label21;
         public System.Windows.Forms.Label RR;
         public System.Windows.Forms.Label SKO;
+        public System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        public System.Windows.Forms.DataVisualization.Charting.Chart chart3;
+        public System.Windows.Forms.DataVisualization.Charting.Chart ScanChart;
+        private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem анализToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem параметрыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem волновойАнализToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem графикРезультатаОдноволновогоИзмеренияToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem приборToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
+        private System.Windows.Forms.PrintDialog printDialog1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        public System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewTable1;
+        private System.Drawing.Printing.PrintDocument KinTablePrint;
+        private System.Drawing.Printing.PrintDocument printTable1;
+        private System.Drawing.Printing.PrintDocument MultiTablePrint;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Data.DataSet dataSet1;
+        private System.Drawing.Printing.PrintDocument ScanTablePrint;
+        private System.Drawing.Printing.PrintDocument printTable2;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewTable2;
+        private System.Windows.Forms.PrintPreviewDialog IzmerenieFRprintPreviewTable1;
+        public System.Windows.Forms.Timer timer3;
+        private System.Windows.Forms.PrintDialog printDialog2;
+        private System.Drawing.Printing.PrintDocument IzmerenieFRprintTable1;
+        public System.Windows.Forms.MenuStrip menuStrip1;
+        public System.Windows.Forms.ToolStripMenuItem новыйToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem экспортToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem эксопртВPDFToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem печатьToolStripMenuItem1;
+        public System.Windows.Forms.ToolStripMenuItem подключитьToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem настройкаПортаToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem информацияToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem калибровкаToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem темновойТокToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem измеритьToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem калибровкаДляОдноволновогоАнализаToolStripMenuItem;
+        public System.Windows.Forms.Timer timer1;
+        public System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        public System.Windows.Forms.Button button9;
+        public System.Windows.Forms.GroupBox groupBox5;
+        public System.Windows.Forms.GroupBox groupBox3;
     }
 }
 

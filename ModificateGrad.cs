@@ -9,34 +9,143 @@ using System.Windows.Forms;
 
 namespace Ecoview_Normal
 {
-    public partial class NewGraduirovka : Form
+    public partial class ModificateGrad : Form
     {
-        CreateDimension _Analis;
-        string versionPribor;
+        Ecoview _Analis;
         public int oldValue = 3;
         public int old = 3;
         int index1 = 9;
-
-        public NewGraduirovka(CreateDimension parent, string versionPribor1)
+        public ModificateGrad(Ecoview parent)
         {
             InitializeComponent();
+
             this._Analis = parent;
-            if (_Analis.GWString != "")
+            Description.Text = _Analis.Description;
+            //    DateTime = _Analis.DateTime;
+            Ispolnitel.Text = _Analis.Ispolnitel;
+            textBox1.Text = _Analis.direction;
+            textBox2.Text = _Analis.code;
+            k0Text.Text = _Analis.AgroText0.Text; k1Text.Text = _Analis.AgroText1.Text; k2Text.Text = _Analis.AgroText2.Text;
+            // USE_KO = _Analis.USE_KO;
+            if (_Analis.USE_KO == true)
             {
-                WL_grad.Text = _Analis.GWString;
+                USE_KO.Checked = true;
+
             }
-            this.versionPribor = versionPribor1;
+            else
+            {
+                USE_KO.Checked = false;
+            }
+
+            if (_Analis.Zavisimoct == "A(C)")
+            {
+                radioButton4.Checked = true;
+
+            }
+            else
+            {
+                radioButton5.Checked = true;
+            }
+
+            if (_Analis.radioButton1.Checked == true)
+            {
+                radioButton1.Checked = true;
+
+                k1Text.Text = string.Format("{0:0.0000}", _Analis.AgroText1.Text);
+                //k2Text.Text = string.Format("{0:0.0000}", _Analis.textBox6.Text);
+            }
+            else
+            {
+                if (_Analis.radioButton2.Checked == true)
+                {
+                    radioButton2.Checked = true;
+
+                    k1Text.Text = string.Format("{0:0.0000}", _Analis.AgroText1.Text);
+                    k0Text.Text = string.Format("{0:0.0000}", _Analis.AgroText0.Text);
+                }
+                else
+                {
+                    radioButton3.Checked = true;
+
+                    k1Text.Text = string.Format("{0:0.0000}", _Analis.AgroText1.Text);
+                    k2Text.Text = string.Format("{0:0.0000}", _Analis.AgroText2.Text);
+                    k0Text.Text = string.Format("{0:0.0000}", _Analis.AgroText0.Text);
+                }
+            }
+            if (_Analis.SposobZadan == "По СО")
+            {
+                k0Text.Enabled = false;
+                k1Text.Enabled = false;
+                k2Text.Enabled = false;
+            }
+            else
+            {
+                numericUpDown3.Enabled = false;
+                numericUpDown4.Enabled = false;
+            }
+            WL_grad.Text = _Analis.wavelength1;
+            index1 = Ed.FindString(_Analis.edconctr);
+
+            Ed.SelectedIndex = index1;
+            int index = Opt_dlin_cuvet.FindString(_Analis.WidthCuvette);
+            Opt_dlin_cuvet.SelectedIndex = index;
+            Down.Text = _Analis.BottomLine;
+            Up.Text = _Analis.TopLine;
+            ND.Text = _Analis.ND;
+            Description.Text = _Analis.Description;
+            dateTimePicker1.Text = _Analis.DateTime;
+            numericUpDown1.Value = _Analis.Days;
+            Ispolnitel.Text = _Analis.Ispolnitel;
+            if (_Analis.CountSeriya != null)
+            {
+                numericUpDown3.Value = Convert.ToInt32(_Analis.CountSeriya);
+            }
+            if (_Analis.CountInSeriya != null)
+            {
+                numericUpDown4.Value = Convert.ToInt32(_Analis.CountInSeriya);
+            }
+            Veshestvo.Text = _Analis.Veshestvo1;
+            textBox2.Text = _Analis.code;
+            textBox4.Text = _Analis.textBox3.Text;
+
+            if (_Analis.ComPort == true)
+            {
+                _Analis.GWNew.Text = WL_grad.Text;
+            }
+            _Analis.textBox10.Text = WL_grad.Text;
+            _Analis.wavelength1 = WL_grad.Text;
+            _Analis.Veshestvo1 = Veshestvo.Text;
+            _Analis.WidthCuvette = Opt_dlin_cuvet.Text;
+
+            _Analis.textBox3.Text = textBox4.Text;
+            _Analis.textBox11.Text = Veshestvo.Text;
+            _Analis.wavelength1 = WL_grad.Text;
+
+            switch (_Analis.aproksim) {
+                case "Линейная через 0":           
+                    radioButton1.Checked = true;
+                    break;
+
+                case "Линейная":
+                    radioButton2.Checked = true;
+                    break;
+                default:
+                    radioButton3.Checked = true;
+                    break;
+            }        
+
+            if (_Analis.ComPort == true)
+            {
+                WL_grad.Text = _Analis.GWNew.Text;
+            }
             var height = 22;
             var labelx = 6;
-            k0Text.Enabled = false;
-            k1Text.Enabled = false;
-            k2Text.Enabled = false;
             this.radioButton1.CheckedChanged += new EventHandler(radioButton1_CheckedChanged);
             this.radioButton2.CheckedChanged += new EventHandler(radioButton2_CheckedChanged);
             this.radioButton3.CheckedChanged += new EventHandler(radioButton3_CheckedChanged);
             this.radioButton6.CheckedChanged += new EventHandler(radioButton6_CheckedChanged);
             this.radioButton7.CheckedChanged += new EventHandler(radioButton7_CheckedChanged);
-            numericUpDown4.Value = oldValue;
+            // numericUpDown4.Value = oldValue;
             for (int i = 0; i <= 9; i++)
             {
                 var label = new Label();
@@ -94,12 +203,60 @@ namespace Ecoview_Normal
                 groupBox6.Controls.Add(_Analis.textBoxCO[i]);
                 _Analis.textBoxCO[i].KeyPress += new System.Windows.Forms.KeyPressEventHandler(txt_KeyPress);
             }
-
-            numericUpDown4.Value = 3;
-            for (int i = Convert.ToInt32(numericUpDown4.Value) - 1; i >= 0; i--)
+            if (_Analis.SposobZadan != "Ввод коэффициентов")
             {
-                this._Analis.textBoxCO[i].Enabled = true;
+                //   numericUpDown4.Value = 3;
+                for (int i = Convert.ToInt32(numericUpDown4.Value) - 1; i >= 0; i--)
+                {
+                    this._Analis.textBoxCO[i].Enabled = true;
+                }
+                if (_Analis.USE_KO == true)
+                {
+                    USE_KO.Checked = true;
+                    for (int j = 0; j < numericUpDown4.Value; j++)
+                    {
+                        if (_Analis.Stolbec != null)
+                        {
+                            _Analis.textBoxCO[j].Text = _Analis.Stolbec[j + 1, 1];
+                        }
+                        if (_Analis.Table1.Rows[j + 1].Cells[1].Value != null)
+                        {
+                            _Analis.textBoxCO[j].Text = _Analis.Table1.Rows[j + 1].Cells[1].Value.ToString();
+                        }
+                    }
+                }
+                else
+                {
+                    for (int j = 0; j < numericUpDown4.Value; j++)
+                    {
 
+                        if (_Analis.Stolbec != null)
+                        {
+                            _Analis.textBoxCO[j].Text = _Analis.Stolbec[j, 1];
+                        }
+                        if (_Analis.Table1.Rows[j].Cells[1].Value != null)
+                        {
+                            _Analis.textBoxCO[j].Text = _Analis.Table1.Rows[j].Cells[1].Value.ToString();
+                        }
+                    }
+                }
+            }
+            else
+            {
+                radioButton7.Checked = true;
+                switch (_Analis.aproksim)
+                {
+                    case "Линейная через 0":
+                        radioButton1.Checked = true;
+                        break;
+
+                    case "Линейная":
+                        radioButton2.Checked = true;
+                        break;
+                    default:
+                        radioButton3.Checked = true;
+                        break;
+                }
             }
         }
         void txt_KeyPress(object sender, KeyPressEventArgs e)
@@ -152,6 +309,7 @@ namespace Ecoview_Normal
                 if (result == DialogResult.Yes)
                 {
                     _Analis.DateTime = dateTimePicker1.Value.Date.ToString("dd.MM.yyyy");
+                    _Analis.dateTimePicker1.Text = dateTimePicker1.Text;
                     _Analis.Ispolnitel = Ispolnitel.Text;
                     _Analis.Description = Description.Text;
                     _Analis.direction = textBox1.Text;
@@ -161,17 +319,31 @@ namespace Ecoview_Normal
                     _Analis.ND = ND.Text;
                     _Analis.edconctr = Ed.Text;
                     _Analis.Days = Convert.ToInt32(numericUpDown1.Value);
+                    _Analis.numericUpDown1.Text = Convert.ToString(numericUpDown1.Value);
                     _Analis.CountSeriya = Convert.ToString(numericUpDown3.Value);
                     _Analis.CountInSeriya = Convert.ToString(numericUpDown4.Value);
-                    _Analis.GWString = WL_grad.Text;
+                    if(_Analis.ComPort == true)
+                    {
+                        WL_grad_Leave(sender, e);
+                        _Analis.GWNew.Text = string.Format("{0:0.0}", WL_grad.Text);
+                        _Analis.wavelength1 = string.Format("{0:0.0}", WL_grad.Text);
+                        _Analis.SWСhange();
+                        
+                    }
+                    _Analis.textBox10.Text = string.Format("{0:0.0}", WL_grad.Text);
+                    _Analis.wavelength1 = string.Format("{0:0.0}", WL_grad.Text);
                     _Analis.Veshestvo1 = Veshestvo.Text;
                     _Analis.WidthCuvette = Opt_dlin_cuvet.Text;
-                    _Analis.errorMethod = textBox4.Text;
+
+                    _Analis.textBox3.Text = textBox4.Text;
+                    _Analis.textBox11.Text = Veshestvo.Text;
+                    _Analis.wavelength1 = WL_grad.Text;
+
 
                     switch (radioButton4.Checked)
                     {
                         case true:
-                            _Analis.Zavisimoct = "A(C)";                            
+                            _Analis.Zavisimoct = "A(C)";
                             break;
                         case false:
                             _Analis.Zavisimoct = "C(A)";
@@ -182,9 +354,9 @@ namespace Ecoview_Normal
                     {
                         case true:
                             _Analis.SposobZadan = "Ввод коэффициентов";
-                            _Analis.k0 = Convert.ToDouble(k0Text.Text);
-                            _Analis.k1 = Convert.ToDouble(k1Text.Text);
-                            _Analis.k2 = Convert.ToDouble(k2Text.Text);
+                            double k0 = Convert.ToDouble(k0Text.Text);
+                            double k1 = Convert.ToDouble(k1Text.Text);
+                            double k2 = Convert.ToDouble(k2Text.Text);
 
                             break;
                         case false:
@@ -192,15 +364,15 @@ namespace Ecoview_Normal
                             break;
 
                     }
-                    if(radioButton1.Checked == true)
+                    if (radioButton1.Checked == true)
                     {
                         _Analis.aproksim = "Линейная через 0";
                     }
-                    if(radioButton2.Checked == true)
+                    if (radioButton2.Checked == true)
                     {
                         _Analis.aproksim = "Линейная";
                     }
-                    if(radioButton3.Checked == true)
+                    if (radioButton3.Checked == true)
                     {
                         _Analis.aproksim = "Квадратичная";
                     }
@@ -213,10 +385,12 @@ namespace Ecoview_Normal
                 {
                     _Analis.USE_KO = false;
                 }
+                _Analis.label27.Enabled = false;
                 _Analis.GradTable();
                 Close();
             }
         }
+
         private void Cancel_Click(object sender, EventArgs e)
         {
             Close();
@@ -231,10 +405,8 @@ namespace Ecoview_Normal
                     k0Text.Enabled = false;
                     k1Text.Enabled = true;
                     k2Text.Enabled = false;
-
                     k0Text.Text = string.Format("{0:0.0000}", 0);
                     k2Text.Text = string.Format("{0:0.0000}", 0);
-                    k1Text.Text = string.Format("{0:0.0000}", 0);
 
                 }
                 else
@@ -245,10 +417,7 @@ namespace Ecoview_Normal
                         k1Text.Enabled = true;
                         k2Text.Enabled = false;
 
-
-                        k0Text.Text = string.Format("{0:0.0000}", 0);
                         k2Text.Text = string.Format("{0:0.0000}", 0);
-                        k1Text.Text = string.Format("{0:0.0000}", 0);
 
 
                     }
@@ -258,9 +427,8 @@ namespace Ecoview_Normal
                         k1Text.Enabled = true;
                         k2Text.Enabled = true;
 
-                        k0Text.Text = string.Format("{0:0.0000}", 0);
-                        k2Text.Text = string.Format("{0:0.0000}", 0);
-                        k1Text.Text = string.Format("{0:0.0000}", 0);
+
+
                     }
                 }
             }
@@ -268,7 +436,7 @@ namespace Ecoview_Normal
         }
         public void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-  
+
             if (radioButton7.Checked == true)
             {
                 if (radioButton1.Checked == true && radioButton2.Checked == false && radioButton3.Checked == false)
@@ -276,10 +444,8 @@ namespace Ecoview_Normal
                     k0Text.Enabled = false;
                     k1Text.Enabled = true;
                     k2Text.Enabled = false;
-
                     k0Text.Text = string.Format("{0:0.0000}", 0);
                     k2Text.Text = string.Format("{0:0.0000}", 0);
-                    k1Text.Text = string.Format("{0:0.0000}", 0);
 
 
                 }
@@ -291,19 +457,15 @@ namespace Ecoview_Normal
                         k1Text.Enabled = true;
                         k2Text.Enabled = false;
 
-
-                        k0Text.Text = string.Format("{0:0.0000}", 0);
                         k2Text.Text = string.Format("{0:0.0000}", 0);
-                        k1Text.Text = string.Format("{0:0.0000}", 0);
 
 
                     }
                     else
                     {
-
-                        k0Text.Text = string.Format("{0:0.0000}", 0);
-                        k2Text.Text = string.Format("{0:0.0000}", 0);
-                        k1Text.Text = string.Format("{0:0.0000}", 0);
+                        k0Text.Enabled = true;
+                        k1Text.Enabled = true;
+                        k2Text.Enabled = true;
 
 
 
@@ -322,10 +484,8 @@ namespace Ecoview_Normal
                     k0Text.Enabled = false;
                     k1Text.Enabled = true;
                     k2Text.Enabled = false;
-
                     k0Text.Text = string.Format("{0:0.0000}", 0);
                     k2Text.Text = string.Format("{0:0.0000}", 0);
-                    k1Text.Text = string.Format("{0:0.0000}", 0);
 
 
                 }
@@ -337,10 +497,7 @@ namespace Ecoview_Normal
                         k1Text.Enabled = true;
                         k2Text.Enabled = false;
 
-
-                        k0Text.Text = string.Format("{0:0.0000}", 0);
                         k2Text.Text = string.Format("{0:0.0000}", 0);
-                        k1Text.Text = string.Format("{0:0.0000}", 0);
 
 
                     }
@@ -351,16 +508,13 @@ namespace Ecoview_Normal
                         k2Text.Enabled = true;
 
 
-                        k0Text.Text = string.Format("{0:0.0000}", 0);
-                        k2Text.Text = string.Format("{0:0.0000}", 0);
-                        k1Text.Text = string.Format("{0:0.0000}", 0);
 
                     }
                 }
             }
 
         }
-        
+
 
         public void radioButton6_CheckedChanged(object sender, EventArgs e)
         {
@@ -379,7 +533,7 @@ namespace Ecoview_Normal
         public void radioButton7_CheckedChanged(object sender, EventArgs e)
         {
             USE_KO.Enabled = false;
-            
+
             numericUpDown3.Enabled = false;
             numericUpDown4.Enabled = false;
 
@@ -416,7 +570,7 @@ namespace Ecoview_Normal
                     double k0 = Convert.ToDouble(k0Text.Text);
                     double k1 = Convert.ToDouble(k1Text.Text);
                     double k2 = Convert.ToDouble(k2Text.Text);
-                    
+
                 }
                 else
                 {
@@ -424,10 +578,10 @@ namespace Ecoview_Normal
                     k1Text.Enabled = true;
                     k2Text.Enabled = true;
 
-
                     k0Text.Text = string.Format("{0:0.0000}", 0);
                     k2Text.Text = string.Format("{0:0.0000}", 0);
                     k1Text.Text = string.Format("{0:0.0000}", 0);
+
 
                 }
             }
@@ -487,11 +641,11 @@ namespace Ecoview_Normal
 
         private void WL_grad_Leave(object sender, EventArgs e)
         {
-            if (_Analis.GWString != "0")
+            if (_Analis.ComPort == true)
             {
                 if (WL_grad.Text != "")
                 {
-                    if (versionPribor.Contains("V"))
+                    if (_Analis.versionPribor.Contains("V"))
                     {
                         if (Convert.ToDouble(WL_grad.Text.Replace(".", ",")) < 315)
                         {
@@ -504,7 +658,7 @@ namespace Ecoview_Normal
                     }
                     else
                     {
-                        if (versionPribor.Contains("U") && versionPribor.Contains("2"))
+                        if (_Analis.versionPribor.Contains("U") && _Analis.versionPribor.Contains("2"))
                         {
                             if (Convert.ToDouble(WL_grad.Text.Replace(".", ",")) < 190)
                             {

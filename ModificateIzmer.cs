@@ -9,24 +9,21 @@ using System.Windows.Forms;
 
 namespace Ecoview_Normal
 {
-    public partial class NewIzmerenie : Form
+    public partial class ModificateIzmer : Form
     {
-        CreateDimension _Analis;
-        string versionPribor;
-        int selet_rezim;
-
-        public NewIzmerenie(CreateDimension parent, string versionPribor1, int selet_rezim1)
+        Ecoview _Analis;
+        public ModificateIzmer(Ecoview parent)
         {
             InitializeComponent();
             this._Analis = parent;
-            this.selet_rezim = selet_rezim1;
-            if (selet_rezim == 6)
+            //this.selet_rezim = selet_rezim1;
+            if (_Analis.selet_rezim == 6)
             {
                 numericUpDown3.Enabled = false;
                 numericUpDown4.Enabled = false;
                 USE_KO.Checked = true;
             }
-            DLWave.Text = _Analis.GWString;
+            DLWave.Text = _Analis.textBox10.Text;
             int index = Opt_dlin_cuvet.FindString(_Analis.WidthCuvette);
             numericUpDown3.Value = 1;
             numericUpDown4.Value = 1;
@@ -46,19 +43,26 @@ namespace Ecoview_Normal
             label7.Text = string.Format("{0:0.0000}", _Analis.k2);
             label12.Text = _Analis.SposobZadan;
             Ed_Izmer.Text = _Analis.edconctr;
-            dateTimePicker1.Text = _Analis.DateTime;
+
+            textBox4.Text = _Analis.textBox7.Text;
+            dateTimePicker1.Text = _Analis.dateTimePicker2.Text;
             Deistvie.Text = dateTimePicker1.Value.AddDays(_Analis.Days).ToString("dd.MM.yyyy");
+
+            numericUpDown3.Value = _Analis.NoCaIzm1;
 
             _Analis.WidthCuvette = Convert.ToString(index);
             if (_Analis.USE_KO == true)
             {
                 USE_KO.Checked = true;
+                numericUpDown4.Value = _Analis.Table2.Rows.Count - 2;
 
             }
             else
             {
                 USE_KO.Checked = false;
+                numericUpDown4.Value = _Analis.Table2.Rows.Count - 1;
             }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -72,14 +76,15 @@ namespace Ecoview_Normal
             MessageBoxOptions.DefaultDesktopOnly);
             if (result == DialogResult.Yes)
             {
-                _Analis.NoCaIzm1 = numericUpDown3.Text;
-                _Analis.NoCaSer1 = numericUpDown4.Text;
+                _Analis.NoCaIzm1 = Convert.ToInt32(numericUpDown3.Text);
+                _Analis.NoCaSer1 = Convert.ToInt32(numericUpDown4.Text);
                 _Analis.Description = textBox1.Text;
                 _Analis.F1 = textBox2.Text;
                 _Analis.F2 = textBox3.Text;
-                _Analis.errorMethod = textBox4.Text;
+                _Analis.textBox7.Text = textBox4.Text;
                 _Analis.DateTime = dateTimePicker1.Value.Date.ToString("dd.MM.yyyy");
-                _Analis.index = Opt_dlin_cuvet.SelectedIndex;
+                int index = Opt_dlin_cuvet.SelectedIndex;
+                _Analis.Opt_dlin_cuvet.SelectedIndex = index;
 
                 _Analis.Table2Create();
             }
@@ -97,6 +102,7 @@ namespace Ecoview_Normal
             if (sender is CheckBox)
                 ((CheckBox)sender).Checked = !((CheckBox)sender).Checked;
         }
+
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
             char number = e.KeyChar;
@@ -133,7 +139,7 @@ namespace Ecoview_Normal
         }
 
 
-            private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
+        private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
         {
             char number = e.KeyChar;
             if (e.KeyChar == 46 && textBox3.Text.IndexOf(',') == -1)
@@ -167,5 +173,7 @@ namespace Ecoview_Normal
                 MessageBox.Show("В данное поле можно вводить цифры, знаки '-', '.'");
             }
         }
+
     }
+
 }
