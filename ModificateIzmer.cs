@@ -85,7 +85,7 @@ namespace Ecoview_Normal
                 _Analis.DateTime = dateTimePicker1.Value.Date.ToString("dd.MM.yyyy");
                 int index = Opt_dlin_cuvet.SelectedIndex;
                 _Analis.Opt_dlin_cuvet.SelectedIndex = index;
-
+                _Analis.IzmerCreate = true;
                 _Analis.Table2Create();
             }
             this.TopMost = true;
@@ -174,6 +174,40 @@ namespace Ecoview_Normal
             }
         }
 
+        private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if (e.KeyChar == 46 && textBox4.Text.IndexOf(',') == -1)
+            {
+                e.KeyChar = ',';
+
+            }
+            else
+            {
+
+                if (e.KeyChar == 46 && textBox4.Text.IndexOf(',') != -1)
+                {
+                    e.Handled = true;
+                    return;
+                }
+
+            }
+            if (number == 44 && textBox4.Text.IndexOf(',') != -1)
+            {
+                e.Handled = true;
+                return;
+            }
+            if ((number == 45 && textBox4.Text.IndexOf('-') != -1) || (number == 43 && textBox4.Text.IndexOf('+') != -1))
+            {
+                e.Handled = true;
+                return;
+            }
+            if ((e.KeyChar <= 42 || e.KeyChar >= 58 || e.KeyChar == 43 || e.KeyChar == 47) && number != 8 && number != 44) //цифры, клавиша BackSpace и запятая а ASCII
+            {
+                e.Handled = true;
+                MessageBox.Show("В данное поле можно вводить цифры, знаки '-', '.'");
+            }
+        }
     }
 
 }

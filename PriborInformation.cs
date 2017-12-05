@@ -21,38 +21,39 @@ namespace Ecoview_Normal
             Pribor();
         }
         string pathTemp = Path.GetTempPath();
+        string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
         public void Pribor()
         {
             
             var applicationDirectory = Path.GetDirectoryName(Application.ExecutablePath);
-
-            string model = @"pribor/model";
+            
+            string model = path + "/pribor/model";
             DecriptorPribor decriptorModel = new DecriptorPribor(ref model, pathTemp);
            
-           // model = model.Substring(model.LastIndexOf(@"/") + 1);
+           // model = model.Substring(model.LastIndexOf(path + "//") + 1);
             var model_var = Path.Combine(applicationDirectory, pathTemp + model);
 
-            string SerNomer_Text = @"pribor/SerNomer";
+            string SerNomer_Text = path + "/pribor/SerNomer";
             DecriptorPribor decriptorSerNomer = new DecriptorPribor(ref SerNomer_Text, pathTemp);            
             var SerNomer_Text_var = Path.Combine(applicationDirectory, pathTemp + SerNomer_Text);
 
-            string InventarNomer_Text = @"pribor/InventarNomer";
+            string InventarNomer_Text = path + "/pribor/InventarNomer";
             DecriptorPribor decriptorInventarNomer = new DecriptorPribor(ref InventarNomer_Text, pathTemp);           
             var InventarNomer_Text_var = Path.Combine(applicationDirectory, pathTemp + InventarNomer_Text);
 
-            string SrokIstech_Text = @"pribor/SrokIstech";
+            string SrokIstech_Text = path + "/pribor/SrokIstech";
             DecriptorPribor decriptorSrokIstech = new DecriptorPribor(ref SrokIstech_Text, pathTemp);
             var SrokIstech_Text_var = Path.Combine(applicationDirectory, pathTemp + SrokIstech_Text);
 
-            string Poveren_Text = @"pribor/Poveren";
+            string Poveren_Text = path + "/pribor/Poveren";
             DecriptorPribor decriptorPoveren = new DecriptorPribor(ref Poveren_Text, pathTemp);
             var Poveren_Text_var = Path.Combine(applicationDirectory, pathTemp + Poveren_Text);
 
-            string address_lab_Text = @"pribor/address_lab";
+            string address_lab_Text = path + "/pribor/address_lab";
             DecriptorPribor decriptoraddress_lab = new DecriptorPribor(ref address_lab_Text, pathTemp);
             var address_lab_var = Path.Combine(applicationDirectory, pathTemp + address_lab_Text);
 
-            string name_lab_Text = @"pribor/name_lab";
+            string name_lab_Text = path + "/pribor/name_lab";
             DecriptorPribor decriptorname_lab = new DecriptorPribor(ref name_lab_Text, pathTemp);
             var name_lab_var = Path.Combine(applicationDirectory, pathTemp + name_lab_Text);
 
@@ -111,7 +112,7 @@ namespace Ecoview_Normal
         {
             string s1 = "";
             var applicationDirectory = Path.GetDirectoryName(Application.ExecutablePath);
-            const string model = @"pribor/model";
+            string model = path + "/pribor/model";
             var model_var = Path.Combine(applicationDirectory, model);
 
             string s = Model1.SelectedItem.ToString();
@@ -124,23 +125,23 @@ namespace Ecoview_Normal
             string SrokIstech = textBox3.Text;
 
 
-            string SerNomer_Text = @"pribor/SerNomer";
+            string SerNomer_Text = path + "/pribor/SerNomer";
             var SerNomer_Text_var = Path.Combine(applicationDirectory, SerNomer_Text);
 
-            string InventarNomer_Text = @"pribor/InventarNomer";
+            string InventarNomer_Text = path + "/pribor/InventarNomer";
             var InventarNomer_Text_var = Path.Combine(applicationDirectory, InventarNomer_Text);
 
-            string SrokIstech_Text = @"pribor/SrokIstech";
+            string SrokIstech_Text = path + "/pribor/SrokIstech";
             var SrokIstech_Text_var = Path.Combine(applicationDirectory, SrokIstech_Text);
 
-            string Poveren_Text = @"pribor/Poveren";
+            string Poveren_Text = path + "/pribor/Poveren";
             var Poveren_Text_var = Path.Combine(applicationDirectory, Poveren_Text);
 
 
-            string address_lab_Text = @"pribor/address_lab";
+            string address_lab_Text = path + "/pribor/address_lab";
             var address_lab_var = Path.Combine(applicationDirectory, address_lab_Text);
 
-            string name_lab_Text = @"pribor/name_lab";
+            string name_lab_Text = path + "/pribor/name_lab";
             var name_lab_var = Path.Combine(applicationDirectory, name_lab_Text);
 
             File.WriteAllText(SerNomer_Text_var, string.Empty);
@@ -182,6 +183,17 @@ namespace Ecoview_Normal
         private void Cancel_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Registration registration = new Registration();
+            registration.ShowDialog();
+        }
+
+        private void PriborInformation_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

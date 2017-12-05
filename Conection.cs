@@ -79,8 +79,9 @@ namespace Ecoview_Normal
                     return;
 
                 }
+                string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
                 newPort = _Analis.newPort;
-                string openport = "openport.port";
+                string openport = path + "/pribor/openport.port";
                 File.WriteAllText(openport, string.Empty);
                 File.AppendAllText(openport, _Analis.portsName, Encoding.UTF8);
                 string pathTemp = Path.GetTempPath();

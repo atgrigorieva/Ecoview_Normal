@@ -14,6 +14,7 @@ namespace Ecoview_Normal
     class ExportPDFDocALL
     {
         Ecoview _Analis;
+        string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
         public ExportPDFDocALL(Ecoview parent)
         {
             this._Analis = parent;
@@ -346,24 +347,24 @@ namespace Ecoview_Normal
                 var applicationDirectory = Path.GetDirectoryName(Application.ExecutablePath);
 
 
-                string model = @"pribor/model";
+                string model = path + "/pribor/model";
                 DecriptorPribor decriptorModel = new DecriptorPribor(ref model, _Analis.pathTemp);
                 var model_var = Path.Combine(applicationDirectory, _Analis.pathTemp + model);
 
 
-                string SerNomer_Text = @"pribor/SerNomer";
+                string SerNomer_Text = path + "/pribor/SerNomer";
                 DecriptorPribor decriptorSerNomer = new DecriptorPribor(ref SerNomer_Text, _Analis.pathTemp);
                 var SerNomer_Text_var = Path.Combine(applicationDirectory, _Analis.pathTemp + SerNomer_Text);
 
-                string InventarNomer_Text = @"pribor/InventarNomer";
+                string InventarNomer_Text = path + "/pribor/InventarNomer";
                 DecriptorPribor decriptorInventarNomer = new DecriptorPribor(ref InventarNomer_Text, _Analis.pathTemp);
                 var InventarNomer_Text_var = Path.Combine(applicationDirectory, _Analis.pathTemp + InventarNomer_Text);
 
-                string SrokIstech_Text = @"pribor/SrokIstech";
+                string SrokIstech_Text = path + "/pribor/SrokIstech";
                 DecriptorPribor decriptorSrokIstech = new DecriptorPribor(ref SrokIstech_Text, _Analis.pathTemp);
                 var SrokIstech_Text_var = Path.Combine(applicationDirectory, _Analis.pathTemp + SrokIstech_Text);
 
-                string Poveren_Text = @"pribor/Poveren";
+                string Poveren_Text = path + "/pribor/Poveren";
                 DecriptorPribor decriptorPoveren = new DecriptorPribor(ref Poveren_Text, _Analis.pathTemp);
                 var Poveren_Text_var = Path.Combine(applicationDirectory, _Analis.pathTemp + Poveren_Text);
 
@@ -596,24 +597,24 @@ namespace Ecoview_Normal
 
                 Paragraph InformationAboutPribor = new Paragraph("Информация о приборе:\n", font);
                 var applicationDirectory = Path.GetDirectoryName(Application.ExecutablePath);
-                string model = @"pribor/model";
+                string model = path + "/pribor/model";
                 DecriptorPribor decriptorModel = new DecriptorPribor(ref model, _Analis.pathTemp);
                 var model_var = Path.Combine(applicationDirectory, _Analis.pathTemp + model);
 
 
-                string SerNomer_Text = @"pribor/SerNomer";
+                string SerNomer_Text = path + "/pribor/SerNomer";
                 DecriptorPribor decriptorSerNomer = new DecriptorPribor(ref SerNomer_Text, _Analis.pathTemp);
                 var SerNomer_Text_var = Path.Combine(applicationDirectory, _Analis.pathTemp + SerNomer_Text);
 
-                string InventarNomer_Text = @"pribor/InventarNomer";
+                string InventarNomer_Text = path + "/pribor/InventarNomer";
                 DecriptorPribor decriptorInventarNomer = new DecriptorPribor(ref InventarNomer_Text, _Analis.pathTemp);
                 var InventarNomer_Text_var = Path.Combine(applicationDirectory, _Analis.pathTemp + InventarNomer_Text);
 
-                string SrokIstech_Text = @"pribor/SrokIstech";
+                string SrokIstech_Text = path + "/pribor/SrokIstech";
                 DecriptorPribor decriptorSrokIstech = new DecriptorPribor(ref SrokIstech_Text, _Analis.pathTemp);
                 var SrokIstech_Text_var = Path.Combine(applicationDirectory, _Analis.pathTemp + SrokIstech_Text);
 
-                string Poveren_Text = @"pribor/Poveren";
+                string Poveren_Text = path + "/pribor/Poveren";
                 DecriptorPribor decriptorPoveren = new DecriptorPribor(ref Poveren_Text, _Analis.pathTemp);
                 var Poveren_Text_var = Path.Combine(applicationDirectory, _Analis.pathTemp + Poveren_Text);
                 StreamReader fs = new StreamReader(model_var);
@@ -935,24 +936,24 @@ namespace Ecoview_Normal
 
                 Paragraph InformationAboutPribor = new Paragraph("Информация о приборе\n", font);
                 var applicationDirectory = Path.GetDirectoryName(Application.ExecutablePath);
-                string model = @"pribor/model";
+                string model = path + "/pribor/model";
                 DecriptorPribor decriptorModel = new DecriptorPribor(ref model, _Analis.pathTemp);
                 var model_var = Path.Combine(applicationDirectory, _Analis.pathTemp + model);
 
 
-                string SerNomer_Text = @"pribor/SerNomer";
+                string SerNomer_Text = path + "/pribor/SerNomer";
                 DecriptorPribor decriptorSerNomer = new DecriptorPribor(ref SerNomer_Text, _Analis.pathTemp);
                 var SerNomer_Text_var = Path.Combine(applicationDirectory, _Analis.pathTemp + SerNomer_Text);
 
-                string InventarNomer_Text = @"pribor/InventarNomer";
+                string InventarNomer_Text = path + "/pribor/InventarNomer";
                 DecriptorPribor decriptorInventarNomer = new DecriptorPribor(ref InventarNomer_Text, _Analis.pathTemp);
                 var InventarNomer_Text_var = Path.Combine(applicationDirectory, _Analis.pathTemp + InventarNomer_Text);
 
-                string SrokIstech_Text = @"pribor/SrokIstech";
+                string SrokIstech_Text = path + "/pribor/SrokIstech";
                 DecriptorPribor decriptorSrokIstech = new DecriptorPribor(ref SrokIstech_Text, _Analis.pathTemp);
                 var SrokIstech_Text_var = Path.Combine(applicationDirectory, _Analis.pathTemp + SrokIstech_Text);
 
-                string Poveren_Text = @"pribor/Poveren";
+                string Poveren_Text = path + "/pribor/Poveren";
                 DecriptorPribor decriptorPoveren = new DecriptorPribor(ref Poveren_Text, _Analis.pathTemp);
                 var Poveren_Text_var = Path.Combine(applicationDirectory, _Analis.pathTemp + Poveren_Text);
                 StreamReader fs = new StreamReader(model_var);

@@ -18,7 +18,7 @@ using System.Globalization;
 using Microsoft.Win32;
 using System.Xml.Linq;
 using System.Data;
-
+using System.Diagnostics;
 
 namespace Ecoview_Normal
 {
@@ -35,7 +35,7 @@ namespace Ecoview_Normal
         public double[][] massGEMultiAbs;
         public double[][] massGEMultiT;
         public int countButtonClick;
-        public string filepath, filepath2;
+        public string filepath, filepath2, filepathFull, filepathFull2;
         public Microsoft.Office.Interop.Excel.Workbook workBook;
         public Microsoft.Office.Interop.Excel.Worksheet workSheet;
         public string WL_grad1;
@@ -67,9 +67,13 @@ namespace Ecoview_Normal
         public string DateTime2_1 = "";
         public bool USE_KO_1;
         public string pathTemp = Path.GetTempPath();
+        string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
         public Ecoview(int selet_rezim1)
         {
             InitializeComponent();
+
+           
+
             this.selet_rezim = selet_rezim1;
             новыйToolStripMenuItem.Enabled = false;
             сохранитьToolStripMenuItem.Enabled = false;
@@ -79,7 +83,7 @@ namespace Ecoview_Normal
             параметрыToolStripMenuItem.Enabled = false;
             измеритьToolStripMenuItem.Enabled = false;
             калибровкаToolStripMenuItem.Enabled = false;
-            справкаToolStripMenuItem.Visible = false;
+            справкаToolStripMenuItem.Visible = true;
             button1.Enabled = false;
             button3.Enabled = false;
             button7.Enabled = false;
@@ -102,13 +106,14 @@ namespace Ecoview_Normal
                     tabControl2.TabPages.Remove(tabPage7);
                     tabControl2.TabPages.Remove(tabPage8);
                     tabControl2.TabPages.Remove(tabPage9);
-                    this.Text = "Eciview Normal v1.0 Фотометрический режим";
+                    this.Text = "Eciview Normal v2.4 Фотометрический режим";
                     tabControl2.SelectedIndex = 2;
                     tabControl2.SelectTab(tabPage1);
                     ToolTip t1 = new ToolTip();
                     t1.SetToolTip(Add_Table2, "Добавить образец");
                     ToolTip t = new ToolTip();
                     t.SetToolTip(Remove_Table2, "Удалить текущий образец");
+                    загрузкаДанныхСПрибораToolStripMenuItem.Visible = true;
                     break;
                 case 2:
                     tabControl2.TabPages.Remove(tabPage1);
@@ -118,7 +123,7 @@ namespace Ecoview_Normal
                     tabControl2.TabPages.Remove(tabPage7);
                     tabControl2.TabPages.Remove(tabPage8);
                     tabControl2.TabPages.Remove(tabPage9);
-                    this.Text = "Eciview Normal v1.0 Количественный режим";
+                    this.Text = "Eciview Normal v2.4 Количественный режим";
                     tabControl2.SelectedIndex = 0;
                     tabControl2.SelectTab(tabPage3);
                     tabPage4.Parent = null;
@@ -132,6 +137,11 @@ namespace Ecoview_Normal
                     chart1.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
                     новыйToolStripMenuItem.Enabled = true;
                     button5.Enabled = true;
+                    загрузкаДанныхСПрибораToolStripMenuItem.Visible = true;
+                    DateTime now = System.DateTime.Today;
+                    string dayWeek = now.ToLongDateString();
+                    dateTimePicker1.Text = dayWeek;
+                    dateTimePicker2.Text = dayWeek;
                     break;
                 case 3:
                     tabControl2.TabPages.Remove(tabPage3);
@@ -142,7 +152,7 @@ namespace Ecoview_Normal
                     tabControl2.TabPages.Remove(tabPage7);
                     tabControl2.TabPages.Remove(tabPage8);
                     tabControl2.TabPages.Remove(tabPage9);
-                    this.Text = "Eciview Normal v1.0 Многоволновой режим";
+                    this.Text = "Eciview Normal v2.4 Многоволновой режим";
                     tabControl2.SelectedIndex = 3;
                     button13.Enabled = false;
                     tabControl2.SelectTab(tabPage2);
@@ -157,7 +167,7 @@ namespace Ecoview_Normal
                     tabControl2.TabPages.Remove(tabPage7);
                     tabControl2.TabPages.Remove(tabPage8);
                     tabControl2.TabPages.Remove(tabPage9);
-                    this.Text = "Eciview Normal v1.0 Кинетический режим";
+                    this.Text = "Eciview Normal v2.4 Кинетический режим";
                     tabControl2.SelectedIndex = 4;
                     button13.Enabled = false;
                     tabControl2.SelectTab(tabPage5);
@@ -172,7 +182,8 @@ namespace Ecoview_Normal
                     tabControl2.TabPages.Remove(tabPage6);
                     tabControl2.TabPages.Remove(tabPage7);
                     tabControl2.TabPages.Remove(tabPage8);
-                    this.Text = "Eciview Normal v1.0 Работа в Excel";
+                    tabControl2.TabPages.Remove(tabPage3);
+                    this.Text = "Eciview Normal v2.4 Работа в Excel";
                     tabControl2.SelectedIndex = 9;
 
                     tabControl2.SelectTab(tabPage9);
@@ -221,11 +232,11 @@ namespace Ecoview_Normal
             var applicationDirectory = Path.GetDirectoryName(Application.ExecutablePath);
 
 
-            string SrokIstech_Text = @"pribor/SrokIstech";
+            string SrokIstech_Text = path + "/pribor/SrokIstech";
             DecriptorPribor decriptorSrokIstech = new DecriptorPribor(ref SrokIstech_Text, pathTemp);
             var SrokIstech_Text_var = Path.Combine(applicationDirectory, pathTemp + SrokIstech_Text);
 
-            string Poveren_Text = @"pribor/Poveren";
+            string Poveren_Text = path + "/pribor/Poveren";
             DecriptorPribor decriptorPoveren = new DecriptorPribor(ref Poveren_Text, pathTemp);
             var Poveren_Text_var = Path.Combine(applicationDirectory, pathTemp + Poveren_Text);
 
@@ -240,11 +251,11 @@ namespace Ecoview_Normal
             fs4.Close();
 
 
-            string address_lab_Text = @"pribor/address_lab";
+            string address_lab_Text = path + "/pribor/address_lab";
             DecriptorPribor decriptoraddress_lab = new DecriptorPribor(ref address_lab_Text, pathTemp);
             var address_lab_var = Path.Combine(applicationDirectory, pathTemp + address_lab_Text);
 
-            string name_lab_Text = @"pribor/name_lab";
+            string name_lab_Text = path + "/pribor/name_lab";
             DecriptorPribor decriptorname_lab = new DecriptorPribor(ref name_lab_Text, pathTemp);
             var name_lab_var = Path.Combine(applicationDirectory, pathTemp + name_lab_Text);
 
@@ -274,6 +285,10 @@ namespace Ecoview_Normal
 
             }
             Podskazka.Text = "Подключитесь к прибору!";
+
+           
+            
+
         }
        // public Label label6;
         public bool nonPort; //Порт включен(выключен)
@@ -292,7 +307,7 @@ namespace Ecoview_Normal
         public string name_lab;
         public bool OpenIzmer;
         public bool OpenIzmer1;
-        public string Description;
+        public string Description, Description1;
         public string DateTime;
         public string Ispolnitel;
         public string direction;
@@ -585,13 +600,17 @@ namespace Ecoview_Normal
 
         private void Ecoview_Load(object sender, EventArgs e)
         {
-
+            if (!File.Exists(path + "/pribor/registrastion"))
+            {
+                FirstStart firstStrat = new FirstStart();
+                firstStrat.ShowDialog();
+            }
         }
         public void TableKinetica(object sender, EventArgs e)
         {
             label56.Text = string.Format("{0:0.0}", timeLeft);
             timeLeft = timeLeft - Convert.ToDouble(interval);
-            Application.DoEvents();
+          //  Application.DoEvents();
             //  MessageBox.Show("Интервал: " + interval*1000);
             TableKinetica1.Rows.Add();
             Array.Resize<double>(ref massWL, massWL.Length + 1);
@@ -642,13 +661,13 @@ namespace Ecoview_Normal
                 GE5Izmer = regex1.Replace(GE5Izmer, "");
             }
            
-            GEText.Text = GE5Izmer;
+            
             double Aser = Convert.ToDouble(GE5Izmer) / Convert.ToDouble(GE5_1_0) * 100;
             double OptPlot1 = 0;
            
             OptPlot1 = Math.Log10((Convert.ToDouble(GE5_1_0) - Convert.ToDouble(RDstring[countSA])) / (Convert.ToDouble(GE5Izmer) - Convert.ToDouble(RDstring[countSA])));
             double OptPlot1_1 = OptPlot1;
-            Application.DoEvents();
+          //  Application.DoEvents();
             massWL[countscan] = Convert.ToDouble(TableKinetica1.Rows[countscan].Cells[0].Value);
             TableKinetica1.Rows[countscan].Cells[0].Value = string.Format("{0:0.0}", Convert.ToDouble(interval) * countscan);
             if (TableKinetica1.Columns[1].HeaderText == "Abs")
@@ -727,8 +746,31 @@ namespace Ecoview_Normal
             double max = 0.0;
             double min = 0.0;
             countscan = 0;
+            chart3.Series[0].Points.Clear();
+           // chart3.Series[1].Points.Clear();
+            
+            chart3.ChartAreas[0].AxisX.Minimum = Convert.ToDouble(TableKinetica1.Rows[0].Cells[0].Value);
+            chart3.ChartAreas[0].AxisX.Maximum = Convert.ToDouble(TableKinetica1.Rows[TableKinetica1.Rows.Count - 2].Cells[0].Value);
+
+          
+            chart3.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
+            chart3.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
+            chart3.ChartAreas[0].AxisX.Title = TableKinetica1.Columns[0].HeaderText;
+            chart3.ChartAreas[0].AxisY.Title = TableKinetica1.Columns[1].HeaderText;
+            for (int i = 0; i < TableKinetica1.Rows.Count - 1; i++)
+            {
+                double x = Convert.ToDouble(TableKinetica1.Rows[i].Cells[0].Value);
+                double y = Convert.ToDouble(TableKinetica1.Rows[i].Cells[1].Value);
+
+
+                chart3.Series[countButtonClick].Points.AddXY(x, y);
+                chart3.Series[countButtonClick].ChartType = SeriesChartType.Line;
+
+            }
             for (int i = 0; i < TableKinetica1.Rows.Count; i++)
             {
+                
+
                 double x1 = 0;
                 double y1 = 0;
                 if (i == 0)
@@ -740,10 +782,10 @@ namespace Ecoview_Normal
                         min = max;
                         x1 = Convert.ToDouble(TableKinetica1.Rows[i].Cells[0].Value);
                         y1 = Convert.ToDouble(TableKinetica1.Rows[i].Cells[1].Value);
-                        chart3.Series[0].Points.AddXY(x1, y1);
-                        chart3.Series[0].Points[countscan].Label = Convert.ToString(x1);
-                        chart3.Series[0].Points[countscan].Color = System.Drawing.Color.DarkViolet;
-                        chart3.Series[0].ChartType = SeriesChartType.Point;
+                        chart3.Series[1].Points.AddXY(x1, y1);
+                        chart3.Series[1].Points[countscan].Label = Convert.ToString(x1);
+                        chart3.Series[1].Points[countscan].Color = System.Drawing.Color.DarkViolet;
+                        chart3.Series[1].ChartType = SeriesChartType.Point;
                         countscan++;
                     }
                     else
@@ -753,10 +795,10 @@ namespace Ecoview_Normal
                         max = min;
                         x1 = Convert.ToDouble(TableKinetica1.Rows[i].Cells[0].Value);
                         y1 = Convert.ToDouble(TableKinetica1.Rows[i].Cells[1].Value);
-                        chart3.Series[0].Points.AddXY(x1, y1);
-                        chart3.Series[0].Points[countscan].Label = Convert.ToString(x1);
-                        chart3.Series[0].Points[countscan].Color = System.Drawing.Color.DarkOrchid;
-                        chart3.Series[0].ChartType = SeriesChartType.Point;
+                        chart3.Series[1].Points.AddXY(x1, y1);
+                        chart3.Series[1].Points[countscan].Label = Convert.ToString(x1);
+                        chart3.Series[1].Points[countscan].Color = System.Drawing.Color.DarkOrchid;
+                        chart3.Series[1].ChartType = SeriesChartType.Point;
                         countscan++;
                     }
 
@@ -775,10 +817,10 @@ namespace Ecoview_Normal
                             dataGridView3.Rows.Add(TableKinetica1.Rows[i].Cells[0].Value, TableKinetica1.Rows[i].Cells[1].Value, TableKinetica1.Rows[i].Cells[2].Value);
                             x1 = Convert.ToDouble(TableKinetica1.Rows[i].Cells[0].Value);
                             y1 = Convert.ToDouble(TableKinetica1.Rows[i].Cells[1].Value);
-                            chart3.Series[0].Points.AddXY(x1, y1);
-                            chart3.Series[0].Points[countscan].Label = Convert.ToString(x1);
-                            chart3.Series[0].Points[countscan].Color = System.Drawing.Color.DarkViolet;
-                            chart3.Series[0].ChartType = SeriesChartType.Point;
+                            chart3.Series[1].Points.AddXY(x1, y1);
+                            chart3.Series[1].Points[countscan].Label = Convert.ToString(x1);
+                            chart3.Series[1].Points[countscan].Color = System.Drawing.Color.DarkViolet;
+                            chart3.Series[1].ChartType = SeriesChartType.Point;
                             countscan++;
                         }
                         if ((Convert.ToDouble(TableKinetica1.Rows[i].Cells[1].Value) < Convert.ToDouble(TableKinetica1.Rows[i - 1].Cells[1].Value)
@@ -792,10 +834,10 @@ namespace Ecoview_Normal
                             max = min;
                             x1 = Convert.ToDouble(TableKinetica1.Rows[i].Cells[0].Value);
                             y1 = Convert.ToDouble(TableKinetica1.Rows[i].Cells[1].Value);
-                            chart3.Series[0].Points.AddXY(x1, y1);
-                            chart3.Series[0].Points[countscan].Label = Convert.ToString(x1);
-                            chart3.Series[0].Points[countscan].Color = System.Drawing.Color.Teal;
-                            chart3.Series[0].ChartType = SeriesChartType.Point;
+                            chart3.Series[1].Points.AddXY(x1, y1);
+                            chart3.Series[1].Points[countscan].Label = Convert.ToString(x1);
+                            chart3.Series[1].Points[countscan].Color = System.Drawing.Color.Teal;
+                            chart3.Series[1].ChartType = SeriesChartType.Point;
                             countscan++;
                         }
                     }
@@ -981,7 +1023,7 @@ namespace Ecoview_Normal
             //GE5Izmer = Convert.ToString(GEIZMERmass.Max());
 
 
-            GEText.Text = GE5Izmer;
+           
 
             double Aser = Convert.ToDouble(GE5Izmer) / Convert.ToDouble(GE5_1_0) * 100;
             double OptPlot1 = 0;
@@ -1137,7 +1179,7 @@ namespace Ecoview_Normal
                 GE5Izmer = regex1.Replace(GE5Izmer, "");
             }
 
-            GEText.Text = GE5Izmer;
+           
             double Aser = Convert.ToDouble(GE5Izmer) / Convert.ToDouble(GE5_1_0) * 100;
             double OptPlot1 = 0;
          
@@ -1523,7 +1565,7 @@ namespace Ecoview_Normal
                     GE5Izmer = regex1.Replace(GE5Izmer, "");
                 }
                 //MessageBox.Show("Измерение");
-                GEText.Text = GE5Izmer;
+                
                 double Aser = Convert.ToDouble(GE5Izmer) / Convert.ToDouble(scan_mass[countscan]) * 100;
                 double OptPlot1 = 0;
 
@@ -1602,7 +1644,7 @@ namespace Ecoview_Normal
             Regex regex1 = new Regex(@"\D");
             GE5Izmer = regex.Replace(indata_0, "");
             GE5Izmer = regex1.Replace(GE5Izmer, "");
-            GEText.Text = GE5Izmer;
+          
 
             double Aser = Convert.ToDouble(GE5Izmer) / Convert.ToDouble(GE5_1_0) * 100;
             double OptPlot1 = 0;
@@ -1637,7 +1679,7 @@ namespace Ecoview_Normal
             {
                 MessageBox.Show("Запись запрещена!");
             }
-            GAText.Text = string.Format("{0:0.00}", Aser);
+           
             for (int j = 0; j < Table1.Rows.Count - 1; j++)
             {
                 {
@@ -1907,7 +1949,7 @@ namespace Ecoview_Normal
             GE5Izmer = regex.Replace(indata_0, "");
             GE5Izmer = regex1.Replace(GE5Izmer, "");
 
-            GEText.Text = GE5Izmer;
+  
             // MessageBox.Show(GE5Izmer);
             int curentIndex = Table2.CurrentCell.ColumnIndex;
             double Aser = Convert.ToDouble(GE5Izmer) / Convert.ToDouble(GE5_1_0) * 100;
@@ -1923,7 +1965,7 @@ namespace Ecoview_Normal
                 }
             }
             else {
-                if (Table2.CurrentCell.ReadOnly != true)
+                if (Table2.CurrentCell.ReadOnly != true && Table2.SelectedCells[0].ColumnIndex != 1)
 
                 {
 
@@ -1941,7 +1983,7 @@ namespace Ecoview_Normal
             }
 
 
-            GAText.Text = string.Format("{0:0.00}", Aser);
+          
 
 
             bool doNotWrite = false;
@@ -2068,7 +2110,7 @@ namespace Ecoview_Normal
                         Table2.Rows[0].Cells["d%"].ReadOnly = true;
                     }
                 }
-                if (Table2.CurrentCell.Value == null && Table2.CurrentCell.ReadOnly != true)
+                if (Table2.CurrentCell.Value == null && Table2.CurrentCell.ReadOnly != true && Table2.SelectedCells[0].ColumnIndex != 1)
                 {
                     Table2_UseCo();
                 }
@@ -2711,142 +2753,152 @@ namespace Ecoview_Normal
                     }
                     else
                     {
-                        if (aproksim == "Линейная через 0")
+                        if (Table2.Rows[0].Cells["A;Ser" + i].Value != null)
                         {
-
-                            if (Table2.Rows[0].Cells["A;Ser" + i].Value.ToString() != "" && Table2.Rows[i1].Cells["A;Ser" + i].Value.ToString() != "")
+                            if (aproksim == "Линейная через 0")
                             {
-                                if ((Convert.ToDouble(Table2.Rows[0].Cells["A;Ser" + i].Value.ToString()) > Convert.ToDouble(Table2.Rows[i1].Cells["A;Ser" + i].Value.ToString())) && count == 0)
+
+
+                                if (Table2.Rows[0].Cells["A;Ser" + i].Value.ToString() != "" && Table2.Rows[i1].Cells["A;Ser" + i].Value.ToString() != "")
                                 {
-                                    if (count == 0)
+                                    if ((Convert.ToDouble(Table2.Rows[0].Cells["A;Ser" + i].Value.ToString()) > Convert.ToDouble(Table2.Rows[i1].Cells["A;Ser" + i].Value.ToString())) && count == 0)
                                     {
-                                        count++;
-                                        MessageBox.Show("Оптическая плотность контрольногго образца не может быть больше иззмеряемого!");
+                                        if (count == 0)
+                                        {
+                                            count++;
+                                            MessageBox.Show("Оптическая плотность контрольногго образца не может быть больше иззмеряемого!");
+                                        }
+
                                     }
 
+                                    serValue = (Convert.ToDouble(Table2.Rows[i1].Cells["A;Ser" + i].Value.ToString()) - Convert.ToDouble(Table2.Rows[0].Cells["A;Ser" + i].Value.ToString())) / Convert.ToDouble(AgroText1.Text);
+                                }
+                                else
+                                {
+
+                                    serValue = 0;
+                                    if (Table2.Rows[0].Cells["A;Ser" + i1].Value.ToString() == null)
+                                    {
+                                        MessageBox.Show("Измерьте Контрольный образец!");
+                                        return;
+
+
+                                    }
+                                }
+                            }
+                            if (aproksim == "Линейная")
+                            {
+                                if (Table2.Rows[0].Cells["A;Ser" + i].Value.ToString() != "" && Table2.Rows[Table2.CurrentCell.RowIndex].Cells["A;Ser" + i].Value.ToString() != "")
+                                {
+                                    if ((Convert.ToDouble(Table2.Rows[0].Cells["A;Ser" + i].Value.ToString()) > Convert.ToDouble(Table2.Rows[i1].Cells["A;Ser" + i].Value.ToString())) && count == 0)
+                                    {
+                                        if (count == 0)
+                                        {
+                                            count++;
+                                            MessageBox.Show("Оптическая плотность контрольногго образца не может быть больше иззмеряемого!");
+                                        }
+                                    }
+                                    serValue = ((Convert.ToDouble(Table2.Rows[i1].Cells["A;Ser" + i].Value.ToString()) - Convert.ToDouble(Table2.Rows[0].Cells["A;Ser" + i].Value.ToString()) - Convert.ToDouble(AgroText0.Text))) / Convert.ToDouble(AgroText1.Text);
+                                }
+                                else
+                                {
+
+                                    serValue = 0;
+                                    if (Table2.Rows[0].Cells["A;Ser" + i1].Value.ToString() == null)
+                                    {
+                                        MessageBox.Show("Измерьте Контрольный образец!");
+                                        return;
+
+
+                                    }
                                 }
 
-                                serValue = (Convert.ToDouble(Table2.Rows[i1].Cells["A;Ser" + i].Value.ToString()) - Convert.ToDouble(Table2.Rows[0].Cells["A;Ser" + i].Value.ToString())) / Convert.ToDouble(AgroText1.Text);
+                            }
+                            if (aproksim == "Квадратичная")
+                            {
+                                if (Table2.Rows[0].Cells["A;Ser" + i].Value.ToString() != "" && Table2.Rows[i1].Cells["A;Ser" + i].Value.ToString() != "")
+                                {
+                                    if ((Convert.ToDouble(Table2.Rows[0].Cells["A;Ser" + i].Value.ToString()) > Convert.ToDouble(Table2.Rows[i1].Cells["A;Ser" + i].Value.ToString())) && count == 0)
+                                    {
+                                        if (count == 0)
+                                        {
+                                            count++;
+                                            MessageBox.Show("Оптическая плотность контрольногго образца не может быть больше иззмеряемого!");
+                                        }
+                                    }
+                                    serValue = ((Convert.ToDouble(Table2.Rows[i1].Cells["A;Ser" + i].Value.ToString()) - Convert.ToDouble(Table2.Rows[0].Cells["A;Ser" + i].Value.ToString()) - Convert.ToDouble(AgroText0.Text))) / (Convert.ToDouble(AgroText1.Text) + Convert.ToDouble(AgroText2.Text));
+                                }
+                                else
+                                {
+                                    serValue = 0;
+                                    if (Table2.Rows[0].Cells["A;Ser" + i].Value.ToString() == null)
+                                    {
+                                        MessageBox.Show("Измерьте Контрольый образец!");
+                                        return;
+
+
+                                    }
+                                }
+                            }
+                            double CValue1 = Convert.ToDouble(F1Text.Text);
+                            double CValue2 = Convert.ToDouble(F2Text.Text);
+
+                            if (serValue >= 0)
+                            {
+                                Table2.Rows[i1].Cells["C,edconctr;Ser." + i].Value = string.Format("{0:0.0000}", serValue * CValue1 * CValue2);
+                                SredValue += Convert.ToDouble(Table2.Rows[i1].Cells["C,edconctr;Ser." + i].Value.ToString());
                             }
                             else
                             {
-
-                                serValue = 0;
-                                if (Table2.Rows[0].Cells["A;Ser" + i1].Value.ToString() == null)
-                                {
-                                    MessageBox.Show("Измерьте Контрольный образец!");
-                                    return;
-
-
-                                }
+                                Table2.Rows[i1].Cells["C,edconctr;Ser." + i].Value = "";
                             }
-                        }
-                        if (aproksim == "Линейная")
-                        {
-                            if (Table2.Rows[0].Cells["A;Ser" + i].Value.ToString() != "" && Table2.Rows[Table2.CurrentCell.RowIndex].Cells["A;Ser" + i].Value.ToString() != "")
+                            if (Convert.ToDouble(Table2.Rows[0].Cells["A;Ser" + i].Value.ToString()) > Convert.ToDouble(Table2.Rows[i1].Cells["A;Ser" + i].Value.ToString()))
                             {
-                                if ((Convert.ToDouble(Table2.Rows[0].Cells["A;Ser" + i].Value.ToString()) > Convert.ToDouble(Table2.Rows[i1].Cells["A;Ser" + i].Value.ToString())) && count == 0)
+                                if (selet_rezim == 2)
                                 {
-                                    if (count == 0)
+                                    Table2.Rows[i1].Cells["Ccr"].Value = "";
+                                }
+
+                            }
+                            else {
+                                if (selet_rezim == 2)
+                                {
+                                    CCR = SredValue / NoCaIzm1;
+                                    if (Convert.ToDouble(textBox7.Text) >= 1)
                                     {
-                                        count++;
-                                        MessageBox.Show("Оптическая плотность контрольногго образца не может быть больше иззмеряемого!");
+
+                                        Table2.Rows[i1].Cells["Ccr"].Value = string.Format("{0:0.0000}", CCR) + "±" + string.Format("{0:0.0000}", ((CCR * Convert.ToDouble(textBox7.Text))) / 100);
+                                    }
+                                    else
+                                    {
+
+                                        Table2.Rows[i1].Cells["Ccr"].Value = string.Format("{0:0.0000}", CCR);
+                                    }
+
+                                    //Table2.Rows[j].Cells["d%"].Value = El.Max();
+                                    if (Table2.Rows[i1].Cells["C,edconctr;Ser." + i].Value == null)
+                                    {
+                                        cellnull++;
+                                    }
+                                    else
+                                    {
+                                        if (Table2.Rows[i1].Cells["C,edconctr;Ser." + i].Value.ToString() != "")
+                                        {
+                                            El[i - 1] = Convert.ToDouble(Table2.Rows[i1].Cells["C,edconctr;Ser." + i].Value.ToString());
+                                        }
                                     }
                                 }
-                                serValue = ((Convert.ToDouble(Table2.Rows[i1].Cells["A;Ser" + i].Value.ToString()) - Convert.ToDouble(Table2.Rows[0].Cells["A;Ser" + i].Value.ToString()) - Convert.ToDouble(AgroText0.Text))) / Convert.ToDouble(AgroText1.Text);
-                            }
-                            else
-                            {
-
-                                serValue = 0;
-                                if (Table2.Rows[0].Cells["A;Ser" + i1].Value.ToString() == null)
-                                {
-                                    MessageBox.Show("Измерьте Контрольный образец!");
-                                    return;
-
-
-                                }
                             }
 
-                        }
-                        if (aproksim == "Квадратичная")
-                        {
-                            if (Table2.Rows[0].Cells["A;Ser" + i].Value.ToString() != "" && Table2.Rows[i1].Cells["A;Ser" + i].Value.ToString() != "")
-                            {
-                                if ((Convert.ToDouble(Table2.Rows[0].Cells["A;Ser" + i].Value.ToString()) > Convert.ToDouble(Table2.Rows[i1].Cells["A;Ser" + i].Value.ToString())) && count == 0)
-                                {
-                                    if (count == 0)
-                                    {
-                                        count++;
-                                        MessageBox.Show("Оптическая плотность контрольногго образца не может быть больше иззмеряемого!");
-                                    }
-                                }
-                                serValue = ((Convert.ToDouble(Table2.Rows[i1].Cells["A;Ser" + i].Value.ToString()) - Convert.ToDouble(Table2.Rows[0].Cells["A;Ser" + i].Value.ToString()) - Convert.ToDouble(AgroText0.Text))) / (Convert.ToDouble(AgroText1.Text) + Convert.ToDouble(AgroText2.Text));
-                            }
-                            else
-                            {
-                                serValue = 0;
-                                if (Table2.Rows[0].Cells["A;Ser" + i].Value.ToString() == null)
-                                {
-                                    MessageBox.Show("Измерьте Контрольый образец!");
-                                    return;
 
-
-                                }
-                            }
-                        }
-                        double CValue1 = Convert.ToDouble(F1Text.Text);
-                        double CValue2 = Convert.ToDouble(F2Text.Text);
-
-                        if (serValue >= 0)
-                        {
-                            Table2.Rows[i1].Cells["C,edconctr;Ser." + i].Value = string.Format("{0:0.0000}", serValue * CValue1 * CValue2);
-                            SredValue += Convert.ToDouble(Table2.Rows[i1].Cells["C,edconctr;Ser." + i].Value.ToString());
                         }
                         else
                         {
-                            Table2.Rows[i1].Cells["C,edconctr;Ser." + i].Value = "";
-                        }
-                        if (Convert.ToDouble(Table2.Rows[0].Cells["A;Ser" + i].Value.ToString()) > Convert.ToDouble(Table2.Rows[i1].Cells["A;Ser" + i].Value.ToString()))
-                        {
-                            if (selet_rezim == 2)
-                            {
-                                Table2.Rows[i1].Cells["Ccr"].Value = "";
-                            }
+                            MessageBox.Show("Измерьте Контрольный образец!");
+                            return;
+
 
                         }
-                        else {
-                            if (selet_rezim == 2)
-                            {
-                                CCR = SredValue / NoCaIzm1;
-                                if (Convert.ToDouble(textBox7.Text) >= 1)
-                                {
-
-                                    Table2.Rows[i1].Cells["Ccr"].Value = string.Format("{0:0.0000}", CCR) + "±" + string.Format("{0:0.0000}", ((CCR * Convert.ToDouble(textBox7.Text))) / 100);
-                                }
-                                else
-                                {
-
-                                    Table2.Rows[i1].Cells["Ccr"].Value = string.Format("{0:0.0000}", CCR);
-                                }
-
-                                //Table2.Rows[j].Cells["d%"].Value = El.Max();
-                                if (Table2.Rows[i1].Cells["C,edconctr;Ser." + i].Value == null)
-                                {
-                                    cellnull++;
-                                }
-                                else
-                                {
-                                    if (Table2.Rows[i1].Cells["C,edconctr;Ser." + i].Value.ToString() != "")
-                                    {
-                                        El[i - 1] = Convert.ToDouble(Table2.Rows[i1].Cells["C,edconctr;Ser." + i].Value.ToString());
-                                    }
-                                }
-                            }
-                        }
-
-
-
 
                     }
                 }
@@ -3525,7 +3577,7 @@ namespace Ecoview_Normal
                 e.Graphics.DrawString(address_lab, new System.Drawing.Font("Times New Roman", 12, FontStyle.Regular), Brushes.Black, 195, 150);
 
                 e.Graphics.DrawString("Нормативный документ:", new System.Drawing.Font("Times New Roman", 12, FontStyle.Bold), Brushes.Black, 25, 170);
-                e.Graphics.DrawString(ND, new System.Drawing.Font("Times New Roman", 12, FontStyle.Regular), Brushes.Black, 250, 170);
+                e.Graphics.DrawString(ND, new System.Drawing.Font("Times New Roman", 12, FontStyle.Regular), Brushes.Black, 280, 170);
 
 
                 e.Graphics.DrawString("Вещество:", new System.Drawing.Font("Times New Roman", 12, FontStyle.Bold), Brushes.Black, 25, 190);
@@ -3533,7 +3585,7 @@ namespace Ecoview_Normal
                 e.Graphics.DrawString("Длина волны (нм):", new System.Drawing.Font("Times New Roman", 12, FontStyle.Bold), Brushes.Black, 25, 210);
                 e.Graphics.DrawString(wavelength1, new System.Drawing.Font("Times New Roman", 12, FontStyle.Regular), Brushes.Black, 200, 210);
                 e.Graphics.DrawString("Длина кюветы (мм):", new System.Drawing.Font("Times New Roman", 12, FontStyle.Bold), Brushes.Black, 300, 210);
-                e.Graphics.DrawString(WidthCuvette, new System.Drawing.Font("Times New Roman", 12, FontStyle.Regular), Brushes.Black, 490, 210);
+                e.Graphics.DrawString(textBox2.Text, new System.Drawing.Font("Times New Roman", 12, FontStyle.Regular), Brushes.Black, 490, 210);
                 e.Graphics.DrawString("Границы обнаружения:", new System.Drawing.Font("Times New Roman", 12, FontStyle.Bold), Brushes.Black, 25, 230);
                 e.Graphics.DrawString("Нижняя:", new System.Drawing.Font("Times New Roman", 12, FontStyle.Bold), Brushes.Black, 230, 230);
                 e.Graphics.DrawString(BottomLine + " " + edconctr, new System.Drawing.Font("Times New Roman", 12, FontStyle.Regular), Brushes.Black, 330, 230);
@@ -3549,7 +3601,7 @@ namespace Ecoview_Normal
                 e.Graphics.DrawString("Информация о приборе:\n", new System.Drawing.Font("Times New Roman", 12, FontStyle.Bold), Brushes.Black, new Point(25, 310));
                 var applicationDirectory = Path.GetDirectoryName(Application.ExecutablePath);
 
-                string model = @"pribor/model";
+                string model = path + "/pribor/model";
                 DecriptorPribor decriptorModel = new DecriptorPribor(ref model, pathTemp);
                 applicationDirectory = Path.GetDirectoryName(Application.ExecutablePath);
                 // model = model.Substring(model.LastIndexOf(@"/") + 1);
@@ -3561,7 +3613,7 @@ namespace Ecoview_Normal
                 e.Graphics.DrawString(fs.ReadLine(), new System.Drawing.Font("Times New Roman", 12, FontStyle.Regular), Brushes.Black, new Point(310, 330));
                 fs.Close();
 
-                string SerNomer_Text = @"pribor/SerNomer";
+                string SerNomer_Text = path + "/pribor/SerNomer";
                 DecriptorPribor decriptorSerNomer = new DecriptorPribor(ref SerNomer_Text, pathTemp);
                 applicationDirectory = Path.GetDirectoryName(Application.ExecutablePath);
                 //    SerNomer_Text = Convert.ToString((SerNomer_Text.LastIndexOf(@"\") + 1));
@@ -3573,7 +3625,7 @@ namespace Ecoview_Normal
                 fs1.Close();
 
 
-                string InventarNomer_Text = @"pribor/InventarNomer";
+                string InventarNomer_Text = path + "/pribor/InventarNomer";
                 DecriptorPribor decriptorInventarNomer = new DecriptorPribor(ref InventarNomer_Text, pathTemp);
                 applicationDirectory = Path.GetDirectoryName(Application.ExecutablePath);
                 //  InventarNomer_Text = Convert.ToString((InventarNomer_Text.LastIndexOf(@"\") + 1));
@@ -3585,7 +3637,7 @@ namespace Ecoview_Normal
                 fs2.Close();
 
 
-                string Poveren_Text = @"pribor/Poveren";
+                string Poveren_Text = path + "/pribor/Poveren";
                 DecriptorPribor decriptorPoveren = new DecriptorPribor(ref Poveren_Text, pathTemp);
                 applicationDirectory = Path.GetDirectoryName(Application.ExecutablePath);
                 //   Poveren_Text = Convert.ToString((Poveren_Text.LastIndexOf(@"\") + 1));
@@ -3735,7 +3787,7 @@ namespace Ecoview_Normal
 
                 }
                 e.Graphics.DrawString("Дата:", new System.Drawing.Font("Times New Roman", 12, FontStyle.Bold), Brushes.Black, 25, cordY);
-                e.Graphics.DrawString(DateTime, new System.Drawing.Font("Times New Roman", 12, FontStyle.Regular), Brushes.Black, 80, cordY);
+                e.Graphics.DrawString(dateTimePicker1.Text, new System.Drawing.Font("Times New Roman", 12, FontStyle.Regular), Brushes.Black, 80, cordY);
                 e.Graphics.DrawString("Время начала:", new System.Drawing.Font("Times New Roman", 12, FontStyle.Bold), Brushes.Black, 180, cordY);
                 e.Graphics.DrawString(" _______ ", new System.Drawing.Font("Times New Roman", 12, FontStyle.Regular), Brushes.Black, 290, cordY);
 
@@ -3807,31 +3859,31 @@ namespace Ecoview_Normal
                 e.Graphics.DrawString("Градуировочное уравнение:", new System.Drawing.Font("Times New Roman", 12, FontStyle.Bold), Brushes.Black, 60, 370);
                 e.Graphics.DrawString(label14.Text, new System.Drawing.Font("Times New Roman", 12, FontStyle.Regular), Brushes.Black, 330, 370);
                 e.Graphics.DrawString("Нормативный документ:", new System.Drawing.Font("Times New Roman", 12, FontStyle.Bold), Brushes.Black, 60, 390);
-                e.Graphics.DrawString(ND, new System.Drawing.Font("Times New Roman", 12, FontStyle.Regular), Brushes.Black, 250, 390);
+                e.Graphics.DrawString(ND, new System.Drawing.Font("Times New Roman", 12, FontStyle.Regular), Brushes.Black, 280, 390);
                 e.Graphics.DrawString("Статистика:", new System.Drawing.Font("Times New Roman", 12, FontStyle.Bold), Brushes.Black, 60, 410);
                 e.Graphics.DrawString(RR.Text + "                                               " + SKO.Text + "\n" + label21.Text + "          " + label22.Text, new System.Drawing.Font("Times New Roman", 12, FontStyle.Bold), Brushes.Black, 140, 430);
                 e.Graphics.DrawString("Информация о приборе:\n", new System.Drawing.Font("Times New Roman", 12, FontStyle.Bold), Brushes.Black, new Point(25, 470));
 
                 var applicationDirectory = Path.GetDirectoryName(Application.ExecutablePath);
 
-                string model = @"pribor/model";
+                string model = path + "/pribor/model";
                 DecriptorPribor decriptorModel = new DecriptorPribor(ref model, pathTemp);
                 var model_var = Path.Combine(applicationDirectory, pathTemp + model);
 
 
-                string SerNomer_Text = @"pribor/SerNomer";
+                string SerNomer_Text = path + "/pribor/SerNomer";
                 DecriptorPribor decriptorSerNomer = new DecriptorPribor(ref SerNomer_Text, pathTemp);
                 var SerNomer_Text_var = Path.Combine(applicationDirectory, pathTemp + SerNomer_Text);
 
-                string InventarNomer_Text = @"pribor/InventarNomer";
+                string InventarNomer_Text = path + "/pribor/InventarNomer";
                 DecriptorPribor decriptorInventarNomer = new DecriptorPribor(ref InventarNomer_Text, pathTemp);
                 var InventarNomer_Text_var = Path.Combine(applicationDirectory, pathTemp + InventarNomer_Text);
 
-                string SrokIstech_Text = @"pribor/SrokIstech";
+                string SrokIstech_Text = path + "/pribor/SrokIstech";
                 DecriptorPribor decriptorSrokIstech = new DecriptorPribor(ref SrokIstech_Text, pathTemp);
                 var SrokIstech_Text_var = Path.Combine(applicationDirectory, pathTemp + SrokIstech_Text);
 
-                string Poveren_Text = @"pribor/Poveren";
+                string Poveren_Text = path + "/pribor/Poveren";
                 DecriptorPribor decriptorPoveren = new DecriptorPribor(ref Poveren_Text, pathTemp);
                 var Poveren_Text_var = Path.Combine(applicationDirectory, pathTemp + Poveren_Text);
 
@@ -3991,7 +4043,7 @@ namespace Ecoview_Normal
             e.Graphics.DrawString("Информация о приборе:\n", new System.Drawing.Font("Times New Roman", 12, FontStyle.Bold), Brushes.Black, new Point(25, 195));
             var applicationDirectory = Path.GetDirectoryName(Application.ExecutablePath);
 
-            string model = @"pribor/model";
+            string model = path + "/pribor/model";
             DecriptorPribor decriptorModel = new DecriptorPribor(ref model, pathTemp);
             applicationDirectory = Path.GetDirectoryName(Application.ExecutablePath);
             // model = model.Substring(model.LastIndexOf(@"/") + 1);
@@ -4006,7 +4058,7 @@ namespace Ecoview_Normal
             fs.Close();
 
 
-            string SerNomer_Text = @"pribor/SerNomer";
+            string SerNomer_Text = path + "/pribor/SerNomer";
             DecriptorPribor decriptorSerNomer = new DecriptorPribor(ref SerNomer_Text, pathTemp);
             applicationDirectory = Path.GetDirectoryName(Application.ExecutablePath);
             //    SerNomer_Text = Convert.ToString((SerNomer_Text.LastIndexOf(@"\") + 1));
@@ -4018,7 +4070,7 @@ namespace Ecoview_Normal
             fs1.Close();
 
 
-            string InventarNomer_Text = @"pribor/InventarNomer";
+            string InventarNomer_Text = path + "/pribor/InventarNomer";
             DecriptorPribor decriptorInventarNomer = new DecriptorPribor(ref InventarNomer_Text, pathTemp);
             applicationDirectory = Path.GetDirectoryName(Application.ExecutablePath);
             //  InventarNomer_Text = Convert.ToString((InventarNomer_Text.LastIndexOf(@"\") + 1));
@@ -4029,7 +4081,7 @@ namespace Ecoview_Normal
             e.Graphics.DrawString(fs2.ReadLine(), new System.Drawing.Font("Times New Roman", 12, FontStyle.Regular), Brushes.Black, new Point(705, 215));
             fs2.Close();
 
-            string Poveren_Text = @"pribor/Poveren";
+            string Poveren_Text = path + "/pribor/Poveren";
             DecriptorPribor decriptorPoveren = new DecriptorPribor(ref Poveren_Text, pathTemp);
             applicationDirectory = Path.GetDirectoryName(Application.ExecutablePath);
             //   Poveren_Text = Convert.ToString((Poveren_Text.LastIndexOf(@"\") + 1));
@@ -5601,41 +5653,61 @@ namespace Ecoview_Normal
             {
                 if (tabControl2.SelectedIndex == 1 && Table2.Rows.Count > 0)
                 {
-                    Podskazka.Text = "Измеряйте или введите значения!";
-                    label27.Visible = false;
-                    label24.Visible = false;
-                    label25.Visible = false;
-                    label26.Visible = false;
-                    label28.Visible = true;
-                    label33.Visible = true;
-                    // button10.Enabled = false;
-                    if (Table2.RowCount > 0 && (k0 != Convert.ToDouble(AgroText0.Text) || k1 != Convert.ToDouble(AgroText1.Text) || k2 != Convert.ToDouble(AgroText2.Text) || USE_KO_1 != USE_KO))
-                    {
-                        MessageBox.Show("Внимание: Градуировка была изменена! Таблица Измерений будет пересчитана по новым коэффициентам!");
-                        k0 = Convert.ToDouble(string.Format("{0:0.0000}", AgroText0.Text));
-                        k1 = Convert.ToDouble(string.Format("{0:0.0000}", AgroText1.Text));
-                        k2 = Convert.ToDouble(string.Format("{0:0.0000}", AgroText2.Text));
-                        if (USE_KO_1 != USE_KO && USE_KO == false)
-                        {
-                            Table2.Rows.RemoveAt(0);
-                            USE_KO_1 = USE_KO;
-                        }
-                        else
-                        {
-                            if (USE_KO_1 != USE_KO && USE_KO == true)
-                            {
-                                Table2.Rows.Insert(0, 0, "Контрольный");
-                                for (int i = 1; i <= NoCaSer1; i++)
-                                {
-                                    Table2.Rows[0].Cells["A;Ser" + i].Value = string.Format("{0:0.0000}", 0);
+                    bool doNotWrite = false;
 
-                                }
-                                //   Table2.Rows.Add();
-                                USE_KO_1 = USE_KO;
-                                MessageBox.Show("Не забудьте измерить холостую пробу!");
+                    for (int j = 0; j < Table2.Rows.Count - 1; j++)
+                    {
+                        for (int i = 2; i < Table2.Rows[j].Cells.Count; i++)
+                        {
+                            if (Table2.Rows[j].Cells[i].Value == null)
+                            {
+                                doNotWrite = true;
+
                             }
                         }
-                        PodschetTable2();
+                    }
+                    if (!doNotWrite)
+                    {
+                        label28.Visible = false;
+                        label33.Visible = false;
+                    }
+                    else {
+                        Podskazka.Text = "Измеряйте или введите значения!";
+                        label27.Visible = false;
+                        label24.Visible = false;
+                        label25.Visible = false;
+                        label26.Visible = false;
+                        label28.Visible = true;
+                        label33.Visible = true;
+                        // button10.Enabled = false;
+                        if (Table2.RowCount > 0 && (k0 != Convert.ToDouble(AgroText0.Text) || k1 != Convert.ToDouble(AgroText1.Text) || k2 != Convert.ToDouble(AgroText2.Text) || USE_KO_1 != USE_KO))
+                        {
+                            MessageBox.Show("Внимание: Градуировка была изменена! Таблица Измерений будет пересчитана по новым коэффициентам!");
+                            k0 = Convert.ToDouble(string.Format("{0:0.0000}", AgroText0.Text));
+                            k1 = Convert.ToDouble(string.Format("{0:0.0000}", AgroText1.Text));
+                            k2 = Convert.ToDouble(string.Format("{0:0.0000}", AgroText2.Text));
+                            if (USE_KO_1 != USE_KO && USE_KO == false)
+                            {
+                                Table2.Rows.RemoveAt(0);
+                                USE_KO_1 = USE_KO;
+                            }
+                            else
+                            {
+                                if (USE_KO_1 != USE_KO && USE_KO == true)
+                                {
+                                    Table2.Rows.Insert(0, 0, "Контрольный");
+                                    for (int i = 1; i <= NoCaSer1; i++)
+                                    {
+                                        Table2.Rows[0].Cells["A;Ser" + i].Value = string.Format("{0:0.0000}", 0);
+
+                                    }
+                                    //   Table2.Rows.Add();
+                                    USE_KO_1 = USE_KO;
+                                    MessageBox.Show("Не забудьте измерить холостую пробу!");
+                                }
+                            }
+                            PodschetTable2();
+                        }
                     }
                 }
                 else
@@ -5658,6 +5730,611 @@ namespace Ecoview_Normal
 
                 }
             }
+        }
+        public string[] filereadpribor;
+        private void графикРезультатаОдноволновогоИзмеренияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.InitialDirectory = "C";
+            openFileDialog1.Title = "Open File";
+            openFileDialog1.FileName = "";
+            openFileDialog1.Filter = "TXT файл|*.TXT";
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    // получаем выбранный файл
+                    //  openFileMulti(ref filepath);
+                    filepath = openFileDialog1.FileName;
+                    ReadFilePribor filepribor = new ReadFilePribor(filepath, this);
+                    tabPage4.Parent = null;
+                    /* foreach (string s in filereadpribor)
+                     {
+                         Console.WriteLine(s);
+                     }*/
+                    switch (selet_rezim)
+                    {
+                        case 1:
+                            if (filereadpribor[0] == "Photometry Test Report")
+                            {
+                                IzmerenieFR_Table.Rows.Clear();
+                                int count = System.IO.File.ReadAllLines(filepath).Length;
+                                for (int i = 0; i < filereadpribor.Length - 4; i++)
+                                {
+                                    IzmerenieFR_Table.Rows.Add(i + 1, "Измерение " + (i+1),
+                                        filereadpribor[4 + i].Substring(8,
+                                        filereadpribor[4 + i].LastIndexOf(".") - filereadpribor[4 + i].IndexOf(".") + 1).Replace(".", ","),
+                                        filereadpribor[4 + i].Substring(filereadpribor[4 + i].LastIndexOf(".") - 1).Replace(".", ","));
+                                    IzmerenieFR_Table.Rows[i].Cells[3].Value = IzmerenieFR_Table.Rows[i].Cells[3].Value.ToString().Substring(0, IzmerenieFR_Table.Rows[i].Cells[3].Value.ToString().Length - 2);
+                                    IzmerenieFR_Table.Rows[i].Cells[5].Value = "0.0";
+                                    string k1 = "0.0";
+                                    k1 = k1.Replace(".", ",");
+                                    IzmerenieFR_Table.Rows[i].Cells[4].Value = string.Format("{0:0.00}",
+                                        Math.Pow(10, Convert.ToDouble(IzmerenieFR_Table.Rows[i].Cells[3].Value.ToString())) * 100);
+
+
+                                    IzmerenieFR_Table.Rows[i].Cells[6].Value = string.Format("{0:0.0000}", (Convert.ToDouble(IzmerenieFR_Table.Rows[i].Cells[3].Value.ToString()) * Convert.ToDouble(k1)));
+                                    // IzmerenieFR_Table.Rows[i].Cells[2].Value = filereadpribor[4 + i].Substring(filereadpribor[4 + i].LastIndexOf(".") - 1, filereadpribor[4 + i].IndexOf(" ")).Replace(".", ",");
+                                }
+                                печатьToolStripMenuItem1.Enabled = true;
+                                button3.Enabled = true;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Файл не поддерживается!");
+                            }
+                            break;
+                        case 2:
+                            if (filereadpribor[0] == "Quantitation Test Report")
+                            {
+                                string typefile = filereadpribor[2];
+
+                                if (typefile.Substring(8) != "A=A1")
+                                {
+                                    MessageBox.Show("Внимание! Программа не поддерживает данный формат данных!");
+                                    //  return;
+                                }
+                                else {
+                                    MessageBox.Show("Для полноценного просмотра результатов необходимо заполнить следующую форму!");
+                                    if (filereadpribor.Contains("Results"))
+                                    {
+
+                                        TotalInformationResults totlaInformationResults = new TotalInformationResults(this);
+                                        totlaInformationResults.ShowDialog();
+                                    }
+                                    else
+                                    {
+                                        TotalInformation totlaInformation = new TotalInformation(this);
+                                        totlaInformation.ShowDialog();
+                                    }
+
+
+
+                                    wavelength1 = filereadpribor[3].Substring(4);
+                                    textBox9.Text = wavelength1;
+                                    textBox10.Text = wavelength1;
+                                    //   MessageBox.Show("Длина волны: " + wavelength1);
+
+                                    edconctr = filereadpribor[4].Substring(7);
+                                    switch (edconctr)
+                                    {
+                                        case "-":
+                                            edconctr = "-";
+                                            break;
+                                        case "mg/l":
+                                            edconctr = "мг/л";
+                                            break;
+                                        case "ug/dl":
+                                            edconctr = "мкг/дл";
+                                            break;
+                                        case "ng/ul":
+                                            edconctr = "нг/мкл";
+                                            break;
+                                        case "%":
+                                            edconctr = "%";
+                                            break;
+                                        case "ug/l":
+                                            edconctr = "мкг/л";
+                                            break;
+                                        case "mg/ml":
+                                            edconctr = "мг/мл";
+                                            break;
+                                        case "mol/l":
+                                            edconctr = "М/л";
+                                            break;
+                                        case "ppm":
+                                            edconctr = "ppm";
+                                            break;
+                                        case "ng/l":
+                                            edconctr = "нг/л";
+                                            break;
+                                        case "ug/ml":
+                                            edconctr = "мкг/мл";
+                                            break;
+                                        case "mmol/l":
+                                            edconctr = "мМ/л";
+                                            break;
+                                        case "ppb":
+                                            edconctr = "ppb";
+                                            break;
+                                        case "g/dl":
+                                            edconctr = "г/дл";
+                                            break;
+                                        case "ng/ml":
+                                            edconctr = "нг/мл";
+                                            break;
+                                        case "IU":
+                                            edconctr = "ME";
+                                            break;
+                                        case "g/l":
+                                            edconctr = "г/л";
+                                            break;
+                                        case "mg/dl":
+                                            edconctr = "мг/дл";
+                                            break;
+                                        case "ug/ul":
+                                            edconctr = "мкг/мкл";
+                                            break;
+                                        default:
+                                            edconctr = "Свое";
+                                            break;
+
+
+
+                                    }
+                                    if (filereadpribor[5].Contains("Std"))
+                                    {
+                                        SposobZadan = "По СО";
+                                    }
+                                    else
+                                    {
+                                        SposobZadan = "Ввод коэффициентов";
+                                    }
+
+                                    if (SposobZadan == "По СО")
+                                    {
+                                        chart1.Series[0].Points.Clear();
+                                        chart1.Series[1].Points.Clear();
+                                        WLREMOVE1();
+                                        WLREMOVESTR1();
+
+                                        NoCaIzm = 1;
+
+
+                                        for (int i = 1; i <= NoCaIzm; i++)
+                                        {
+
+                                            DataGridViewTextBoxColumn firstColumn1 =
+                                            new DataGridViewTextBoxColumn();
+                                            firstColumn1.HeaderText = "A; Сер" + i;
+                                            firstColumn1.Name = "A;Ser (" + i;
+                                            firstColumn1.ValueType = Type.GetType("System.Double");
+
+                                            Table1.Columns.Add(firstColumn1);
+                                            //firstColumn1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(txt_KeyPress);
+                                            //   firstColumn1.EditingControlShowing
+
+                                        }
+
+                                        for (int i = 1; i <= NoCaIzm; i++)
+                                        {
+                                            Table1.Columns["A;Ser (" + i].Width = 50;
+                                        }
+                                        Concetr.HeaderText = "Конц " + edconctr;
+
+                                        if (filereadpribor.Contains("Results"))
+                                        {
+
+                                            for (int i = 0; i < filereadpribor.Length - Array.IndexOf(filereadpribor, "Results") - 3; i++)
+                                            {
+                                                Table1.Rows.Add(filereadpribor[12 + i].Substring(0, 1), filereadpribor[12 + i].Substring(20, 6).Replace(".", ","), filereadpribor[12 + i].Substring(8, 5).Replace(".", ","), filereadpribor[12 + i].Substring(8, 5).Replace(".", ","));
+                                            }
+                                            Table1CreateFile();
+                                            tabPage4.Parent = tabControl2;
+
+                                            WLREMOVE2();
+                                            WLREMOVESTR2();
+                                            NoCaIzm1 = 1;
+                                            DataGridViewTextBoxColumn firstColumn2_1 =
+                                            new DataGridViewTextBoxColumn();
+                                            firstColumn2_1.HeaderText = "A; Сер." + 1;
+                                            firstColumn2_1.Name = "A;Ser" + 1;
+                                            firstColumn2_1.ValueType = Type.GetType("System.Double");
+                                            Table2.Columns.Add(firstColumn2_1);
+                                            DataGridViewTextBoxColumn firstColumn3_1 =
+                                            new DataGridViewTextBoxColumn();
+                                            firstColumn3_1.HeaderText = "C, " + edconctr + "; Сер." + 1;
+                                            firstColumn3_1.Name = "C,edconctr;Ser." + 1;
+                                            firstColumn3_1.ValueType = Type.GetType("System.Double");
+                                            Table2.Columns.Add(firstColumn3_1);
+                                            firstColumn3_1.ReadOnly = true;
+                                            firstColumn3_1.Width = 50;
+                                            firstColumn2_1.Width = 50;
+                                            if (selet_rezim == 2)
+                                            {
+                                                DataGridViewTextBoxColumn firstColumn4 =
+                                            new DataGridViewTextBoxColumn();
+                                                firstColumn4.HeaderText = "Cср, " + edconctr;
+                                                firstColumn4.Name = "Ccr";
+                                                firstColumn4.ValueType = Type.GetType("System.Double");
+                                                Table2.Columns.Add(firstColumn4);
+                                                firstColumn4.ReadOnly = true;
+                                                DataGridViewTextBoxColumn firstColumn5 =
+                                                new DataGridViewTextBoxColumn();
+                                                firstColumn5.HeaderText = "d, %";
+                                                firstColumn5.Name = "d%";
+                                                firstColumn5.ValueType = Type.GetType("System.Double");
+                                                firstColumn5.ReadOnly = true;
+                                                Table2.Columns.Add(firstColumn5);
+                                                firstColumn4.Width = 100;
+                                                firstColumn5.Width = 50;
+                                            }
+
+                                            //   tabControl2.SelectTab(tabPage4);
+                                            for (int i = 0; i < filereadpribor.Length - Array.IndexOf(filereadpribor, "Results") - 2; i++)
+                                            {
+                                                Table2.Rows.Add(filereadpribor[Array.IndexOf(filereadpribor, "Results") + i + 2].Substring(0, 1),
+                                                    "Образец " + filereadpribor[Array.IndexOf(filereadpribor, "Results") + i + 2].Substring(0, 1),
+                                                    filereadpribor[Array.IndexOf(filereadpribor, "Results") + i + 2].Substring(8, 5).Replace(".", ","),
+                                                    filereadpribor[Array.IndexOf(filereadpribor, "Results") + i + 2].Substring(20, 6).Replace(".", ","));
+                                            }
+                                            F1Text.Text = string.Format("{0:0.0000}", 1);
+                                            F2Text.Text = string.Format("{0:0.0000}", 1);
+                                            // textBox7.Text = string.Format("{0:0.0000}", 0);
+                                            Table2CreateFile();
+                                        }
+                                        else
+                                        {
+                                            int lengthfilereadpribor = filereadpribor.Length;
+                                            lengthfilereadpribor -= 12;
+
+                                            for (int i = 0; i < lengthfilereadpribor; i++)
+                                            {
+                                                Table1.Rows.Add(filereadpribor[12 + i].Substring(0, 1), filereadpribor[12 + i].Substring(20, 6).Replace(".", ","), filereadpribor[12 + i].Substring(8, 5).Replace(".", ","), filereadpribor[12 + i].Substring(8, 5).Replace(".", ","));
+                                            }
+                                            Table1CreateFile();
+                                        }
+
+
+
+
+                                    }
+                                    else
+                                    {
+                                        string typeAproksim = filereadpribor[6];
+                                        string typeZavisimoct = filereadpribor[6].Substring(0, 1);
+
+                                        int amount = typeAproksim.ToCharArray().Where(i => i == '+').Count();
+
+                                        switch (amount)
+                                        {
+                                            case 0:
+                                                if (typeZavisimoct == "C")
+                                                {
+                                                    Zavisimoct = "C(A)";
+                                                    radioButton5.Checked = true;
+                                                    label14.Text = "C(A)";
+                                                }
+                                                else
+                                                {
+                                                    Zavisimoct = "A(C)";
+                                                    radioButton4.Checked = true;
+                                                    label14.Text = "A(C)";
+                                                }
+                                                radioButton1.Checked = true;
+                                                aproksim = "Линейная через 0";
+
+
+                                                AgroText1.Text = string.Format("{0:0.0000}", typeAproksim.Substring(2, (typeAproksim.Length - 4)));
+                                                k1 = Convert.ToDouble(AgroText1.Text.Replace(".", ","));
+
+
+                                                break;
+                                            case 1:
+                                                if (typeZavisimoct == "C")
+                                                {
+                                                    Zavisimoct = "C(A)";
+                                                    radioButton5.Checked = true;
+                                                    label14.Text = "C(A)";
+                                                }
+                                                else
+                                                {
+                                                    Zavisimoct = "A(C)";
+                                                    radioButton4.Checked = true;
+                                                    label14.Text = "A(C)";
+                                                }
+                                                radioButton2.Checked = true;
+                                                aproksim = "Линейная";
+                                                int temp = typeAproksim.IndexOf("+");
+                                                AgroText1.Text = string.Format("{0:0.0000}", typeAproksim.Substring(2, (typeAproksim.Length - temp - 1)));
+                                                k1 = Convert.ToDouble(AgroText1.Text.Replace(".", ","));
+                                                AgroText0.Text = string.Format("{0:0.0000}", typeAproksim.Substring((typeAproksim.Length - temp + 4)));
+                                                k0 = Convert.ToDouble(AgroText0.Text.Replace(".", ","));
+
+                                                //++count;
+
+
+                                                break;
+                                            case 2:
+                                                if (typeZavisimoct == "C")
+                                                {
+                                                    Zavisimoct = "C(A)";
+                                                    radioButton5.Checked = true;
+                                                    label14.Text = "C(A)";
+                                                }
+                                                else
+                                                {
+                                                    Zavisimoct = "A(C)";
+                                                    radioButton4.Checked = true;
+                                                    label14.Text = "A(C)";
+                                                }
+                                                radioButton3.Checked = true;
+                                                aproksim = "квадратичная";
+
+                                                temp = typeAproksim.IndexOf("+");
+                                                int temp1 = typeAproksim.LastIndexOf("+");
+                                                AgroText2.Text = string.Format("{0:0.0000}", typeAproksim.Substring(2, (typeAproksim.Length - temp - 10)));
+                                                k2 = Convert.ToDouble(AgroText2.Text.Replace(".", ","));
+                                                AgroText0.Text = string.Format("{0:0.0000}", typeAproksim.Substring((typeAproksim.Length - temp + 6)));
+                                                k0 = Convert.ToDouble(AgroText0.Text.Replace(".", ","));
+                                                AgroText1.Text = string.Format("{0:0.0000}", typeAproksim.Substring((typeAproksim.Length - temp1 + 6), (typeAproksim.Length - temp1 - 1)));
+                                                k1 = Convert.ToDouble(AgroText1.Text.Replace(".", ","));
+                                                break;
+
+                                        }
+                                        GradTable();
+
+                                    }
+                                    button10.Enabled = true;
+                                    button3.Enabled = true;
+                                    button8.Enabled = true;
+                                    button7.Enabled = true;
+                                    button9.Enabled = true;
+                                    label28.Visible = false;
+                                    label33.Visible = false;
+                                    экспортToolStripMenuItem.Enabled = true;
+                                    эксопртВPDFToolStripMenuItem.Enabled = true;
+                                    печатьToolStripMenuItem1.Enabled = true;
+                                    параметрыToolStripMenuItem.Enabled = true;
+
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Файл не поддерживается!");
+                            }
+                            break;
+                    }
+                }
+                catch (Exception t) { MessageBox.Show("exeption" + t.Message); }
+
+                
+            }
+        }
+        public void Table1CreateFile()
+        {
+            string typeAproksim = filereadpribor[7];
+            string typeZavisimoct = filereadpribor[7].Substring(0, 1);
+
+            int amount = typeAproksim.ToCharArray().Where(i => i == '+').Count();
+            switch (amount)
+            {
+                case 0:
+                    if (typeZavisimoct == "C")
+                    {
+                        Zavisimoct = "C(A)";
+                        radioButton5.Checked = true;
+                        label14.Text = "C(A)";
+                    }
+                    else
+                    {
+                        Zavisimoct = "A(C)";
+                        radioButton4.Checked = true;
+                        label14.Text = "A(C)";
+                    }
+                    radioButton1.Checked = true;
+                    aproksim = "Линейная через 0";
+                    lineynaya0();
+                    break;
+                case 1:
+                    if (typeZavisimoct == "C")
+                    {
+                        Zavisimoct = "C(A)";
+                        radioButton5.Checked = true;
+                        label14.Text = "C(A)";
+                    }
+                    else
+                    {
+                        Zavisimoct = "A(C)";
+                        radioButton4.Checked = true;
+                        label14.Text = "A(C)";
+                    }
+                    radioButton2.Checked = true;
+                    aproksim = "Линейная";
+                    lineinaya();
+                    break;
+                case 2:
+                    if (typeZavisimoct == "C")
+                    {
+                        Zavisimoct = "C(A)";
+                        radioButton5.Checked = true;
+                        label14.Text = "C(A)";
+                    }
+                    else
+                    {
+                        Zavisimoct = "A(C)";
+                        radioButton4.Checked = true;
+                        label14.Text = "A(C)";
+                    }
+                    radioButton3.Checked = true;
+                    aproksim = "квадратичная";
+                    kvadratichnaya();
+                    break;
+
+            }
+            CountSeriya = Convert.ToString(1);
+            CountInSeriya = Convert.ToString(Table1.RowCount - 1);
+        }
+        public void Table2CreateFile()
+        {
+            double CCR = 0.0;
+
+            double maxEl;
+            double minEl;
+            double serValue = 0;
+            for (int i = 0; i < Table2.RowCount; i++)
+            {
+                El = new double[NoCaIzm1];
+                double SredValue = 0;
+                for (int i1 = 1; i1 <= NoCaIzm1; i1++)
+                {
+                    switch (aproksim)
+                    {
+                        case "Линейная через 0":
+                            serValue = Convert.ToDouble(Table2.Rows[i].Cells["A;Ser" + i1].Value.ToString()) / Convert.ToDouble(AgroText1.Text);
+                            break;
+                        case "Линейная":
+                            serValue = ((Convert.ToDouble(Table2.Rows[i].Cells["A;Ser" + i1].Value.ToString()) - Convert.ToDouble(AgroText0.Text))) / Convert.ToDouble(AgroText1.Text);
+                            break;
+                        case "Квадратичная":
+                            serValue = ((Convert.ToDouble(Table2.Rows[i].Cells["A;Ser" + i1].Value.ToString()) - Convert.ToDouble(AgroText0.Text))) / (Convert.ToDouble(AgroText1.Text) + Convert.ToDouble(AgroText2.Text));
+                            break;
+                    }
+                    double CValue1 = Convert.ToDouble(F1Text.Text);
+                    double CValue2 = Convert.ToDouble(F2Text.Text);
+                    if (serValue >= 0)
+                    {
+                        Table2.Rows[i].Cells["C,edconctr;Ser." + i1].Value = string.Format("{0:0.0000}", serValue * CValue1 * CValue2);
+                        SredValue += Convert.ToDouble(Table2.Rows[i].Cells["C,edconctr;Ser." + i1].Value.ToString());
+                    }
+                    else
+                    {
+                        Table2.Rows[i].Cells["C,edconctr;Ser." + i1].Value = "";
+                    }
+                    CCR = SredValue / NoCaIzm1;
+                    if (Convert.ToDouble(textBox7.Text) >= 1)
+                    {
+                        Table2.Rows[i].Cells["Ccr"].Value = string.Format("{0:0.0000}", CCR) + "±" + string.Format("{0:0.00}", ((CCR * Convert.ToDouble(textBox7.Text)) / 100));
+                    }
+                    else Table2.Rows[i].Cells["Ccr"].Value = string.Format("{0:0.0000}", CCR);
+                    if (Table2.Rows[i].Cells["C,edconctr;Ser." + i1].Value.ToString() != "")
+                    {
+                        El[i1 - 1] = Convert.ToDouble(Table2.Rows[i].Cells["C,edconctr;Ser." + i1].Value.ToString());
+                    }
+                    Array.Sort(El);
+                    maxEl = El[El.Length - 1];
+                    minEl = El[0];
+                    double a = ((maxEl - minEl) * 100) / Convert.ToDouble(CCR);
+                    double b = a;
+                    // b = b * 10;
+
+
+                    if (minEl == 0)
+                    {
+                        Table2.Rows[i].Cells["d%"].Value = 0.0000;
+                    }
+                    else
+                    {
+                        Table2.Rows[i].Cells["d%"].Value = string.Format("{0:0.00}", b);
+
+                    }
+                }
+            }
+            Table2.Rows.Add();
+        }
+        private void волновойАнализToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+        
+        private void адаптироватьСтарыеФайлыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.InitialDirectory = "C";
+            openFileDialog1.Title = "Open File";
+            openFileDialog1.FileName = "";
+            switch (selet_rezim)
+            {
+                case 1:
+                    openFileDialog1.Filter = "ISFR2 файл|*.isfr2";
+                    break;
+                case 2:
+                    openFileDialog1.Filter = "QS2 файл; QA2 файл|*.qs2; *.qa2";
+                    break;
+                case 3:
+                    openFileDialog1.Filter = "MULTI файл|*.MULTI2";
+                    break;
+                case 4:
+                    openFileDialog1.Filter = "KIN файл|*.KIN2";
+                    break;
+                case 5:
+                    openFileDialog1.Filter = "SCAN файл|*.SCAN2";
+                    break;
+                case 6:
+                    openFileDialog1.Filter = "Agro QS2 файл|*.aq2";
+                    break;
+            }
+            //openFileDialog1.Filter = "MULTI файл; KIN файл; SCAN файл; QS2 файл; Agro QS2; ISFR2 файл|*.MULTI2; *.KIN2; *.SCAN2; *.qs2; *.aq2; *.isfr2";
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try {
+                    filepath = openFileDialog1.FileName;
+                    EncriptorFileBase64 encriptorFileBase64 = new EncriptorFileBase64(filepath, pathTemp);
+                }
+                catch
+                {
+                    MessageBox.Show("Формат файла не поддерживается!");
+                }
+            }
+        }
+
+        private void удаленнаяТехПомощьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try {
+                Process.Start(path + "/TeamViewerQS.exe");
+                //Process.Start("TeamViewerQS.exe");
+            }
+            catch
+            {
+                MessageBox.Show("У вас отсутствует один или несколько модулей! Переустановите программу или напишите в нашу поддержку, мы поможем исправить проблему!");
+            }
+        }
+
+        private void справкаToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            HelpDesk helpDesk = new HelpDesk();
+            helpDesk.ShowDialog();
+        }
+
+        private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ProgrammVersion _versionProgramm = new ProgrammVersion();
+            _versionProgramm.Show();
+        }
+
+        private void отзывыИПожеланияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReviewsWishes reviewswishes = new ReviewsWishes();
+            reviewswishes.ShowDialog();
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime = dateTimePicker1.Value.ToString();
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+           // DateTime = dateTimePicker1.Value.ToString();
+        }
+
+        private void справкаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void запросВТехПоддержкуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HelpDesk helpDesk = new HelpDesk();
+            helpDesk.ShowDialog();
         }
 
         ///Если больше 3 и меньше или равно 7
@@ -6276,7 +6953,7 @@ namespace Ecoview_Normal
             {
                 e.Graphics.FillRectangle(Brushes.White, new System.Drawing.Rectangle(width, height, Table2.Columns[i].Width + 10, Table2.Rows[0].Height * 2));
                 e.Graphics.DrawRectangle(p, new System.Drawing.Rectangle(width, height, Table2.Columns[i].Width + 10, Table2.Rows[0].Height * 2));
-                e.Graphics.DrawString(Table2.Columns[i].HeaderText, new System.Drawing.Font("Times New Roman", 12, FontStyle.Bold), Brushes.Black, new System.Drawing.Rectangle(width + 10, height, Table2.Columns[i].Width + 10, Table2.Rows[0].Height * 2));
+                e.Graphics.DrawString(Table2.Columns[i].HeaderText, new System.Drawing.Font("Times New Roman", 10.8F, FontStyle.Bold), Brushes.Black, new System.Drawing.Rectangle(width + 10, height, Table2.Columns[i].Width + 10, Table2.Rows[0].Height * 2));
                 width = width + Table2.Columns[i].Width + 10;
             }
             for (int i = Table2.Columns.Count - NoCaIzm1 + 1; i < Table2.Columns.Count; i++)
@@ -6422,7 +7099,7 @@ namespace Ecoview_Normal
                 {
                     e.Graphics.FillRectangle(Brushes.White, new System.Drawing.Rectangle(width, height, Table2.Columns[k].Width + 10, Table2.Rows[0].Height * 2));
                     e.Graphics.DrawRectangle(p, new System.Drawing.Rectangle(width, height, Table2.Columns[k].Width + 10, Table2.Rows[0].Height * 2));
-                    e.Graphics.DrawString(Table2.Columns[k].HeaderText, new System.Drawing.Font("Times New Roman", 12, FontStyle.Bold), Brushes.Black, new System.Drawing.Rectangle(width + 10, height, Table2.Columns[k].Width + 10, Table2.Rows[0].Height * 2));
+                    e.Graphics.DrawString(Table2.Columns[k].HeaderText, new System.Drawing.Font("Times New Roman", 10.6F, FontStyle.Bold), Brushes.Black, new System.Drawing.Rectangle(width + 10, height, Table2.Columns[k].Width + 10, Table2.Rows[0].Height * 2));
                     width = width + Table2.Columns[k].Width + 10;
                     k++;
                 }
@@ -6696,7 +7373,7 @@ namespace Ecoview_Normal
                 {
                     e.Graphics.FillRectangle(Brushes.White, new System.Drawing.Rectangle(width, height, Table2.Columns[k].Width + 10, Table2.Rows[0].Height * 2));
                     e.Graphics.DrawRectangle(p, new System.Drawing.Rectangle(width, height, Table2.Columns[k].Width + 10, Table2.Rows[0].Height * 2));
-                    e.Graphics.DrawString(Table2.Columns[k].HeaderText, new System.Drawing.Font("Times New Roman", 12, FontStyle.Bold), Brushes.Black, new System.Drawing.Rectangle(width + 10, height, Table2.Columns[k].Width + 10, Table2.Rows[0].Height * 2));
+                    e.Graphics.DrawString(Table2.Columns[k].HeaderText, new System.Drawing.Font("Times New Roman", 10F, FontStyle.Bold), Brushes.Black, new System.Drawing.Rectangle(width + 5, height, Table2.Columns[k].Width + 10, Table2.Rows[0].Height * 2));
                     width = width + Table2.Columns[k].Width + 10;
                     k++;
                 }
@@ -6795,7 +7472,7 @@ namespace Ecoview_Normal
                     {
                         e.Graphics.FillRectangle(Brushes.White, new System.Drawing.Rectangle(width, height, Table2.Columns[k].Width + 10, Table2.Rows[0].Height * 2));
                         e.Graphics.DrawRectangle(p, new System.Drawing.Rectangle(width, height, Table2.Columns[k].Width + 10, Table2.Rows[0].Height * 2));
-                        e.Graphics.DrawString(Table2.Columns[k].HeaderText, new System.Drawing.Font("Times New Roman", 12, FontStyle.Bold), Brushes.Black, new System.Drawing.Rectangle(width + 10, height, Table2.Columns[k].Width + 10, Table2.Rows[0].Height * 2));
+                        e.Graphics.DrawString(Table2.Columns[k].HeaderText, new System.Drawing.Font("Times New Roman", 10.6F, FontStyle.Bold), Brushes.Black, new System.Drawing.Rectangle(width + 10, height, Table2.Columns[k].Width + 10, Table2.Rows[0].Height * 2));
                         width = width + Table2.Columns[k].Width + 10;
                         k++;
                     }

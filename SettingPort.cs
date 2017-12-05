@@ -76,7 +76,7 @@ namespace Ecoview_Normal
 
                 }
                 string s1 = "";
-                StreamReader fs = new StreamReader(@"openport.port");
+                StreamReader fs = new StreamReader(@"pribor/openport.port");
                 string s = "";
 
 

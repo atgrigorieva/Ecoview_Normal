@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea73 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series127 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series128 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea74 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series129 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series130 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea75 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series131 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series132 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea76 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend19 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series133 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ecoview));
             this.Walve = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.T = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -242,12 +242,6 @@
             this.label23 = new System.Windows.Forms.Label();
             this.Podskazki = new System.Windows.Forms.GroupBox();
             this.Podskazka = new System.Windows.Forms.Label();
-            this.OptichPlot = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.GAText = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.GEText = new System.Windows.Forms.TextBox();
             this.GWNew = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -259,10 +253,14 @@
             this.эксопртВPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.печатьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.адаптироватьСтарыеФайлыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.анализToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.параметрыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.волновойАнализToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.графикРезультатаОдноволновогоИзмеренияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.workWithFiles = new System.Windows.Forms.ToolStripMenuItem();
+            this.адаптироватьСтарыеФайлыToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.загрузкаДанныхСПрибораToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.приборToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.подключитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.настройкаПортаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -274,6 +272,11 @@
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.удаленнаяТехПомощьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.отзывыИПожеланияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.техническаяПоддержкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.удаленнаяТехПомощьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.запросВТехПоддержкуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -553,6 +556,7 @@
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker2.TabIndex = 17;
             this.dateTimePicker2.Value = new System.DateTime(2016, 10, 18, 0, 0, 0, 0);
+            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
             // label17
             // 
@@ -637,36 +641,36 @@
             // 
             // chart1
             // 
-            chartArea73.AxisX.MajorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            chartArea73.AxisX.MinorGrid.Enabled = true;
-            chartArea73.AxisX.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            chartArea73.AxisX.MinorTickMark.Enabled = true;
-            chartArea73.AxisX.MinorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            chartArea73.AxisX.Title = "Оптическая плотность, А";
-            chartArea73.AxisX2.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            chartArea73.AxisX2.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            chartArea73.AxisX2.MajorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            chartArea73.AxisX2.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            chartArea73.AxisX2.MinorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            chartArea73.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            chartArea73.AxisY.Title = "Концетрация";
-            chartArea73.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea73);
+            chartArea5.AxisX.MajorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea5.AxisX.MinorGrid.Enabled = true;
+            chartArea5.AxisX.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea5.AxisX.MinorTickMark.Enabled = true;
+            chartArea5.AxisX.MinorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea5.AxisX.Title = "Оптическая плотность, А";
+            chartArea5.AxisX2.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea5.AxisX2.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea5.AxisX2.MajorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea5.AxisX2.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea5.AxisX2.MinorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea5.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea5.AxisY.Title = "Концетрация";
+            chartArea5.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea5);
             this.chart1.Cursor = System.Windows.Forms.Cursors.Default;
             this.chart1.Location = new System.Drawing.Point(6, 73);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             this.chart1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            series127.ChartArea = "ChartArea1";
-            series127.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series127.IsVisibleInLegend = false;
-            series127.Name = "Series1";
-            series128.ChartArea = "ChartArea1";
-            series128.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series128.IsVisibleInLegend = false;
-            series128.Name = "Series2";
-            this.chart1.Series.Add(series127);
-            this.chart1.Series.Add(series128);
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series8.IsVisibleInLegend = false;
+            series8.Name = "Series1";
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series9.IsVisibleInLegend = false;
+            series9.Name = "Series2";
+            this.chart1.Series.Add(series8);
+            this.chart1.Series.Add(series9);
             this.chart1.Size = new System.Drawing.Size(566, 321);
             this.chart1.TabIndex = 36;
             this.chart1.Text = "chart1";
@@ -1037,6 +1041,7 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(92, 20);
             this.dateTimePicker1.TabIndex = 10;
             this.dateTimePicker1.Value = new System.DateTime(2016, 10, 18, 0, 0, 0, 0);
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // label5
             // 
@@ -1651,38 +1656,38 @@
             this.chart3.BackColor = System.Drawing.Color.Honeydew;
             this.chart3.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.chart3.BorderlineColor = System.Drawing.Color.Black;
-            chartArea74.AxisX.MajorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            chartArea74.AxisX.MinorGrid.Enabled = true;
-            chartArea74.AxisX.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            chartArea74.AxisX.MinorTickMark.Enabled = true;
-            chartArea74.AxisX.MinorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            chartArea74.AxisX.Title = "Оптическая плотность, А";
-            chartArea74.AxisX2.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            chartArea74.AxisX2.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            chartArea74.AxisX2.MajorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            chartArea74.AxisX2.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            chartArea74.AxisX2.MinorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            chartArea74.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            chartArea74.AxisY.Title = "Концетрация";
-            chartArea74.BackColor = System.Drawing.Color.AliceBlue;
-            chartArea74.Name = "ChartArea1";
-            this.chart3.ChartAreas.Add(chartArea74);
+            chartArea6.AxisX.MajorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea6.AxisX.MinorGrid.Enabled = true;
+            chartArea6.AxisX.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea6.AxisX.MinorTickMark.Enabled = true;
+            chartArea6.AxisX.MinorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea6.AxisX.Title = "Оптическая плотность, А";
+            chartArea6.AxisX2.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea6.AxisX2.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea6.AxisX2.MajorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea6.AxisX2.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea6.AxisX2.MinorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea6.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea6.AxisY.Title = "Концетрация";
+            chartArea6.BackColor = System.Drawing.Color.AliceBlue;
+            chartArea6.Name = "ChartArea1";
+            this.chart3.ChartAreas.Add(chartArea6);
             this.chart3.Cursor = System.Windows.Forms.Cursors.Default;
             this.chart3.Location = new System.Drawing.Point(6, 15);
             this.chart3.Name = "chart3";
             this.chart3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire;
             this.chart3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            series129.ChartArea = "ChartArea1";
-            series129.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series129.IsVisibleInLegend = false;
-            series129.Name = "Series1";
-            series130.ChartArea = "ChartArea1";
-            series130.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series130.IsVisibleInLegend = false;
-            series130.LabelForeColor = System.Drawing.Color.Maroon;
-            series130.Name = "Series2";
-            this.chart3.Series.Add(series129);
-            this.chart3.Series.Add(series130);
+            series10.ChartArea = "ChartArea1";
+            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series10.IsVisibleInLegend = false;
+            series10.Name = "Series1";
+            series11.ChartArea = "ChartArea1";
+            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series11.IsVisibleInLegend = false;
+            series11.LabelForeColor = System.Drawing.Color.Maroon;
+            series11.Name = "Series2";
+            this.chart3.Series.Add(series10);
+            this.chart3.Series.Add(series11);
             this.chart3.Size = new System.Drawing.Size(694, 321);
             this.chart3.TabIndex = 33;
             this.chart3.Text = "chart3";
@@ -1709,38 +1714,38 @@
             this.ScanChart.BackColor = System.Drawing.Color.Honeydew;
             this.ScanChart.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.ScanChart.BorderlineColor = System.Drawing.Color.Black;
-            chartArea75.AxisX.MajorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            chartArea75.AxisX.MinorGrid.Enabled = true;
-            chartArea75.AxisX.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            chartArea75.AxisX.MinorTickMark.Enabled = true;
-            chartArea75.AxisX.MinorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            chartArea75.AxisX.Title = "Оптическая плотность, А";
-            chartArea75.AxisX2.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            chartArea75.AxisX2.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            chartArea75.AxisX2.MajorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            chartArea75.AxisX2.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            chartArea75.AxisX2.MinorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            chartArea75.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            chartArea75.AxisY.Title = "Концетрация";
-            chartArea75.BackColor = System.Drawing.Color.LightSteelBlue;
-            chartArea75.Name = "ChartArea1";
-            this.ScanChart.ChartAreas.Add(chartArea75);
+            chartArea7.AxisX.MajorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea7.AxisX.MinorGrid.Enabled = true;
+            chartArea7.AxisX.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea7.AxisX.MinorTickMark.Enabled = true;
+            chartArea7.AxisX.MinorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea7.AxisX.Title = "Оптическая плотность, А";
+            chartArea7.AxisX2.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea7.AxisX2.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea7.AxisX2.MajorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea7.AxisX2.MinorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea7.AxisX2.MinorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea7.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea7.AxisY.Title = "Концетрация";
+            chartArea7.BackColor = System.Drawing.Color.LightSteelBlue;
+            chartArea7.Name = "ChartArea1";
+            this.ScanChart.ChartAreas.Add(chartArea7);
             this.ScanChart.Cursor = System.Windows.Forms.Cursors.Default;
             this.ScanChart.Location = new System.Drawing.Point(5, 13);
             this.ScanChart.Name = "ScanChart";
             this.ScanChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire;
             this.ScanChart.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            series131.ChartArea = "ChartArea1";
-            series131.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series131.IsVisibleInLegend = false;
-            series131.Name = "Series1";
-            series132.ChartArea = "ChartArea1";
-            series132.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series132.IsVisibleInLegend = false;
-            series132.LabelForeColor = System.Drawing.Color.Maroon;
-            series132.Name = "Series2";
-            this.ScanChart.Series.Add(series131);
-            this.ScanChart.Series.Add(series132);
+            series12.ChartArea = "ChartArea1";
+            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series12.IsVisibleInLegend = false;
+            series12.Name = "Series1";
+            series13.ChartArea = "ChartArea1";
+            series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series13.IsVisibleInLegend = false;
+            series13.LabelForeColor = System.Drawing.Color.Maroon;
+            series13.Name = "Series2";
+            this.ScanChart.Series.Add(series12);
+            this.ScanChart.Series.Add(series13);
             this.ScanChart.Size = new System.Drawing.Size(694, 321);
             this.ScanChart.TabIndex = 23;
             this.ScanChart.Text = "ScanChart";
@@ -1918,17 +1923,17 @@
             // 
             // chart2
             // 
-            chartArea76.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea76);
-            legend19.Enabled = false;
-            legend19.Name = "Legend1";
-            this.chart2.Legends.Add(legend19);
+            chartArea8.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea8);
+            legend2.Enabled = false;
+            legend2.Name = "Legend1";
+            this.chart2.Legends.Add(legend2);
             this.chart2.Location = new System.Drawing.Point(10, 77);
             this.chart2.Name = "chart2";
-            series133.ChartArea = "ChartArea1";
-            series133.Legend = "Legend1";
-            series133.Name = "Series1";
-            this.chart2.Series.Add(series133);
+            series14.ChartArea = "ChartArea1";
+            series14.Legend = "Legend1";
+            series14.Name = "Series1";
+            this.chart2.Series.Add(series14);
             this.chart2.Size = new System.Drawing.Size(553, 300);
             this.chart2.TabIndex = 58;
             this.chart2.Text = "chart2";
@@ -2470,72 +2475,6 @@
             this.Podskazka.TabIndex = 35;
             this.Podskazka.Text = "Создайте (откройте) градуировку!";
             // 
-            // OptichPlot
-            // 
-            this.OptichPlot.Location = new System.Drawing.Point(765, -1);
-            this.OptichPlot.Name = "OptichPlot";
-            this.OptichPlot.ReadOnly = true;
-            this.OptichPlot.Size = new System.Drawing.Size(100, 20);
-            this.OptichPlot.TabIndex = 87;
-            this.OptichPlot.Visible = false;
-            // 
-            // label11
-            // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(637, 2);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(122, 13);
-            this.label11.TabIndex = 86;
-            this.label11.Text = "Оптическая плотность";
-            this.label11.Visible = false;
-            // 
-            // GAText
-            // 
-            this.GAText.Location = new System.Drawing.Point(531, -1);
-            this.GAText.Name = "GAText";
-            this.GAText.ReadOnly = true;
-            this.GAText.Size = new System.Drawing.Size(100, 20);
-            this.GAText.TabIndex = 85;
-            this.GAText.Visible = false;
-            // 
-            // label10
-            // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(380, 2);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(145, 13);
-            this.label10.TabIndex = 84;
-            this.label10.Text = "Коэффициент пропускания";
-            this.label10.Visible = false;
-            // 
-            // label8
-            // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(232, 2);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(49, 13);
-            this.label8.TabIndex = 81;
-            this.label8.Text = "Энергия";
-            this.label8.Visible = false;
-            // 
-            // GEText
-            // 
-            this.GEText.Location = new System.Drawing.Point(287, -1);
-            this.GEText.Name = "GEText";
-            this.GEText.ReadOnly = true;
-            this.GEText.Size = new System.Drawing.Size(100, 20);
-            this.GEText.TabIndex = 80;
-            this.GEText.Visible = false;
-            // 
             // GWNew
             // 
             this.GWNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -2564,11 +2503,13 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.файлToolStripMenuItem,
             this.анализToolStripMenuItem,
+            this.workWithFiles,
             this.приборToolStripMenuItem,
-            this.справкаToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(-6, 4);
+            this.справкаToolStripMenuItem,
+            this.техническаяПоддержкаToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(-6, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(243, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(514, 24);
             this.menuStrip1.TabIndex = 114;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -2581,7 +2522,8 @@
             this.экспортToolStripMenuItem,
             this.эксопртВPDFToolStripMenuItem,
             this.выходToolStripMenuItem,
-            this.печатьToolStripMenuItem1});
+            this.печатьToolStripMenuItem1,
+            this.адаптироватьСтарыеФайлыToolStripMenuItem});
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
             this.файлToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.файлToolStripMenuItem.Text = "Файл";
@@ -2589,51 +2531,59 @@
             // новыйToolStripMenuItem
             // 
             this.новыйToolStripMenuItem.Name = "новыйToolStripMenuItem";
-            this.новыйToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.новыйToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.новыйToolStripMenuItem.Text = "Новый";
             this.новыйToolStripMenuItem.Click += new System.EventHandler(this.новыйToolStripMenuItem_Click);
             // 
             // открытьToolStripMenuItem
             // 
             this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
-            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.открытьToolStripMenuItem.Text = "Открыть";
             this.открытьToolStripMenuItem.Click += new System.EventHandler(this.открытьToolStripMenuItem_Click);
             // 
             // сохранитьToolStripMenuItem
             // 
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
-            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.сохранитьToolStripMenuItem.Text = "Сохранить";
             this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
             // 
             // экспортToolStripMenuItem
             // 
             this.экспортToolStripMenuItem.Name = "экспортToolStripMenuItem";
-            this.экспортToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.экспортToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.экспортToolStripMenuItem.Text = "Экспорт в Excel";
             this.экспортToolStripMenuItem.Click += new System.EventHandler(this.экспортToolStripMenuItem_Click);
             // 
             // эксопртВPDFToolStripMenuItem
             // 
             this.эксопртВPDFToolStripMenuItem.Name = "эксопртВPDFToolStripMenuItem";
-            this.эксопртВPDFToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.эксопртВPDFToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.эксопртВPDFToolStripMenuItem.Text = "Эксопрт в PDF";
             this.эксопртВPDFToolStripMenuItem.Click += new System.EventHandler(this.эксопртВPDFToolStripMenuItem_Click);
             // 
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
             // печатьToolStripMenuItem1
             // 
             this.печатьToolStripMenuItem1.Name = "печатьToolStripMenuItem1";
-            this.печатьToolStripMenuItem1.Size = new System.Drawing.Size(157, 22);
+            this.печатьToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
             this.печатьToolStripMenuItem1.Text = "Печать";
             this.печатьToolStripMenuItem1.Click += new System.EventHandler(this.печатьToolStripMenuItem1_Click);
+            // 
+            // адаптироватьСтарыеФайлыToolStripMenuItem
+            // 
+            this.адаптироватьСтарыеФайлыToolStripMenuItem.Name = "адаптироватьСтарыеФайлыToolStripMenuItem";
+            this.адаптироватьСтарыеФайлыToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.адаптироватьСтарыеФайлыToolStripMenuItem.Text = "Адаптировать старые файлы";
+            this.адаптироватьСтарыеФайлыToolStripMenuItem.Visible = false;
+            this.адаптироватьСтарыеФайлыToolStripMenuItem.Click += new System.EventHandler(this.адаптироватьСтарыеФайлыToolStripMenuItem_Click);
             // 
             // анализToolStripMenuItem
             // 
@@ -2658,13 +2608,40 @@
             this.волновойАнализToolStripMenuItem.Size = new System.Drawing.Size(329, 22);
             this.волновойАнализToolStripMenuItem.Text = "Волновой анализ";
             this.волновойАнализToolStripMenuItem.Visible = false;
+            this.волновойАнализToolStripMenuItem.Click += new System.EventHandler(this.волновойАнализToolStripMenuItem_Click);
             // 
             // графикРезультатаОдноволновогоИзмеренияToolStripMenuItem
             // 
+            this.графикРезультатаОдноволновогоИзмеренияToolStripMenuItem.Enabled = false;
             this.графикРезультатаОдноволновогоИзмеренияToolStripMenuItem.Name = "графикРезультатаОдноволновогоИзмеренияToolStripMenuItem";
             this.графикРезультатаОдноволновогоИзмеренияToolStripMenuItem.Size = new System.Drawing.Size(329, 22);
             this.графикРезультатаОдноволновогоИзмеренияToolStripMenuItem.Text = "График результата одноволнового измерения";
             this.графикРезультатаОдноволновогоИзмеренияToolStripMenuItem.Visible = false;
+            this.графикРезультатаОдноволновогоИзмеренияToolStripMenuItem.Click += new System.EventHandler(this.графикРезультатаОдноволновогоИзмеренияToolStripMenuItem_Click);
+            // 
+            // workWithFiles
+            // 
+            this.workWithFiles.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.адаптироватьСтарыеФайлыToolStripMenuItem1,
+            this.загрузкаДанныхСПрибораToolStripMenuItem});
+            this.workWithFiles.Name = "workWithFiles";
+            this.workWithFiles.Size = new System.Drawing.Size(120, 20);
+            this.workWithFiles.Text = "Работа с файлами";
+            // 
+            // адаптироватьСтарыеФайлыToolStripMenuItem1
+            // 
+            this.адаптироватьСтарыеФайлыToolStripMenuItem1.Name = "адаптироватьСтарыеФайлыToolStripMenuItem1";
+            this.адаптироватьСтарыеФайлыToolStripMenuItem1.Size = new System.Drawing.Size(233, 22);
+            this.адаптироватьСтарыеФайлыToolStripMenuItem1.Text = "Адаптировать старые файлы";
+            this.адаптироватьСтарыеФайлыToolStripMenuItem1.Click += new System.EventHandler(this.адаптироватьСтарыеФайлыToolStripMenuItem_Click);
+            // 
+            // загрузкаДанныхСПрибораToolStripMenuItem
+            // 
+            this.загрузкаДанныхСПрибораToolStripMenuItem.Name = "загрузкаДанныхСПрибораToolStripMenuItem";
+            this.загрузкаДанныхСПрибораToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.загрузкаДанныхСПрибораToolStripMenuItem.Text = "Загрузка данных с прибора";
+            this.загрузкаДанныхСПрибораToolStripMenuItem.Visible = false;
+            this.загрузкаДанныхСПрибораToolStripMenuItem.Click += new System.EventHandler(this.графикРезультатаОдноволновогоИзмеренияToolStripMenuItem_Click);
             // 
             // приборToolStripMenuItem
             // 
@@ -2683,7 +2660,7 @@
             // подключитьToolStripMenuItem
             // 
             this.подключитьToolStripMenuItem.Name = "подключитьToolStripMenuItem";
-            this.подключитьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.подключитьToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.подключитьToolStripMenuItem.Text = "Подключить";
             this.подключитьToolStripMenuItem.Click += new System.EventHandler(this.подключитьToolStripMenuItem_Click);
             // 
@@ -2718,14 +2695,14 @@
             // измеритьToolStripMenuItem
             // 
             this.измеритьToolStripMenuItem.Name = "измеритьToolStripMenuItem";
-            this.измеритьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.измеритьToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.измеритьToolStripMenuItem.Text = "Измерить";
             this.измеритьToolStripMenuItem.Click += new System.EventHandler(this.измеритьToolStripMenuItem_Click);
             // 
             // калибровкаДляОдноволновогоАнализаToolStripMenuItem
             // 
             this.калибровкаДляОдноволновогоАнализаToolStripMenuItem.Name = "калибровкаДляОдноволновогоАнализаToolStripMenuItem";
-            this.калибровкаДляОдноволновогоАнализаToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.калибровкаДляОдноволновогоАнализаToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.калибровкаДляОдноволновогоАнализаToolStripMenuItem.Text = "0A/100%T";
             this.калибровкаДляОдноволновогоАнализаToolStripMenuItem.Click += new System.EventHandler(this.калибровкаДляОдноволновогоАнализаToolStripMenuItem_Click);
             // 
@@ -2733,23 +2710,66 @@
             // 
             this.справкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.справкаToolStripMenuItem1,
-            this.оПрограммеToolStripMenuItem});
+            this.оПрограммеToolStripMenuItem,
+            this.удаленнаяТехПомощьToolStripMenuItem,
+            this.отзывыИПожеланияToolStripMenuItem});
             this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
             this.справкаToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.справкаToolStripMenuItem.Text = "Справка";
+            this.справкаToolStripMenuItem.Click += new System.EventHandler(this.справкаToolStripMenuItem_Click);
             // 
             // справкаToolStripMenuItem1
             // 
             this.справкаToolStripMenuItem1.Name = "справкаToolStripMenuItem1";
-            this.справкаToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.справкаToolStripMenuItem1.Size = new System.Drawing.Size(201, 22);
             this.справкаToolStripMenuItem1.Text = "Справка";
             this.справкаToolStripMenuItem1.Visible = false;
+            this.справкаToolStripMenuItem1.Click += new System.EventHandler(this.справкаToolStripMenuItem1_Click);
             // 
             // оПрограммеToolStripMenuItem
             // 
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
+            this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
+            // 
+            // удаленнаяТехПомощьToolStripMenuItem
+            // 
+            this.удаленнаяТехПомощьToolStripMenuItem.Name = "удаленнаяТехПомощьToolStripMenuItem";
+            this.удаленнаяТехПомощьToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.удаленнаяТехПомощьToolStripMenuItem.Text = "Удаленная тех помощь";
+            this.удаленнаяТехПомощьToolStripMenuItem.Visible = false;
+            this.удаленнаяТехПомощьToolStripMenuItem.Click += new System.EventHandler(this.удаленнаяТехПомощьToolStripMenuItem_Click);
+            // 
+            // отзывыИПожеланияToolStripMenuItem
+            // 
+            this.отзывыИПожеланияToolStripMenuItem.Name = "отзывыИПожеланияToolStripMenuItem";
+            this.отзывыИПожеланияToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.отзывыИПожеланияToolStripMenuItem.Text = "Отзывы и пожелания";
+            this.отзывыИПожеланияToolStripMenuItem.Click += new System.EventHandler(this.отзывыИПожеланияToolStripMenuItem_Click);
+            // 
+            // техническаяПоддержкаToolStripMenuItem
+            // 
+            this.техническаяПоддержкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.удаленнаяТехПомощьToolStripMenuItem1,
+            this.запросВТехПоддержкуToolStripMenuItem});
+            this.техническаяПоддержкаToolStripMenuItem.Name = "техническаяПоддержкаToolStripMenuItem";
+            this.техническаяПоддержкаToolStripMenuItem.Size = new System.Drawing.Size(151, 20);
+            this.техническаяПоддержкаToolStripMenuItem.Text = "Техническая поддержка";
+            // 
+            // удаленнаяТехПомощьToolStripMenuItem1
+            // 
+            this.удаленнаяТехПомощьToolStripMenuItem1.Name = "удаленнаяТехПомощьToolStripMenuItem1";
+            this.удаленнаяТехПомощьToolStripMenuItem1.Size = new System.Drawing.Size(205, 22);
+            this.удаленнаяТехПомощьToolStripMenuItem1.Text = "Удаленная тех помощь";
+            this.удаленнаяТехПомощьToolStripMenuItem1.Click += new System.EventHandler(this.удаленнаяТехПомощьToolStripMenuItem_Click);
+            // 
+            // запросВТехПоддержкуToolStripMenuItem
+            // 
+            this.запросВТехПоддержкуToolStripMenuItem.Name = "запросВТехПоддержкуToolStripMenuItem";
+            this.запросВТехПоддержкуToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.запросВТехПоддержкуToolStripMenuItem.Text = "Запрос в тех поддержку";
+            this.запросВТехПоддержкуToolStripMenuItem.Click += new System.EventHandler(this.запросВТехПоддержкуToolStripMenuItem_Click);
             // 
             // printDialog1
             // 
@@ -2865,12 +2885,6 @@
             this.Controls.Add(this.label24);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.Podskazki);
-            this.Controls.Add(this.OptichPlot);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.GAText);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.GEText);
             this.Controls.Add(this.GWNew);
             this.Controls.Add(this.label9);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -3121,12 +3135,6 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.GroupBox Podskazki;
         public System.Windows.Forms.Label Podskazka;
-        private System.Windows.Forms.TextBox OptichPlot;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox GAText;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox GEText;
         public System.Windows.Forms.TextBox GWNew;
         private System.Windows.Forms.Label label9;
         public System.Windows.Forms.Button button2;
@@ -3197,6 +3205,15 @@
         public System.Windows.Forms.Button button9;
         public System.Windows.Forms.GroupBox groupBox5;
         public System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ToolStripMenuItem адаптироватьСтарыеФайлыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem удаленнаяТехПомощьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem отзывыИПожеланияToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem workWithFiles;
+        private System.Windows.Forms.ToolStripMenuItem адаптироватьСтарыеФайлыToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem загрузкаДанныхСПрибораToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem техническаяПоддержкаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem удаленнаяТехПомощьToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem запросВТехПоддержкуToolStripMenuItem;
     }
 }
 

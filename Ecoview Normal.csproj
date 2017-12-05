@@ -42,6 +42,10 @@
     <OutputPath>bin\x86\Release\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GuardantDotNetApi, Version=5.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\GuardantDotNetApi.dll</HintPath>
+    </Reference>
     <Reference Include="itextsharp">
       <HintPath>iTextSharp\itextsharp.dll</HintPath>
     </Reference>
@@ -68,14 +72,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Analis.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Analis.resx</DependentUpon>
-    </Compile>
     <Compile Include="Calibrovka.cs" />
     <Compile Include="Conection.cs" />
     <Compile Include="CreateDimension.cs" />
+    <Compile Include="Decriptor64.cs" />
     <Compile Include="DecriptorFile.cs" />
     <Compile Include="DecriptorPribor.cs" />
     <Compile Include="Ecoview.cs">
@@ -84,6 +84,7 @@
     <Compile Include="Ecoview.Designer.cs">
       <DependentUpon>Ecoview.cs</DependentUpon>
     </Compile>
+    <Compile Include="EncriptorFileBase64.cs" />
     <Compile Include="EncriptorPribor.cs" />
     <Compile Include="ExcelResim.cs">
       <SubType>Form</SubType>
@@ -93,6 +94,18 @@
     </Compile>
     <Compile Include="ExportExcelAll.cs" />
     <Compile Include="ExportPDFDocALL.cs" />
+    <Compile Include="FirstStart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FirstStart.Designer.cs">
+      <DependentUpon>FirstStart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HelpDesk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HelpDesk.Designer.cs">
+      <DependentUpon>HelpDesk.cs</DependentUpon>
+    </Compile>
     <Compile Include="InputBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,11 +179,36 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="ProgrammVersion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProgrammVersion.Designer.cs">
+      <DependentUpon>ProgrammVersion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="RD.cs" />
+    <Compile Include="ReadFilePribor.cs" />
+    <Compile Include="Registration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registration.Designer.cs">
+      <DependentUpon>Registration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReviewsWishes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReviewsWishes.Designer.cs">
+      <DependentUpon>ReviewsWishes.cs</DependentUpon>
+    </Compile>
     <Compile Include="SAGE.cs" />
     <Compile Include="SAGEScan.cs" />
     <Compile Include="SaveAll.cs" />
+    <Compile Include="SearchGuardant.cs" />
     <Compile Include="Select.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,64 +224,113 @@
     <Compile Include="SettingWL.cs" />
     <Compile Include="SW.cs" />
     <Compile Include="SW_MultiScan.cs" />
+    <Compile Include="TotalInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TotalInformation.Designer.cs">
+      <DependentUpon>TotalInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TotalInformationResults.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TotalInformationResults.Designer.cs">
+      <DependentUpon>TotalInformationResults.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Analis.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Analis.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Ecoview.resx">
       <DependentUpon>Ecoview.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ExcelResim.resx">
       <DependentUpon>ExcelResim.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FirstStart.resx">
+      <DependentUpon>FirstStart.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpDesk.resx">
+      <DependentUpon>HelpDesk.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="InputBox.resx">
       <DependentUpon>InputBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="IzmerenieFR.resx">
       <DependentUpon>IzmerenieFR.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="KineticaScan.resx">
       <DependentUpon>KineticaScan.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ModificateGrad.resx">
       <DependentUpon>ModificateGrad.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ModificateIzmer.resx">
       <DependentUpon>ModificateIzmer.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="MultiWave.resx">
       <DependentUpon>MultiWave.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="NewGraduirovka.resx">
       <DependentUpon>NewGraduirovka.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="NewIzmerenie.resx">
       <DependentUpon>NewIzmerenie.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="NewWalve.resx">
       <DependentUpon>NewWalve.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="PriborInformation.resx">
       <DependentUpon>PriborInformation.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="PrintPreviewDialogSelectPrinter.resx">
       <DependentUpon>PrintPreviewDialogSelectPrinter.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProgrammVersion.resx">
+      <DependentUpon>ProgrammVersion.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registration.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <EmbeddedResource Include="ReviewsWishes.resx">
+      <DependentUpon>ReviewsWishes.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Select.resx">
       <DependentUpon>Select.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="SettingPort.resx">
       <DependentUpon>SettingPort.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TotalInformation.resx">
+      <DependentUpon>TotalInformation.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TotalInformationResults.resx">
+      <DependentUpon>TotalInformationResults.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

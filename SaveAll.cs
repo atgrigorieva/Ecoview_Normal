@@ -309,8 +309,9 @@ namespace Ecoview_Normal
                 _Analis.label26.Visible = false;
                 _Analis.label28.Visible = false;
                 _Analis.label33.Visible = false;
-
-                EncriptorPribor encriptFile = new EncriptorPribor(_Analis.filepath, _Analis.pathTemp);
+                string filepathCopy = _Analis.filepath;
+                //EncriptorPribor encriptFile = new EncriptorPribor(_Analis.filepath, _Analis.pathTemp);
+                EncriptorFileBase64 encriptorFileBase64 = new EncriptorFileBase64(filepathCopy, _Analis.pathTemp);
             }
         }
         public void SaveAsMultiTable()
@@ -327,7 +328,8 @@ namespace Ecoview_Normal
                 _Analis.button3.Enabled = true;
                 _Analis.button9.Enabled = false;
                 _Analis.печатьToolStripMenuItem1.Enabled = true;
-                EncriptorPribor encriptFile = new EncriptorPribor(_Analis.filepath, _Analis.pathTemp);
+                //  EncriptorPribor encriptFile = new EncriptorPribor(_Analis.filepath, _Analis.pathTemp);
+                EncriptorFileBase64 encriptorFileBase64 = new EncriptorFileBase64(_Analis.filepath, _Analis.pathTemp);
             }
         }
         public void SaveAsKinTable()
@@ -347,7 +349,8 @@ namespace Ecoview_Normal
                 _Analis.label59.Visible = false;
                 _Analis.label27.Visible = false;
                 _Analis.печатьToolStripMenuItem1.Enabled = true;
-                EncriptorPribor encriptFile = new EncriptorPribor(_Analis.filepath, _Analis.pathTemp);
+                /// EncriptorPribor encriptFile = new EncriptorPribor(_Analis.filepath, _Analis.pathTemp);
+               EncriptorFileBase64 encriptorFileBase64 = new EncriptorFileBase64(_Analis.filepath, _Analis.pathTemp);
             }
         }
         public void SaveAsScanTable()
@@ -364,7 +367,8 @@ namespace Ecoview_Normal
                 _Analis.button3.Enabled = true;
                 _Analis.button9.Enabled = false;
                 _Analis.печатьToolStripMenuItem1.Enabled = true;
-                EncriptorPribor encriptFile = new EncriptorPribor(_Analis.filepath, _Analis.pathTemp);
+                //  EncriptorPribor encriptFile = new EncriptorPribor(_Analis.filepath, _Analis.pathTemp);
+                EncriptorFileBase64 encriptorFileBase64 = new EncriptorFileBase64(_Analis.filepath, _Analis.pathTemp);
             }
         }
 
@@ -382,7 +386,8 @@ namespace Ecoview_Normal
                 _Analis.button3.Enabled = true;
                 _Analis.button9.Enabled = false;
                 _Analis.печатьToolStripMenuItem1.Enabled = true;
-                EncriptorPribor encriptFile = new EncriptorPribor(_Analis.filepath, _Analis.pathTemp);
+                //  EncriptorPribor encriptFile = new EncriptorPribor(_Analis.filepath, _Analis.pathTemp);
+                EncriptorFileBase64 encriptorFileBase64 = new EncriptorFileBase64(_Analis.filepath, _Analis.pathTemp);
             }
         }
 
@@ -654,7 +659,8 @@ namespace Ecoview_Normal
         public void WriteXml(ref string filepath)
         {
             XmlDocument xd = new XmlDocument();
-            FileStream fs = new FileStream(filepath, FileMode.Open);
+            string filepathCopy = filepath;
+            FileStream fs = new FileStream(filepathCopy, FileMode.Open);
             xd.Load(fs);
 
             XmlNode Izmerenie = xd.CreateElement("Izmerenie");
@@ -865,7 +871,8 @@ namespace Ecoview_Normal
                 _Analis.button3.Enabled = true;
                 _Analis.button9.Enabled = false;
                 _Analis.печатьToolStripMenuItem1.Enabled = true;
-                EncriptorPribor encriptFile = new EncriptorPribor(_Analis.filepath2, _Analis.pathTemp);
+                //  EncriptorPribor encriptFile = new EncriptorPribor(_Analis.filepath2, _Analis.pathTemp);
+                EncriptorFileBase64 encriptorFileBase64 = new EncriptorFileBase64(_Analis.filepath2, _Analis.pathTemp);
             }
         }
         private void CreateXMLDocument2(ref string filepath2)
@@ -916,8 +923,13 @@ namespace Ecoview_Normal
             Description1.InnerText = _Analis.textBox8.Text; // и значение
             Izmerenie.AppendChild(Description1); // и указываем кому принадлежит
 
+
+            XmlNode DateTime2 = xd.CreateElement("DateTime2"); // дата создания градуировки
+            DateTime2.InnerText = _Analis.dateTimePicker2.Text; // и значение
+            Izmerenie.AppendChild(DateTime2); // и указываем кому принадлежит
+
             XmlNode DateTime1 = xd.CreateElement("DateTime"); // дата создания градуировки
-            DateTime1.InnerText = _Analis.dateTimePicker2.Text; // и значение
+            DateTime1.InnerText = _Analis.dateTimePicker1.Text; // и значение
             Izmerenie.AppendChild(DateTime1); // и указываем кому принадлежит
 
             XmlNode Pogreshnost = xd.CreateElement("Pogreshnost"); // Погрешность

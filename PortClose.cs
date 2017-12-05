@@ -95,7 +95,10 @@ namespace Ecoview_Normal
                 _Analis.button1.Enabled = false;
                 _Analis.label28.Visible = false;
                 _Analis.label33.Visible = false;
-                _Analis.newPort.Close();
+				if(_Analis.versionPribor != null && _Analis.versionPribor != "")
+				{
+					_Analis.newPort.Close();
+				}
                 _Analis.wavelength1 = Convert.ToString(0);
                 // ComPort = false;
                 _Analis.ComPort = false;

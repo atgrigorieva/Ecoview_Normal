@@ -19,6 +19,7 @@ namespace Ecoview_Normal
         {
             InitializeComponent();
             this._Analis = parent;
+
             this.selet_rezim = selet_rezim1;
             if (selet_rezim == 6)
             {
@@ -47,6 +48,7 @@ namespace Ecoview_Normal
             label12.Text = _Analis.SposobZadan;
             Ed_Izmer.Text = _Analis.edconctr;
             dateTimePicker1.Text = _Analis.DateTime;
+         
             Deistvie.Text = dateTimePicker1.Value.AddDays(_Analis.Days).ToString("dd.MM.yyyy");
 
             _Analis.WidthCuvette = Convert.ToString(index);
@@ -78,7 +80,7 @@ namespace Ecoview_Normal
                 _Analis.F1 = textBox2.Text;
                 _Analis.F2 = textBox3.Text;
                 _Analis.errorMethod = textBox4.Text;
-                _Analis.DateTime = dateTimePicker1.Value.Date.ToString("dd.MM.yyyy");
+                _Analis.DateTime1 = dateTimePicker1.Value.Date.ToString("dd.MM.yyyy");
                 _Analis.index = Opt_dlin_cuvet.SelectedIndex;
 
                 _Analis.Table2Create();
@@ -157,6 +159,41 @@ namespace Ecoview_Normal
                 return;
             }
             if ((number == 45 && textBox3.Text.IndexOf('-') != -1) || (number == 43 && textBox3.Text.IndexOf('+') != -1))
+            {
+                e.Handled = true;
+                return;
+            }
+            if ((e.KeyChar <= 42 || e.KeyChar >= 58 || e.KeyChar == 43 || e.KeyChar == 47) && number != 8 && number != 44) //цифры, клавиша BackSpace и запятая а ASCII
+            {
+                e.Handled = true;
+                MessageBox.Show("В данное поле можно вводить цифры, знаки '-', '.'");
+            }
+        }
+
+        private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if (e.KeyChar == 46 && textBox4.Text.IndexOf(',') == -1)
+            {
+                e.KeyChar = ',';
+
+            }
+            else
+            {
+
+                if (e.KeyChar == 46 && textBox4.Text.IndexOf(',') != -1)
+                {
+                    e.Handled = true;
+                    return;
+                }
+
+            }
+            if (number == 44 && textBox4.Text.IndexOf(',') != -1)
+            {
+                e.Handled = true;
+                return;
+            }
+            if ((number == 45 && textBox4.Text.IndexOf('-') != -1) || (number == 43 && textBox4.Text.IndexOf('+') != -1))
             {
                 e.Handled = true;
                 return;

@@ -581,17 +581,26 @@
             // 
             this.Ed.FormattingEnabled = true;
             this.Ed.Items.AddRange(new object[] {
-            "мкг/мл",
-            "мкг/мг",
-            "мг/мл",
+            "нет",
             "мг/л",
-            "г/л",
-            "мМ/л",
+            "мкг/дл",
+            "нг/мкл",
+            "%",
+            "мкг/л",
+            "мг/мл",
             "М/л",
             "ppm",
+            "нг/л",
+            "мкг/мл",
+            "мМ/л",
             "ppb",
-            "%",
-            "ME"});
+            "г/дл",
+            "нг/мл",
+            "ME",
+            "г/л",
+            "мг/дл",
+            "мкг/мкл",
+            "Свое"});
             this.Ed.Location = new System.Drawing.Point(96, 16);
             this.Ed.Name = "Ed";
             this.Ed.Size = new System.Drawing.Size(200, 21);
